@@ -5,6 +5,7 @@
     <artifactId>cadastrocliente_destkop</artifactId>
     <version>1</version>
     <packaging>jar</packaging>
+    
     <dependencies>
         <dependency>
             <groupId>junit</groupId>

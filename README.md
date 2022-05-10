@@ -1,6 +1,6 @@
 [![Github Actions Status for osmarbraz/figuras_teste](https://github.com/osmarbraz/cadastrocliente_desktop/workflows/Java%20CI%20with%20Maven/badge.svg)](https://github.com/osmarbraz/cadastrocliente_desktop/actions) 
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=osmarbraz_cadastrocliente_desktop&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=osmarbraz_cadastrocliente_desktop)
-[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=osmarbraz_cadastrocliente_desktop&metric=coverage)](https://sonarcloud.io/component_measures?id=osmarbraz_cadastrocliente_desktop&metric=coverage)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=cadastrocliente_desktop&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=cadastrocliente_destkop)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=cadastrocliente_desktop&metric=coverage)](https://sonarcloud.io/component_measures?id=cadastrocliente_destkop&metric=coverage)
 
 # Sistema de Cadastro de Clientes para Desktop em Banco de Dados em 3 camadas utilizando o padrão Abstract Factory.
  - O projeto é uma versão do sistema para a IDE NetBeans.<br> 
