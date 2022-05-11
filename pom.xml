@@ -23,7 +23,7 @@
     <properties>        
         <sonar.organization>osmarbraz</sonar.organization>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
-        <sonar.coverage.exclusions>**/*Principal.*,**/*formulario/**/*,**/*controle/**/*,**/SQLiteDadosBanco*,**/Factory*,**/ClienteDAO*</sonar.coverage.exclusions> 
+        <sonar.coverage.exclusions>**/*Principal.*,**/*formulario/**/*,**/*controle/**/*</sonar.coverage.exclusions> 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
@@ -63,10 +63,7 @@
                     <excludes>                        
                         <exclude>**/*Principal.*</exclude>
                         <exclude>**/*formulario/**/*</exclude>   
-                        <exclude>**/*controle/**/*</exclude>   
-                        <exclude>**/*SQLiteDadosBanco.*</exclude>
-                        <exclude>**/Factory.*</exclude>
-                        <exclude>**/ClienteDAO.*</exclude>
+                        <exclude>**/*controle/**/*</exclude>                                                                           
                     </excludes>
                 </configuration>
                 <executions>

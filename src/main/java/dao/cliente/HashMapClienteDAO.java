@@ -65,7 +65,7 @@ public class HashMapClienteDAO extends HashMapDAOFactory implements ClienteDAO {
         List<Cliente> lista = new LinkedList<>();
         Iterator<Cliente> it = mapa.values().iterator();
         while (it.hasNext()) { //Avança enquanto tiver objetos
-            Cliente c = (Cliente) it.next();
+            Cliente c = it.next();
             lista.add(c);
         }
         return lista;
@@ -79,20 +79,20 @@ public class HashMapClienteDAO extends HashMapDAOFactory implements ClienteDAO {
             Iterator<Cliente> it = mapa.values().iterator();
 
             while (it.hasNext()) { //Avança enquanto tiver objetos
-                Cliente c = (Cliente) it.next();
+                Cliente c = it.next();
 
                 //Filtro para clienteId
-                if ((!"".equals(cliente.getClienteId())) && (c.getClienteId().equalsIgnoreCase(cliente.getClienteId()))) {
+                if (c.getClienteId().equalsIgnoreCase(cliente.getClienteId()))  {
                         lista.add(c);                    
                 }
 
                 //Filtro para nome
-                if ((!"".equals(cliente.getNome())) &&(c.getClienteId().equalsIgnoreCase(cliente.getClienteId()))) {
+                if (c.getClienteId().equalsIgnoreCase(cliente.getClienteId())) {
                      lista.add(c);                    
                 }
 
                 //Filtro para CPF
-                if ((!"".equals(cliente.getCpf())) && (c.getCpf().equalsIgnoreCase(cliente.getCpf()))) {
+                if (c.getCpf().equalsIgnoreCase(cliente.getCpf())) {
                     lista.add(c);                    
                 }
             }
