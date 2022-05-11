@@ -9,6 +9,7 @@ import static org.junit.Assert.assertFalse;
 import dao.cliente.*;
 import entidade.Cliente;
 import java.util.*;
+import static org.junit.Assert.assertEquals;
 
 public class TestDAOExclusao {
 
@@ -30,7 +31,7 @@ public class TestDAOExclusao {
             Cliente oCliente = (Cliente) lista.iterator().next();
             DAO.excluir(oCliente);
             lista = DAO.aplicarFiltro(cliente);
-            assertTrue(lista.size() == 0);
+            assertEquals(lista.size(), 0);
         } else {
             assertFalse(false);
         }
@@ -47,7 +48,7 @@ public class TestDAOExclusao {
             Cliente oCliente = (Cliente) lista.iterator().next();
             DAO.excluir(oCliente);
             lista = DAO.aplicarFiltro(cliente);
-            assertTrue(lista.size() == 0);
+            assertEquals(lista.size(), 0);
         } else {
             assertFalse(false);
         }
@@ -64,7 +65,7 @@ public class TestDAOExclusao {
             Cliente oCliente = (Cliente) lista.iterator().next();
             DAO.excluir(oCliente);
             lista = DAO.aplicarFiltro(cliente);
-            assertTrue(lista.size() == 0);
+            assertEquals(lista.size(), 0);
         } else {
             assertFalse(false);
         }

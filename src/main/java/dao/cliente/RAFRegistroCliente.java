@@ -52,6 +52,6 @@ public class RAFRegistroCliente extends Cliente {
     }
 
     public long getTamanho() {
-        return 200 + 22 + 4;
+        return 200 + 22 + 4L;
     }
 }

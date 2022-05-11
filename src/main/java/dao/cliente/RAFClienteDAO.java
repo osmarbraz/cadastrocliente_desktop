@@ -27,15 +27,15 @@ public class RAFClienteDAO extends RAFDAOFactory implements ClienteDAO {
             File NomeArquivo = new File("cliente.dat");
             arquivo = new RandomAccessFile(NomeArquivo, "rw");
         } catch (IOException e) {
-            System.out.println("Problema em abrir o arquivo:" + e);
+            //System.out.println("Problema em abrir o arquivo:" + e);
         }
     }
 
-    private void fecharArquivo() {
+    public void fecharArquivo() {
         try {
             arquivo.close();
         } catch (IOException e) {
-            System.out.println("Não foi possível fechar arquivo:"+ e);
+            //System.out.println("Não foi possível fechar arquivo:"+ e);
         }
     }
 
@@ -52,10 +52,10 @@ public class RAFClienteDAO extends RAFDAOFactory implements ClienteDAO {
                     registro.escrita(arquivo);
                     return true;
                 } catch (IOException e) {
-                    System.out.println("Erro no Inserir!");
+                   //System.out.println("Erro no Inserir!");
                 }
             } else {
-                System.out.println("Violou a chave primaria clienteId!");
+                //System.out.println("Violou a chave primaria clienteId!");
                 return false;
             }
         }
@@ -78,9 +78,9 @@ public class RAFClienteDAO extends RAFDAOFactory implements ClienteDAO {
                 lista.add(cli);
             }
         } catch (EOFException eof) {
-            System.out.println("Erro no fim do arquivo:"+ eof);
+            //System.out.println("Erro no fim do arquivo:"+ eof);
         } catch (IOException io) {
-            System.out.println("Erro no io do arquivo:"+ io);
+           // System.out.println("Erro no io do arquivo:"+ io);
         }
         return lista;
     }
@@ -107,9 +107,9 @@ public class RAFClienteDAO extends RAFDAOFactory implements ClienteDAO {
                         }
                     }
                 } catch (EOFException eof) {
-                    System.out.println("Erro no fim do arquivo:"+ eof);
+                    //System.out.println("Erro no fim do arquivo:"+ eof);
                 } catch (IOException io) {
-                    System.out.println("Erro no io do arquivo:"+ io);
+                    //System.out.println("Erro no io do arquivo:"+ io);
                 }
             } else {
                 //Filtro para nome
@@ -128,9 +128,9 @@ public class RAFClienteDAO extends RAFDAOFactory implements ClienteDAO {
                             }
                         }
                     } catch (EOFException eof) {
-                        System.out.println("Erro no fim do arquivo:"+ eof);
+                        //System.out.println("Erro no fim do arquivo:"+ eof);
                     } catch (IOException io) {
-                        System.out.println("Erro no io do arquivo:"+ io);
+                        //System.out.println("Erro no io do arquivo:"+ io);
                     }
                 } else {
                     //Filtro para CPF
@@ -149,9 +149,9 @@ public class RAFClienteDAO extends RAFDAOFactory implements ClienteDAO {
                                 }
                             }
                         } catch (EOFException eof) {
-                            System.out.println("Erro no fim do arquivo:"+ eof);
+                            //System.out.println("Erro no fim do arquivo:"+ eof);
                         } catch (IOException io) {
-                            System.out.println("Erro no io do arquivo:"+ io);
+                            //System.out.println("Erro no io do arquivo:"+ io);
                         }
                     }
                 }
@@ -177,13 +177,15 @@ public class RAFClienteDAO extends RAFDAOFactory implements ClienteDAO {
                     registro.setNome(cliente.getNome());
                     registro.setCpf(cliente.getCpf());
                     registro.escrita(arquivo);
+                    return 1;
                 } else {
-                    System.out.println("ClienteId não encontrado");
+                    return 0;
+                    //System.out.println("ClienteId não encontrado");
                 }
             } catch (EOFException eof) {
-                System.out.println("Erro no fim do arquivo:"+ eof);
+                //System.out.println("Erro no fim do arquivo:"+ eof);
             } catch (IOException io) {
-                System.out.println("Erro no io do arquivo:"+ io);
+               // System.out.println("Erro no io do arquivo:"+ io);
             }
             return 1;
         }
@@ -204,9 +206,9 @@ public class RAFClienteDAO extends RAFDAOFactory implements ClienteDAO {
                 cont = cont + 1;
             }
         } catch (EOFException eof) {
-            System.out.println("Erro no fim do arquivo:"+ eof);
+            //System.out.println("Erro no fim do arquivo:"+ eof);
         } catch (IOException io) {
-            System.out.println("Erro no io do arquivo:"+ io);
+           // System.out.println("Erro no io do arquivo:"+ io);
         }
         return pos;
     }
@@ -230,9 +232,9 @@ public class RAFClienteDAO extends RAFDAOFactory implements ClienteDAO {
                     System.out.println("ClienteId não encontrado");
                 }
             } catch (EOFException eof) {
-                System.out.println("Erro no fim do arquivo:"+ eof);
+                //System.out.println("Erro no fim do arquivo:"+ eof);
             } catch (IOException io) {
-                System.out.println("Erro no io do arquivo:"+ io);
+                //System.out.println("Erro no io do arquivo:"+ io);
             }
             return 1;
         }
