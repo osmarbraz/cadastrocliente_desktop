@@ -49,7 +49,6 @@ public class TestClienteDAOHashMap {
         } else {
             assertFalse(false);
         }
-
     }
 
     @Test //Espera-se que o método inserir() trate a exceção
@@ -58,7 +57,7 @@ public class TestClienteDAOHashMap {
             boolean result = clienteDAOHashMap.inserir(null);
             assertFalse(result);
         } catch (Exception e) {
-            fail("N�o tratou exceção cliente = Null");
+            fail("Não tratou exceção cliente = Null");
         }
 
     }
