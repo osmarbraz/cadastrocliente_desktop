@@ -103,7 +103,7 @@ public class Cliente {
     /**
      * Retorna uma string com o estado do objeto.
      */
-    public String paraString() {
+    public String toString() {
         return ("clienteId:" + getClienteId() + " - Nome :" + getNome() + " - CPF :" + getCpf());
     }
 

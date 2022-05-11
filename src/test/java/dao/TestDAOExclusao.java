@@ -58,7 +58,7 @@ public class TestDAOExclusao {
     public void testExclusao3() {
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.RAF);
         ClienteDAO DAO = factory.getClienteDAO();
-        DAO.inserir(cliente);
+        DAO.inserir(cliente);        
         List lista = DAO.aplicarFiltro(cliente);
 
         if (!lista.isEmpty()) {

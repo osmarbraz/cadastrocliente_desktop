@@ -92,19 +92,17 @@ public class RAFClienteDAO extends RAFDAOFactory implements ClienteDAO {
         if (obj != null) {
             Cliente cliente = (Cliente) obj;
             List<Cliente> lista = new LinkedList();
-            //Filtro para clienteId
-            if (cliente.getClienteId() != null) {
+            //Filtro para clienteId            
+            if (!"0".equals(cliente.getClienteId())) {
                 lista = aplicarFiltroId(cliente);
-            } else {
-                //Filtro para nome
-                if (cliente.getNome() != null) {
-                    lista = aplicarFiltroNome(cliente);
-                } else {
-                    //Filtro para CPF
-                    if (cliente.getCpf() != null) {
-                        lista = aplicarFiltroCpf(cliente);
-                    }
-                }
+            }
+            //Filtro para nome            
+            if (!"".equals(cliente.getNome())) {
+                lista = aplicarFiltroNome(cliente);
+            }
+            //Filtro para CPF
+            if (!"".equals(cliente.getCpf())) {
+                lista = aplicarFiltroCpf(cliente);
             }
             return lista;
         } else {
@@ -193,8 +191,7 @@ public class RAFClienteDAO extends RAFDAOFactory implements ClienteDAO {
             RAFRegistroCliente registro = new RAFRegistroCliente();
             try {
                 pos = procurarCodigo(chave);
-                if (pos != -1) {
-                    int cont = 0;
+                if (pos != -1) {                    
                     arquivo.seek(pos * registro.getTamanho());
                     registro.setClienteId(cliente.getClienteId());
                     registro.setNome(cliente.getNome());
@@ -249,15 +246,13 @@ public class RAFClienteDAO extends RAFDAOFactory implements ClienteDAO {
                     registro.setNome("");
                     registro.setCpf("");
                     registro.escrita(arquivo);
-                } else {
-                    LOGGER.severe("ClienteId não encontrado!");
-                }
+                    return 1;
+                } 
             } catch (EOFException eof) {
                 LOGGER.severe("Problema no fim do arquivo em excluir:" + eof);
             } catch (IOException io) {
                 LOGGER.severe("Problema de io no arquivo em excluir:" + io);
-            }
-            return 1;
+            }            
         }
         return 0;
     }
