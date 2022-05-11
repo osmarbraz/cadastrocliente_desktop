@@ -19,13 +19,13 @@ import java.util.logging.Logger;
  * @author osmarbraz
  */
 public class SQLiteClienteDAO extends SQLiteDAOFactory implements ClienteDAO, SQLiteClienteMetaDados {
-    
+
     private static final Logger LOGGER = Logger.getLogger(SQLiteClienteDAO.class.getName());
 
     public SQLiteClienteDAO() {
         criar();
     }
-    
+
     @SuppressWarnings({"rawtypes", "unchecked"})
     private List select(String sql) {
         List<Cliente> lista = new LinkedList();
@@ -98,7 +98,8 @@ public class SQLiteClienteDAO extends SQLiteDAOFactory implements ClienteDAO, SQ
                 stmt.close();
                 stmt = null;
                 con.close();
-                con = null;
+                con = null;                
+                res = true;
 
             } catch (SQLException e) {
                 LOGGER.severe("Erro no inserir:" + e);
@@ -144,7 +145,9 @@ public class SQLiteClienteDAO extends SQLiteDAOFactory implements ClienteDAO, SQ
                 stmt = null;
                 con.close();
                 con = null;
-
+                
+                res = 1;
+                
             } catch (SQLException e) {
                 LOGGER.severe("Erro no alterar:" + e);
                 res = 0;
@@ -186,7 +189,8 @@ public class SQLiteClienteDAO extends SQLiteDAOFactory implements ClienteDAO, SQ
                 stmt = null;
                 con.close();
                 con = null;
-
+                
+                res = 1;
             } catch (Exception e) {
                 LOGGER.severe("Erro no excluir:" + e);
                 res = 0;

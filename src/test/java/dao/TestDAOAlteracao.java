@@ -9,6 +9,7 @@ import dao.cliente.*;
 import entidade.Cliente;
 import java.util.*;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 
 public class TestDAOAlteracao {
 
@@ -22,7 +23,7 @@ public class TestDAOAlteracao {
     @Test
     public void testAlteracao1() {
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.SQLITE);
-        ClienteDAO DAO = factory.getClienteDAO();        
+        ClienteDAO DAO = factory.getClienteDAO();
         DAO.inserir(cliente);
         List lista = DAO.aplicarFiltro(cliente);
         //Dado a ser alterado
@@ -43,6 +44,13 @@ public class TestDAOAlteracao {
         } else {
             assertFalse(false);
         }
+    }
+    
+    @Test
+    public void testAlteracao1Null() {
+        DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.SQLITE);
+        ClienteDAO DAO = factory.getClienteDAO();
+        assertEquals(0, DAO.alterar(null));
     }
 
     @Test
@@ -70,11 +78,18 @@ public class TestDAOAlteracao {
             assertFalse(false);
         }
     }
+    
+    @Test
+    public void testAlteracao2Null() {
+        DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.HASHMAP);
+        ClienteDAO DAO = factory.getClienteDAO();
+        assertEquals(0, DAO.alterar(null));
+    }
 
     @Test
     public void testAlteracao3() {
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.RAF);
-         ClienteDAO DAO = factory.getClienteDAO();
+        ClienteDAO DAO = factory.getClienteDAO();
         DAO.inserir(cliente);
         List lista = DAO.aplicarFiltro(cliente);
         //Dado a ser alterado
@@ -96,6 +111,13 @@ public class TestDAOAlteracao {
             assertFalse(false);
         }
     }
+    
+     @Test
+    public void testAlteracao3Null() {
+        DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.RAF);
+        ClienteDAO DAO = factory.getClienteDAO();
+        assertEquals(0, DAO.alterar(null));
+    }
 
     @After
     public void Finaliza() throws Exception {
@@ -113,7 +135,7 @@ public class TestDAOAlteracao {
         DAO = factory.getClienteDAO();
         // Exclui os dados inseridos
         DAO.excluir(cliente);
-        
+
         cliente = null;
     }
 }

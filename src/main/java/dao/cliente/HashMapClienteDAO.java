@@ -37,7 +37,6 @@ public class HashMapClienteDAO extends HashMapDAOFactory implements ClienteDAO {
                 mapa.put(cliente.getClienteId(), cliente);
                 return true;
             }
-            return false;
         }
         return false;
     }
@@ -57,10 +56,6 @@ public class HashMapClienteDAO extends HashMapDAOFactory implements ClienteDAO {
     }
 
     public int excluir(Object obj) {
-        if (obj == null) {
-            throw new NullPointerException();
-        }
-
         if (obj != null) {
             Cliente cliente = (Cliente) obj;
             boolean tem = mapa.containsKey(cliente.getClienteId());
@@ -84,7 +79,7 @@ public class HashMapClienteDAO extends HashMapDAOFactory implements ClienteDAO {
     }
 
     @SuppressWarnings({"rawtypes", "unchecked"})
-    public List aplicarFiltro(Object obj) {        
+    public List aplicarFiltro(Object obj) {
         if (obj != null) {
             Cliente cliente = (Cliente) obj;
             List<Cliente> lista = new LinkedList();

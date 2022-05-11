@@ -1,16 +1,18 @@
 package dao;
 
+import org.junit.Before;
+import org.junit.After;
+import org.junit.Test;
+
 import dao.cliente.*;
 import entidade.Cliente;
 import java.util.*;
-import org.junit.After;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
-import org.junit.Before;
-import org.junit.Test;
 
-public class TestDAOConsultaNome {
+public class TestDAOConsulta {
 
     Cliente cliente;
 
@@ -23,60 +25,35 @@ public class TestDAOConsultaNome {
     public void testConsulta1() {
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.SQLITE);
         ClienteDAO DAO = factory.getClienteDAO();
-        Cliente consulta = new Cliente();
-        consulta.setNome(cliente.getNome());
         // Insere os dados da consulta
         DAO.inserir(cliente);
         //Consulta
-        List lista = DAO.aplicarFiltro(consulta);
-
-        //Verifica os dados    
-        if (!lista.isEmpty()) {
-            Cliente oCliente = (Cliente) lista.iterator().next();
-            assertNotNull(oCliente);
-        } else {
-            assertFalse(false);
-        }
+        List lista = DAO.getLista();
+        assertNotEquals(0, lista.size());
     }
 
     @Test
     public void testConsulta2() {
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.HASHMAP);
         ClienteDAO DAO = factory.getClienteDAO();
-        Cliente consulta = new Cliente();
-        consulta.setNome(cliente.getNome());
         // Insere os dados da consulta
         DAO.inserir(cliente);
         //Consulta
-        List lista = DAO.aplicarFiltro(consulta);
+        List lista = DAO.getLista();
 
-        //Verifica os dados    
-        if (!lista.isEmpty()) {
-            Cliente oCliente = (Cliente) lista.iterator().next();
-            assertNotNull(oCliente);
-        } else {
-            assertFalse(false);
-        }
+        assertNotEquals(0, lista.size());
     }
 
     @Test
     public void testConsulta3() {
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.RAF);
         ClienteDAO DAO = factory.getClienteDAO();
-        Cliente consulta = new Cliente();
-        consulta.setNome(cliente.getNome());
         // Insere os dados da consulta
         DAO.inserir(cliente);
         //Consulta
-        List lista = DAO.aplicarFiltro(consulta);
+        List lista = DAO.getLista();
 
-        //Verifica os dados    
-        if (!lista.isEmpty()) {
-            Cliente oCliente = (Cliente) lista.iterator().next();
-            assertNotNull(oCliente);
-        } else {
-            assertFalse(false);
-        }
+        assertNotEquals(0, lista.size());
     }
 
     @After

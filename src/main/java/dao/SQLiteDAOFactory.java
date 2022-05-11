@@ -19,8 +19,8 @@ import java.util.logging.Logger;
  */
 public class SQLiteDAOFactory extends DAOFactory {
 
-    private static final Logger LOGGER = Logger.getLogger(RAFClienteDAO.class.getName() );
-    
+    private static final Logger LOGGER = Logger.getLogger(RAFClienteDAO.class.getName());
+
     private String driverClass;
     private String jdbcURL;
 

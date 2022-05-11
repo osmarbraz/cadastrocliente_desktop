@@ -9,7 +9,7 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
 public class TestCliente {
-    
+
     @Test
     public void testCliente() {
         Cliente instancia = new Cliente();
@@ -25,42 +25,42 @@ public class TestCliente {
 
     @Test
     public void testParaString() {
-        Cliente instancia = new Cliente();        
+        Cliente instancia = new Cliente();
         assertTrue("clienteId: - Nome : - CPF :".equals(instancia.toString()));
     }
-    
+
     @Test
     public void testInserir() {
         Cliente cliente = new Cliente("131", "Teste", "11111111111");
-        assertTrue(cliente.inserir());        
+        assertTrue(cliente.inserir());
         cliente.excluir();
     }
-    
+
     @Test
     public void testExcluir() {
         Cliente cliente = new Cliente("131", "Teste", "11111111111");
-        cliente.inserir();        
+        cliente.inserir();
         assertEquals(1, cliente.excluir());
     }
-    
+
     @Test
     public void testAlterar() {
         Cliente cliente = new Cliente("131", "Teste", "11111111111");
-        cliente.inserir();        
-        String nomeAlteracao = "Alterado";        
+        cliente.inserir();
+        String nomeAlteracao = "Alterado";
         cliente.setNome(nomeAlteracao);
         //Altera o objeto
-         cliente.alterar();
-         cliente.abrir();            
+        cliente.alterar();
+        cliente.abrir();
         //Compara a alteração com o dado do objeto
-        assertEquals(nomeAlteracao, cliente.getNome());            
-        cliente.excluir();  
-    }        
-    
+        assertEquals(nomeAlteracao, cliente.getNome());
+        cliente.excluir();
+    }
+
     @Test
     public void testAplicarFiltro() {
         Cliente cliente = new Cliente("131", "Teste", "11111111111");
-        cliente.inserir(); 
+        cliente.inserir();
         List lista = cliente.aplicarFiltro();
 
         //Verifica os dados    
@@ -70,13 +70,13 @@ public class TestCliente {
         } else {
             assertFalse(false);
         }
-        cliente.excluir(); 
-    } 
-    
+        cliente.excluir();
+    }
+
     @Test
     public void testGetLista() {
         Cliente cliente = new Cliente("131", "Teste", "11111111111");
-        cliente.inserir(); 
+        cliente.inserir();
         List lista = cliente.getLista();
 
         //Verifica os dados    
@@ -86,13 +86,13 @@ public class TestCliente {
         } else {
             assertFalse(false);
         }
-        cliente.excluir(); 
-    }         
-    
-     @Test
+        cliente.excluir();
+    }
+
+    @Test
     public void testAbrir() {
         //Testa um cliente que não existe
-        Cliente cliente = new Cliente("-1", "Teste", "11111111111");  
-        assertFalse(cliente.abrir()); 
+        Cliente cliente = new Cliente("-1", "Teste", "11111111111");
+        assertFalse(cliente.abrir());
     }
 }

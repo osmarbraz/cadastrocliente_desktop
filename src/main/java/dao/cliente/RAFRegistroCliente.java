@@ -51,6 +51,7 @@ public class RAFRegistroCliente extends Cliente {
 
     /**
      * Retorna o tamanho do registro em bytes.
+     *
      * @return Um inteiro longo com o tamanho do registro.
      */
     public long getTamanho() {

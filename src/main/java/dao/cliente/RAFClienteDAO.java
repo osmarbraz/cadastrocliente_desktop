@@ -57,9 +57,7 @@ public class RAFClienteDAO extends RAFDAOFactory implements ClienteDAO {
                 } catch (IOException e) {
                     LOGGER.severe("Problema em inserir o registro!" + e);
                 }
-            } else {
-                return false;
-            }
+            } 
         }
         return false;
     }
@@ -191,22 +189,19 @@ public class RAFClienteDAO extends RAFDAOFactory implements ClienteDAO {
             RAFRegistroCliente registro = new RAFRegistroCliente();
             try {
                 pos = procurarCodigo(chave);
-                if (pos != -1) {                    
+                if (pos != -1) {
                     arquivo.seek(pos * registro.getTamanho());
                     registro.setClienteId(cliente.getClienteId());
                     registro.setNome(cliente.getNome());
                     registro.setCpf(cliente.getCpf());
                     registro.escrita(arquivo);
                     return 1;
-                } else {
-                    return 0;
                 }
             } catch (EOFException eof) {
                 LOGGER.severe("Problema no fim do arquivo em alterar:" + eof);
             } catch (IOException io) {
                 LOGGER.severe("Problema de io no arquivo em alterar:" + io);
             }
-            return 1;
         }
         return 0;
     }
@@ -247,12 +242,12 @@ public class RAFClienteDAO extends RAFDAOFactory implements ClienteDAO {
                     registro.setCpf("");
                     registro.escrita(arquivo);
                     return 1;
-                } 
+                }
             } catch (EOFException eof) {
                 LOGGER.severe("Problema no fim do arquivo em excluir:" + eof);
             } catch (IOException io) {
                 LOGGER.severe("Problema de io no arquivo em excluir:" + io);
-            }            
+            }
         }
         return 0;
     }

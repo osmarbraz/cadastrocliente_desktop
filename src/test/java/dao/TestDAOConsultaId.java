@@ -23,15 +23,15 @@ public class TestDAOConsultaId {
     public void testConsulta1() {
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.SQLITE);
         ClienteDAO DAO = factory.getClienteDAO();
-        Cliente consulta = new Cliente();        
-        consulta.setClienteId(cliente.getClienteId());        
+        Cliente consulta = new Cliente();
+        consulta.setClienteId(cliente.getClienteId());
         // Insere os dados da consulta
-        DAO.inserir(cliente);        
+        DAO.inserir(cliente);
         //Consulta
         List lista = DAO.aplicarFiltro(consulta);
         //Verifica os dados    
         if (!lista.isEmpty()) {
-            Cliente oCliente = (Cliente) lista.iterator().next();            
+            Cliente oCliente = (Cliente) lista.iterator().next();
             assertNotNull(oCliente);
         } else {
             assertFalse(false);
