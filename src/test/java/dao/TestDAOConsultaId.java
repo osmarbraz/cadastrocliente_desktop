@@ -6,6 +6,7 @@ import java.util.*;
 import org.junit.After;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -21,7 +22,7 @@ public class TestDAOConsultaId {
     @Test
     public void testConsulta1() {
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.SQLITE);
-        ClienteDAO DAO = factory.getClienteDAO();        
+        ClienteDAO DAO = factory.getClienteDAO();
         Cliente consulta = new Cliente();
         consulta.setClienteId(cliente.getClienteId());
         // Insere os dados da consulta
@@ -36,12 +37,20 @@ public class TestDAOConsultaId {
         } else {
             assertFalse(false);
         }
+    }
+
+    public void testConsulta1Null() {
+        DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.SQLITE);
+        ClienteDAO DAO = factory.getClienteDAO();
+        //Consulta
+        List lista = DAO.aplicarFiltro(null);
+        assertNull(lista);
     }
 
     @Test
     public void testConsulta2() {
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.HASHMAP);
-        ClienteDAO DAO = factory.getClienteDAO();        
+        ClienteDAO DAO = factory.getClienteDAO();
         Cliente consulta = new Cliente();
         consulta.setClienteId(cliente.getClienteId());
         // Insere os dados da consulta
@@ -58,10 +67,18 @@ public class TestDAOConsultaId {
         }
     }
 
+    public void testConsulta2Null() {
+        DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.HASHMAP);
+        ClienteDAO DAO = factory.getClienteDAO();
+        //Consulta
+        List lista = DAO.aplicarFiltro(null);
+        assertNull(lista);
+    }
+
     @Test
     public void testConsulta3() {
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.RAF);
-        ClienteDAO DAO = factory.getClienteDAO();        
+        ClienteDAO DAO = factory.getClienteDAO();
         Cliente consulta = new Cliente();
         consulta.setClienteId(cliente.getClienteId());
         // Insere os dados da consulta
@@ -76,6 +93,14 @@ public class TestDAOConsultaId {
         } else {
             assertFalse(false);
         }
+    }
+
+    public void testConsulta3Null() {
+        DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.RAF);
+        ClienteDAO DAO = factory.getClienteDAO();
+        //Consulta
+        List lista = DAO.aplicarFiltro(null);
+        assertNull(lista);
     }
 
     @After

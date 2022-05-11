@@ -74,7 +74,7 @@ public class HashMapClienteDAO extends HashMapDAOFactory implements ClienteDAO {
 
     @SuppressWarnings({"rawtypes", "unchecked"})
     public List getLista() {
-        List lista = new LinkedList();
+        List<Cliente> lista = new LinkedList();
         Iterator it = mapa.values().iterator();
         while (it.hasNext()) { //Avança enquanto tiver objetos
             Cliente c = (Cliente) it.next();
@@ -87,7 +87,7 @@ public class HashMapClienteDAO extends HashMapDAOFactory implements ClienteDAO {
     public List aplicarFiltro(Object obj) {        
         if (obj != null) {
             Cliente cliente = (Cliente) obj;
-            List lista = new LinkedList();
+            List<Cliente> lista = new LinkedList();
             Iterator it = mapa.values().iterator();
 
             //Filtro para clienteId

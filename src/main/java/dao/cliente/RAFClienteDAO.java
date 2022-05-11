@@ -66,7 +66,7 @@ public class RAFClienteDAO extends RAFDAOFactory implements ClienteDAO {
 
     @SuppressWarnings({"rawtypes", "unchecked"})
     public List getLista() {
-        List lista = new LinkedList();
+        List<Cliente> lista = new LinkedList();
         RAFRegistroCliente registro = new RAFRegistroCliente();
         try {
             arquivo.seek(0);
@@ -91,7 +91,7 @@ public class RAFClienteDAO extends RAFDAOFactory implements ClienteDAO {
     public List aplicarFiltro(Object obj) {
         if (obj != null) {
             Cliente cliente = (Cliente) obj;
-            List lista = new LinkedList();
+            List<Cliente> lista = new LinkedList();
             //Filtro para clienteId
             if (cliente.getClienteId() != null) {
                 lista = aplicarFiltroId(cliente);
@@ -113,7 +113,7 @@ public class RAFClienteDAO extends RAFDAOFactory implements ClienteDAO {
     }
 
     public List aplicarFiltroId(Cliente cliente) {
-        List lista = new LinkedList();
+        List<Cliente> lista = new LinkedList();
         //Filtro para clienteId
         try {
             arquivo.seek(0);
@@ -138,7 +138,7 @@ public class RAFClienteDAO extends RAFDAOFactory implements ClienteDAO {
     }
 
     public List aplicarFiltroNome(Cliente cliente) {
-        List lista = new LinkedList();
+        List<Cliente> lista = new LinkedList();
         //Filtro para nome
         try {
             arquivo.seek(0);
@@ -162,7 +162,7 @@ public class RAFClienteDAO extends RAFDAOFactory implements ClienteDAO {
     }
 
     public List aplicarFiltroCpf(Cliente cliente) {
-        List lista = new LinkedList();
+        List<Cliente> lista = new LinkedList();
         //Filtro para Cpf
         try {
             arquivo.seek(0);
@@ -244,7 +244,6 @@ public class RAFClienteDAO extends RAFDAOFactory implements ClienteDAO {
             try {
                 pos = procurarCodigo(chave);
                 if (pos != -1) {
-                    int cont = 0;
                     arquivo.seek(pos * registro.getTamanho());
                     registro.setClienteId(-1);
                     registro.setNome("");
@@ -253,8 +252,10 @@ public class RAFClienteDAO extends RAFDAOFactory implements ClienteDAO {
                 } else {
                     LOGGER.severe("ClienteId não encontrado!");
                 }
-            } catch (EOFException eof) {;
-            } catch (IOException io) {;
+            } catch (EOFException eof) {
+                LOGGER.severe("Problema no fim do arquivo em excluir:" + eof);
+            } catch (IOException io) {
+                LOGGER.severe("Problema de io no arquivo em excluir:" + io);
             }
             return 1;
         }

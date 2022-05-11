@@ -11,6 +11,7 @@ import java.util.List;
 import dao.SQLiteDAOFactory;
 import entidade.Cliente;
 import java.util.Collections;
+import java.util.logging.Logger;
 
 /**
  * Implementa a persistência de cliente utilizando SQLite.
@@ -18,6 +19,8 @@ import java.util.Collections;
  * @author osmarbraz
  */
 public class SQLiteClienteDAO extends SQLiteDAOFactory implements ClienteDAO, SQLiteClienteMetaDados {
+    
+    private static final Logger LOGGER = Logger.getLogger(SQLiteClienteDAO.class.getName());
 
     public SQLiteClienteDAO() {
         criar();
@@ -25,7 +28,7 @@ public class SQLiteClienteDAO extends SQLiteDAOFactory implements ClienteDAO, SQ
     
     @SuppressWarnings({"rawtypes", "unchecked"})
     private List select(String sql) {
-        LinkedList lista = new LinkedList();
+        List<Cliente> lista = new LinkedList();
         Connection con = null;
         Statement stmt = null;
         ResultSet rs = null;
@@ -47,7 +50,7 @@ public class SQLiteClienteDAO extends SQLiteDAOFactory implements ClienteDAO, SQ
             con.close();
             con = null;
         } catch (SQLException e) {
-            System.out.println(e);
+            LOGGER.severe("Erro no select:" + e);
         } finally {
             if (rs != null) {
                 try {
@@ -98,7 +101,7 @@ public class SQLiteClienteDAO extends SQLiteDAOFactory implements ClienteDAO, SQ
                 con = null;
 
             } catch (SQLException e) {
-                System.out.println(e);
+                LOGGER.severe("Erro no inserir:" + e);
                 res = false;
             } finally {
                 if (stmt != null) {
@@ -143,7 +146,7 @@ public class SQLiteClienteDAO extends SQLiteDAOFactory implements ClienteDAO, SQ
                 con = null;
 
             } catch (SQLException e) {
-                System.out.println(e);
+                LOGGER.severe("Erro no alterar:" + e);
                 res = 0;
             } finally {
                 if (stmt != null) {
@@ -185,7 +188,7 @@ public class SQLiteClienteDAO extends SQLiteDAOFactory implements ClienteDAO, SQ
                 con = null;
 
             } catch (Exception e) {
-                System.out.println(e);
+                LOGGER.severe("Erro no excluir:" + e);
                 res = 0;
             } finally {
                 if (stmt != null) {
@@ -221,7 +224,7 @@ public class SQLiteClienteDAO extends SQLiteDAOFactory implements ClienteDAO, SQ
             StringBuilder sqlBuilder = new StringBuilder();
             sqlBuilder.append("select " + METADADOSSELECT + " from " + TABLE);
 
-            List filtros = new ArrayList();
+            List<String> filtros = new ArrayList();
 
             if (cliente.getClienteId() != null && !"".equals(cliente.getClienteId())) {
                 filtros.add(TABLE + "." + PK[0] + "='" + preparaSQL(cliente.getClienteId()) + "'");
@@ -260,7 +263,7 @@ public class SQLiteClienteDAO extends SQLiteDAOFactory implements ClienteDAO, SQ
             con.close();
             con = null;
         } catch (Exception e) {
-            System.out.println(e);
+            LOGGER.severe("Erro no criar:" + e);
         } finally {
             if (stmt != null) {
                 try {
