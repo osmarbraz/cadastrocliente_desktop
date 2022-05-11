@@ -41,7 +41,7 @@ public class TestDAOConsultaId {
     }
 
     @Test
-    public void testConsulta1NaoExiste() {
+    public void testConsulta1NaoExisteId() {
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.SQLITE);
         ClienteDAO DAO = factory.getClienteDAO();
         Cliente consulta = new Cliente();
@@ -88,7 +88,7 @@ public class TestDAOConsultaId {
     }
     
     @Test
-    public void testConsulta2NaoExiste() {
+    public void testConsulta2NaoExisteId() {
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.HASHMAP);
         ClienteDAO DAO = factory.getClienteDAO();
         Cliente consulta = new Cliente();
@@ -135,7 +135,7 @@ public class TestDAOConsultaId {
     }
     
      @Test
-    public void testConsulta3NaoExiste() {
+    public void testConsulta3NaoExisteId() {
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.RAF);
         ClienteDAO DAO = factory.getClienteDAO();
         Cliente consulta = new Cliente();

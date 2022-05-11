@@ -1,16 +1,13 @@
 package dao;
 
-import org.junit.Before;
-import org.junit.Test;
-import static org.junit.Assert.assertNotNull;
-
 import dao.cliente.*;
 import entidade.Cliente;
-import java.sql.SQLException;
 import java.util.*;
 import org.junit.After;
 import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.fail;
+import static org.junit.Assert.assertNotNull;
+import org.junit.Before;
+import org.junit.Test;
 
 public class TestDAOInclusao {
 
@@ -37,7 +34,7 @@ public class TestDAOInclusao {
             assertFalse(false);
         }
     }
-
+    
     @Test
     public void testIncluir1Null() throws Exception {
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.SQLITE);

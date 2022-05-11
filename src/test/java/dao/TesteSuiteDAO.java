@@ -18,6 +18,7 @@ import dao.cliente.TestRAFRegistroCliente;
     TestDAOConsultaCPF.class,
     TestDAOAlteracao.class,
     TestDAOInclusao.class,
+    TestDAOInclusaoChavePrimaria.class,
     TestDAOExclusao.class,
     TestRAFRegistroCliente.class})
 
