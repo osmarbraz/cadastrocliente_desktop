@@ -27,8 +27,8 @@ public class RAFClienteDAO extends RAFDAOFactory implements ClienteDAO {
 
     private void abrirArquivo() {
         try {
-            File NomeArquivo = new File("cliente.dat");
-            arquivo = new RandomAccessFile(NomeArquivo, "rw");
+            File nomeArquivo = new File("cliente.dat");
+            arquivo = new RandomAccessFile(nomeArquivo, "rw");
         } catch (IOException e) {
             LOGGER.severe("Problema em abrir o arquivo!" + e);
         }
@@ -94,67 +94,15 @@ public class RAFClienteDAO extends RAFDAOFactory implements ClienteDAO {
             List lista = new LinkedList();
             //Filtro para clienteId
             if (cliente.getClienteId() != null) {
-                try {
-                    arquivo.seek(0);
-                    RAFRegistroCliente registro = new RAFRegistroCliente();
-
-                    while (arquivo.getFilePointer() < arquivo.length()) { //Avança enquanto tiver objetos
-                        registro.leitura(arquivo);
-                        if (registro.getClienteId().equalsIgnoreCase(cliente.getClienteId())) {
-                            Cliente cli = new Cliente();
-                            cli.setClienteId(registro.getClienteId());
-                            cli.setNome(registro.getNome());
-                            cli.setCpf(registro.getCpf());
-                            lista.add(cli);
-                        }
-                    }
-                } catch (EOFException eof) {
-                    LOGGER.severe("Problema no fim do arquivo no aplicar filtro no id:" + eof);
-                } catch (IOException io) {
-                    LOGGER.severe("Problema de io no arquivo em aplicar filtro no id:" + io);
-                }
+                lista = aplicarFiltroId(cliente);
             } else {
                 //Filtro para nome
                 if (cliente.getNome() != null) {
-                    try {
-                        arquivo.seek(0);
-                        RAFRegistroCliente registro = new RAFRegistroCliente();
-                        while (arquivo.getFilePointer() < arquivo.length()) { //Avança enquanto tiver objetos
-                            registro.leitura(arquivo);
-                            if (registro.getNome().equalsIgnoreCase(cliente.getNome())) {
-                                Cliente cli = new Cliente();
-                                cli.setClienteId(registro.getClienteId());
-                                cli.setNome(registro.getNome());
-                                cli.setCpf(registro.getCpf());
-                                lista.add(cli);
-                            }
-                        }
-                    } catch (EOFException eof) {
-                        LOGGER.severe("Problema no fim do arquivo no aplicar filtro no nome:" + eof);
-                    } catch (IOException io) {
-                        LOGGER.severe("Problema de io no arquivo em aplicar filtro no nome:" + io);
-                    }
+                    lista = aplicarFiltroNome(cliente);
                 } else {
                     //Filtro para CPF
                     if (cliente.getCpf() != null) {
-                        try {
-                            arquivo.seek(0);
-                            RAFRegistroCliente registro = new RAFRegistroCliente();
-                            while (arquivo.getFilePointer() < arquivo.length()) { //Avança enquanto tiver objetos
-                                registro.leitura(arquivo);
-                                if (registro.getCpf().equalsIgnoreCase(cliente.getCpf())) {
-                                    Cliente cli = new Cliente();
-                                    cli.setClienteId(registro.getClienteId());
-                                    cli.setNome(registro.getNome());
-                                    cli.setCpf(registro.getCpf());
-                                    lista.add(cli);
-                                }
-                            }
-                        } catch (EOFException eof) {
-                            LOGGER.severe("Problema no fim do arquivo no aplicar filtro no cpf:" + eof);
-                        } catch (IOException io) {
-                            LOGGER.severe("Problema de io no arquivo em aplicar filtro no cpf:" + io);
-                        }
+                        lista = aplicarFiltroCpf(cliente);
                     }
                 }
             }
@@ -162,6 +110,79 @@ public class RAFClienteDAO extends RAFDAOFactory implements ClienteDAO {
         } else {
             return Collections.emptyList();
         }
+    }
+
+    public List aplicarFiltroId(Cliente cliente) {
+        List lista = new LinkedList();
+        //Filtro para clienteId
+        try {
+            arquivo.seek(0);
+            RAFRegistroCliente registro = new RAFRegistroCliente();
+
+            while (arquivo.getFilePointer() < arquivo.length()) { //Avança enquanto tiver objetos
+                registro.leitura(arquivo);
+                if (registro.getClienteId().equalsIgnoreCase(cliente.getClienteId())) {
+                    Cliente cli = new Cliente();
+                    cli.setClienteId(registro.getClienteId());
+                    cli.setNome(registro.getNome());
+                    cli.setCpf(registro.getCpf());
+                    lista.add(cli);
+                }
+            }
+        } catch (EOFException eof) {
+            LOGGER.severe("Problema no fim do arquivo no aplicar filtro no id:" + eof);
+        } catch (IOException io) {
+            LOGGER.severe("Problema de io no arquivo em aplicar filtro no id:" + io);
+        }
+        return lista;
+    }
+
+    public List aplicarFiltroNome(Cliente cliente) {
+        List lista = new LinkedList();
+        //Filtro para nome
+        try {
+            arquivo.seek(0);
+            RAFRegistroCliente registro = new RAFRegistroCliente();
+            while (arquivo.getFilePointer() < arquivo.length()) { //Avança enquanto tiver objetos
+                registro.leitura(arquivo);
+                if (registro.getNome().equalsIgnoreCase(cliente.getNome())) {
+                    Cliente cli = new Cliente();
+                    cli.setClienteId(registro.getClienteId());
+                    cli.setNome(registro.getNome());
+                    cli.setCpf(registro.getCpf());
+                    lista.add(cli);
+                }
+            }
+        } catch (EOFException eof) {
+            LOGGER.severe("Problema no fim do arquivo no aplicar filtro no nome:" + eof);
+        } catch (IOException io) {
+            LOGGER.severe("Problema de io no arquivo em aplicar filtro no nome:" + io);
+        }
+        return lista;
+    }
+
+    public List aplicarFiltroCpf(Cliente cliente) {
+        List lista = new LinkedList();
+        //Filtro para Cpf
+        try {
+            arquivo.seek(0);
+            RAFRegistroCliente registro = new RAFRegistroCliente();
+            while (arquivo.getFilePointer() < arquivo.length()) { //Avança enquanto tiver objetos
+                registro.leitura(arquivo);
+                if (registro.getCpf().equalsIgnoreCase(cliente.getCpf())) {
+                    Cliente cli = new Cliente();
+                    cli.setClienteId(registro.getClienteId());
+                    cli.setNome(registro.getNome());
+                    cli.setCpf(registro.getCpf());
+                    lista.add(cli);
+                }
+            }
+        } catch (EOFException eof) {
+            LOGGER.severe("Problema no fim do arquivo no aplicar filtro no cpf:" + eof);
+        } catch (IOException io) {
+            LOGGER.severe("Problema de io no arquivo em aplicar filtro no cpf:" + io);
+        }
+        return lista;
     }
 
     public int alterar(Object obj) {
@@ -232,8 +253,9 @@ public class RAFClienteDAO extends RAFDAOFactory implements ClienteDAO {
                 } else {
                     LOGGER.severe("ClienteId não encontrado!");
                 }
-            } catch (EOFException eof) {;} 
-            catch (IOException io) {;}
+            } catch (EOFException eof) {;
+            } catch (IOException io) {;
+            }
             return 1;
         }
         return 0;
