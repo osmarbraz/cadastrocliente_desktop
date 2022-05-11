@@ -26,6 +26,9 @@
         <sonar.coverage.exclusions>**/*Principal.*</sonar.coverage.exclusions>        
         <sonar.coverage.exclusions>**/formulario/*</sonar.coverage.exclusions>     
         <sonar.coverage.exclusions>**/controle/*</sonar.coverage.exclusions>     
+        <sonar.coverage.exclusions>**/SQLiteDadosBanco.*</sonar.coverage.exclusions>     
+        <sonar.coverage.exclusions>**/Factory.*</sonar.coverage.exclusions>     
+        <sonar.coverage.exclusions>**/ClienteDAO.*</sonar.coverage.exclusions>     
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
@@ -64,8 +67,11 @@
                 <configuration>                    
                     <excludes>                        
                         <exclude>**/*Principal.*</exclude>
-                        <exclude>formulario/*</exclude>   
-                        <exclude>controle/*</exclude>   
+                        <exclude>**/formulario/*</exclude>   
+                        <exclude>**/controle/*</exclude>   
+                        <exclude>**/SQLiteDadosBanco.*</exclude>
+                        <exclude>**/Factory.*</exclude>
+                        <exclude>**/ClienteDAO.*</exclude>
                     </excludes>
                 </configuration>
                 <executions>
