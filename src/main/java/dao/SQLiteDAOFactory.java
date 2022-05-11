@@ -5,10 +5,10 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Collection;
 import java.util.Iterator;
+import java.util.logging.Logger;
 
 import dao.cliente.ClienteDAO;
 import dao.cliente.SQLiteClienteDAO;
-import java.util.logging.Logger;
 
 /**
  * Implementa a fonte de dado para persistência em arquivo utilizando SGBD

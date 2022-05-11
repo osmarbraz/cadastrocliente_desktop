@@ -7,11 +7,11 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Collections;
+import java.util.logging.Logger;
 
 import dao.SQLiteDAOFactory;
 import entidade.Cliente;
-import java.util.Collections;
-import java.util.logging.Logger;
 
 /**
  * Implementa a persistência de cliente utilizando SQLite.

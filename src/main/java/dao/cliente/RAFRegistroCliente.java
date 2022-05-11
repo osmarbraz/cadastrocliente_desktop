@@ -1,6 +1,7 @@
 package dao.cliente;
 
-import java.io.*;
+import java.io.IOException;
+import java.io.RandomAccessFile;
 
 import entidade.Cliente;
 

@@ -5,10 +5,10 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Collections;
 
 import dao.HashMapDAOFactory;
 import entidade.Cliente;
-import java.util.Collections;
 
 /**
  * Implementa a persitência para cliente utilizando HashMap.

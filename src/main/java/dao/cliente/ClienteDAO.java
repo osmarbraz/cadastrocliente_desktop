@@ -1,7 +1,8 @@
 package dao.cliente;
 
-import entidade.Cliente;
 import java.util.List;
+
+import entidade.Cliente;
 
 /**
  * Interface que define as operações para a persistência de cliente.

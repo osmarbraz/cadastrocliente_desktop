@@ -1,14 +1,17 @@
 package dao.cliente;
 
-import java.io.*;
 import java.util.LinkedList;
 import java.util.List;
-
-import dao.RAFDAOFactory;
-import entidade.Cliente;
+import java.io.EOFException;
+import java.io.File;
+import java.io.IOException;
+import java.io.RandomAccessFile;
 import java.util.Collections;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import dao.RAFDAOFactory;
+import entidade.Cliente;
 
 /**
  * Implementa a persitência para cliente utilizando Arquivo de Acesso
@@ -93,7 +96,7 @@ public class RAFClienteDAO extends RAFDAOFactory implements ClienteDAO {
             Cliente cliente = (Cliente) obj;
             List<Cliente> lista = new LinkedList<>();
             //Filtro para clienteId            
-            if (!"0".equals(cliente.getClienteId())) {
+            if (!"".equals(cliente.getClienteId())) {
                 lista = aplicarFiltroId(cliente);
             }
             //Filtro para nome            

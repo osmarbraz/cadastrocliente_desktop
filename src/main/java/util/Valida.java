@@ -7,12 +7,6 @@ package util;
  */
 public class Valida {
 
-    /**
-     * Construtor sem argumentos.
-     */
-    public Valida() {
-    }
-   
    /**
      * Valida os digitos verificadores de um CPF.
      *
@@ -20,43 +14,40 @@ public class Valida {
      */
     public boolean validaCPF(String cpf) {
         boolean retorno = false;
-        String base = "000000000";
-        String digitos = "00";
-        if (cpf.length() == 11) {
-            base = cpf.substring(0, 9);
-            digitos = cpf.substring(9, 11);
-            int soma = 0, mult = 11;
-            int[] var = new int[11];
+        if (cpf.length() == 11) {            
+            String digitos = cpf.substring(9, 11);
+            int soma = 0, multiplicacao = 11;
+            int[] valores = new int[11];
             // Recebe os números e realiza a multiplicação e soma.   
             for (int i = 0; i < 9; i++) {
-                var[i] = Integer.parseInt("" + cpf.charAt(i));
+                valores[i] = Integer.parseInt("" + cpf.charAt(i));
                 if (i < 9) {
-                    soma += (var[i] * --mult);
+                    soma += (valores[i] * --multiplicacao);
                 }
             }
             // Cria o primeiro dígito verificador.   
             int resto = soma % 11;
             if (resto < 2) {
-                var[9] = 0;
+                valores[9] = 0;
             } else {
-                var[9] = 11 - resto;
+                valores[9] = 11 - resto;
             }
             // Reinicia os valores.   
             soma = 0;
-            mult = 11;
+            multiplicacao = 11;
             // Realiza a multiplicação e soma do segundo dígito.   
             for (int i = 0; i < 10; i++) {
-                soma += var[i] * mult--;
+                soma += valores[i] * multiplicacao--;
             }
             // Cria o segundo dígito verificador.   
             resto = soma % 11;
             if (resto < 2) {
-                var[10] = 0;
+                valores[10] = 0;
             } else {
-                var[10] = 11 - resto;
+                valores[10] = 11 - resto;
             }
-            if ((digitos.substring(0, 1).equalsIgnoreCase(new Integer(var[9]).toString()))
-                    && (digitos.substring(1, 2).equalsIgnoreCase(new Integer(var[10]).toString()))) {
+            if ((digitos.substring(0, 1).equalsIgnoreCase(Integer.toString(valores[9])))
+                    && (digitos.substring(1, 2).equalsIgnoreCase(Integer.toString(valores[10])))) {
                 retorno = true;
             }
         }
