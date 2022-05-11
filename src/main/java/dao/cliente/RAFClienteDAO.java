@@ -7,6 +7,7 @@ import java.util.List;
 import dao.RAFDAOFactory;
 import entidade.Cliente;
 import java.util.Collections;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
@@ -30,7 +31,7 @@ public class RAFClienteDAO extends RAFDAOFactory implements ClienteDAO {
             File nomeArquivo = new File("cliente.dat");
             arquivo = new RandomAccessFile(nomeArquivo, "rw");
         } catch (IOException e) {
-            LOGGER.severe("Problema em abrir o arquivo!" + e);
+            LOGGER.log(Level.SEVERE, "Problema em abrir o arquivo!{0}", e);
         }
     }
 
@@ -38,10 +39,11 @@ public class RAFClienteDAO extends RAFDAOFactory implements ClienteDAO {
         try {
             arquivo.close();
         } catch (IOException e) {
-            LOGGER.severe("Problema em fechar o arquivo!" + e);
+            LOGGER.log(Level.SEVERE, "Problema em fechar o arquivo!{0}", e);
         }
     }
 
+    @Override
     public boolean inserir(Object obj) {
         if (obj != null) {
             Cliente cliente = (Cliente) obj;
@@ -55,14 +57,14 @@ public class RAFClienteDAO extends RAFDAOFactory implements ClienteDAO {
                     registro.escrita(arquivo);
                     return true;
                 } catch (IOException e) {
-                    LOGGER.severe("Problema em inserir o registro!" + e);
+                    LOGGER.log(Level.SEVERE, "Problema em inserir o registro!{0}", e);
                 }
             }
         }
         return false;
     }
 
-    @SuppressWarnings({"rawtypes", "unchecked"})
+    @Override
     public List<Cliente> getLista() {
         List<Cliente> lista = new LinkedList();
         RAFRegistroCliente registro = new RAFRegistroCliente();
@@ -78,14 +80,14 @@ public class RAFClienteDAO extends RAFDAOFactory implements ClienteDAO {
                 lista.add(cli);
             }
         } catch (EOFException eof) {
-            LOGGER.severe("Problema no fim do arquivo em geLista:" + eof);
+            LOGGER.log(Level.SEVERE, "Problema no fim do arquivo em geLista:{0}", eof);
         } catch (IOException io) {
-            LOGGER.severe("Problema de io no arquivo em getLista:" + io);
+            LOGGER.log(Level.SEVERE, "Problema de io no arquivo em getLista:{0}", io);
         }
         return lista;
     }
-
-    @SuppressWarnings({"rawtypes", "unchecked"})
+    
+    @Override
     public List<Cliente> aplicarFiltro(Object obj) {
         if (obj != null) {
             Cliente cliente = (Cliente) obj;

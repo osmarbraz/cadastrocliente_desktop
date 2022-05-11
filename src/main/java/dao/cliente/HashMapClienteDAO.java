@@ -79,7 +79,7 @@ public class HashMapClienteDAO extends HashMapDAOFactory implements ClienteDAO {
                 Cliente c = (Cliente) it.next();
 
                 //Filtro para clienteId
-                if ((!"0".equals(cliente.getClienteId())) && (c.getClienteId().equalsIgnoreCase(cliente.getClienteId()))) {
+                if ((!"".equals(cliente.getClienteId())) && (c.getClienteId().equalsIgnoreCase(cliente.getClienteId()))) {
                         lista.add(c);                    
                 }
 
