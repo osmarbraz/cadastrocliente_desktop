@@ -38,6 +38,13 @@ public class TestDAOExclusao {
     }
 
     @Test
+    public void testExclusao1Null() {
+        DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.SQLITE);
+        ClienteDAO DAO = factory.getClienteDAO();
+        assertEquals(0, DAO.excluir(null));
+    }
+
+    @Test
     public void testExclusao2() {
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.HASHMAP);
         ClienteDAO DAO = factory.getClienteDAO();
@@ -55,6 +62,13 @@ public class TestDAOExclusao {
     }
 
     @Test
+    public void testExclusao2Null() {
+        DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.HASHMAP);
+        ClienteDAO DAO = factory.getClienteDAO();
+        assertEquals(0, DAO.excluir(null));
+    }
+
+    @Test
     public void testExclusao3() {
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.RAF);
         ClienteDAO DAO = factory.getClienteDAO();
@@ -69,6 +83,13 @@ public class TestDAOExclusao {
         } else {
             assertFalse(false);
         }
+    }
+
+    @Test
+    public void testExclusao3Null() {
+        DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.RAF);
+        ClienteDAO DAO = factory.getClienteDAO();
+        assertEquals(0, DAO.excluir(null));
     }
 
     @After

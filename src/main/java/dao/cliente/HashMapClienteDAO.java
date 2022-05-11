@@ -94,8 +94,10 @@ public class HashMapClienteDAO extends HashMapDAOFactory implements ClienteDAO {
                     }
                 }
             }
+
             //Filtro para nome
             if (!"".equals(cliente.getNome())) {
+                it = mapa.values().iterator();
                 while (it.hasNext()) { //Avança enquanto tiver objetos
                     Cliente c = (Cliente) it.next();
                     if (c.getNome().equalsIgnoreCase(cliente.getNome())) {
@@ -106,6 +108,7 @@ public class HashMapClienteDAO extends HashMapDAOFactory implements ClienteDAO {
 
             //Filtro para CPF
             if (!"".equals(cliente.getCpf())) {
+                it = mapa.values().iterator();
                 while (it.hasNext()) { //Avança enquanto tiver objetos
                     Cliente c = (Cliente) it.next();
                     if (c.getCpf().equalsIgnoreCase(cliente.getCpf())) {
