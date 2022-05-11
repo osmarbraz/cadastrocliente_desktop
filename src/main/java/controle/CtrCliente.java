@@ -145,7 +145,7 @@ public class CtrCliente {
             getFrmCliente().jTCpf.setText(cliente.getCpf());
             getFrmCliente().mostrarMensagem("Cliente encontrado!");
         } else {
-            getFrmCliente().mostrarMensagem("Cliente nao encontrado!");
+            getFrmCliente().mostrarMensagem("Cliente não encontrado!");
         }
     }
 
@@ -159,9 +159,9 @@ public class CtrCliente {
         cliente.setClienteId(getFrmCliente().jTClienteId.getText());
         int resultado = cliente.excluir();
         if (resultado != 0) {
-            getFrmCliente().mostrarMensagem("Exclusao realizada com sucesso!");
+            getFrmCliente().mostrarMensagem("Exclusão realizada com sucesso!");
         } else {
-            getFrmCliente().mostrarMensagem("Exclusao nao realizada!");
+            getFrmCliente().mostrarMensagem("Exclusão nao realizada!");
         }
     }
 

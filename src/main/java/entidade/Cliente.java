@@ -123,7 +123,7 @@ public class Cliente {
     }
 
     /**
-     * Exclui um objeto da persist�ncia através do identificado.
+     * Exclui um objeto da persistência através do identificado.
      */
     public int excluir() {
         DAOFactory factory = DAOFactory.getDAOFactory(Factory.FABRICA);

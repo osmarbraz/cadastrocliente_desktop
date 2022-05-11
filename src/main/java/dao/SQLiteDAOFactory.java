@@ -56,7 +56,7 @@ public class SQLiteDAOFactory extends DAOFactory {
             Class.forName(getDriverClass());
             con = DriverManager.getConnection(getJdbcURL());
         } catch (ClassNotFoundException e) {
-            System.out.println(e);
+            System.err.println(e);
         } catch (SQLException e) {
             throw e;
         }
