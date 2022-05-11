@@ -36,6 +36,7 @@ public class HashMapClienteDAO extends HashMapDAOFactory implements ClienteDAO {
                 mapa.put(cliente.getClienteId(), cliente);
                 return true;
             } 
+            return false;
         }
         return false;
     }
