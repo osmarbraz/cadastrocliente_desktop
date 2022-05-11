@@ -63,7 +63,7 @@ public class HashMapClienteDAO extends HashMapDAOFactory implements ClienteDAO {
     @Override
     public List<Cliente> getLista() {
         List<Cliente> lista = new LinkedList<>();
-        Iterator it = mapa.values().iterator();
+        Iterator<Cliente> it = mapa.values().iterator();
         while (it.hasNext()) { //Avança enquanto tiver objetos
             Cliente c = (Cliente) it.next();
             lista.add(c);
@@ -76,7 +76,7 @@ public class HashMapClienteDAO extends HashMapDAOFactory implements ClienteDAO {
         if (obj != null) {
             Cliente cliente = (Cliente) obj;
             List<Cliente> lista = new LinkedList<>();
-            Iterator it = mapa.values().iterator();
+            Iterator<Cliente> it = mapa.values().iterator();
 
             while (it.hasNext()) { //Avança enquanto tiver objetos
                 Cliente c = (Cliente) it.next();

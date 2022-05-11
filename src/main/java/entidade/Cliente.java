@@ -106,12 +106,14 @@ public class Cliente {
     /**
      * Retorna uma string com o estado do objeto.
      */
+    @Override
     public String toString() {
         return ("clienteId:" + getClienteId() + " - Nome :" + getNome() + " - CPF :" + getCpf());
     }
 
     /**
      * Persiste um objeto.
+     * @return Se conseguiu inserir o objeto.
      */
     public boolean inserir() {
         DAOFactory factory = DAOFactory.getDAOFactory(Factory.FABRICA);
@@ -121,6 +123,7 @@ public class Cliente {
 
     /**
      * Altera o estado de um objeto persistente.
+     * @return A quantidade de objetos atualizados.
      */
     public int alterar() {
         DAOFactory factory = DAOFactory.getDAOFactory(Factory.FABRICA);
@@ -130,6 +133,7 @@ public class Cliente {
 
     /**
      * Exclui um objeto da persistência através do identificado.
+     * @return 
      */
     public int excluir() {
         DAOFactory factory = DAOFactory.getDAOFactory(Factory.FABRICA);
@@ -138,8 +142,8 @@ public class Cliente {
     }
 
     /**
-     * Retorna uma lista de objetos que atende os valores passados pelo objeto.
-     * O Id realiza comparação e o nome realiza uma comparação parcial.
+     * Retorna uma lista de objetos que atende os valores passados pelo objeto.O Id realiza comparação e o nome realiza uma comparação parcial.
+     * @return Uma lista com os objetos selecionados.
      */
     public List aplicarFiltro() {
         DAOFactory factory = DAOFactory.getDAOFactory(Factory.FABRICA);
@@ -149,6 +153,7 @@ public class Cliente {
 
     /**
      * Retorna uma lista com todos os objetos.
+     * @return Uma lista com todos os objetos.
      */
     public List getLista() {
         DAOFactory factory = DAOFactory.getDAOFactory(Factory.FABRICA);
@@ -158,6 +163,7 @@ public class Cliente {
 
     /**
      * Restaura o estado do objeto apartir do id.
+     * @return Se conseguiu abrir o objeto.
      */
     public boolean abrir() {
         DAOFactory factory = DAOFactory.getDAOFactory(Factory.FABRICA);

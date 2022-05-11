@@ -124,7 +124,6 @@ public class RAFClienteDAO extends RAFDAOFactory implements ClienteDAO {
         try {
             arquivo.seek(0);
             RAFRegistroCliente registro = new RAFRegistroCliente();
-
             while (arquivo.getFilePointer() < arquivo.length()) { //Avança enquanto tiver objetos
                 registro.leitura(arquivo);
                 if (registro.getClienteId().equalsIgnoreCase(cliente.getClienteId())) {                    

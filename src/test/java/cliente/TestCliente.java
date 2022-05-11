@@ -26,7 +26,8 @@ public class TestCliente {
     @Test
     public void testParaString() {
         Cliente instancia = new Cliente();
-        assertTrue("clienteId: - Nome : - CPF :".equals(instancia.toString()));
+        String esperado = "clienteId: - Nome : - CPF :";        
+        assertTrue(esperado.equals(instancia.toString()));
     }
 
     @Test

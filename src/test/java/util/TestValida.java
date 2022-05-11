@@ -41,6 +41,7 @@ public class TestValida {
 
     @Test
     public void testValidaCPFInvalido() {
-        assertFalse(valida.validaCPF("11111111"));
+        //CPF com problema na conversão
+        assertFalse(valida.validaCPF("0065XAB22050"));
     }
 }
