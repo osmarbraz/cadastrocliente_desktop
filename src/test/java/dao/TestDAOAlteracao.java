@@ -1,16 +1,16 @@
 package dao;
 
 import org.junit.Before;
+import org.junit.After;
 import org.junit.Test;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertFalse;
 
 import dao.cliente.*;
 import entidade.Cliente;
 import java.util.*;
-import org.junit.After;
-import static org.junit.Assert.assertFalse;
 
-public class TestDAOInclusao {
+public class TestDAOAlteracao {
 
     Cliente cliente;
 
@@ -20,54 +20,78 @@ public class TestDAOInclusao {
     }
 
     @Test
-    public void testIncluir1() throws Exception {
+    public void testAlteracao1() {
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.SQLITE);
         ClienteDAO DAO = factory.getClienteDAO();
-
-        // Insere os dados        
         DAO.inserir(cliente);
-        //Consulta
         List lista = DAO.aplicarFiltro(cliente);
-        //Verifica os dados    
+        //Dado a ser alterado
+        String nomeAlteracao = "Alterado";
         if (!lista.isEmpty()) {
             Cliente oCliente = (Cliente) lista.iterator().next();
-            assertNotNull(oCliente);
+            oCliente.setNome(nomeAlteracao);
+            //Altera o objeto
+            DAO.alterar(oCliente);
+            lista = DAO.aplicarFiltro(cliente);
+            if (!lista.isEmpty()) {
+                Cliente aCliente = (Cliente) lista.iterator().next();
+                //Compara a alteração com o dado do objeto
+                assertTrue(nomeAlteracao.equals(aCliente.getNome()));
+            } else {
+                assertFalse(false);
+            }
         } else {
             assertFalse(false);
         }
     }
 
     @Test
-    public void testIncluir2() throws Exception {
+    public void testAlteracao2() {
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.HASHMAP);
         ClienteDAO DAO = factory.getClienteDAO();
-
-        // Insere os dados        
         DAO.inserir(cliente);
-        //Consulta
         List lista = DAO.aplicarFiltro(cliente);
-        //Verifica os dados    
+        //Dado a ser alterado
+        String nomeAlteracao = "Alterado";
         if (!lista.isEmpty()) {
             Cliente oCliente = (Cliente) lista.iterator().next();
-            assertNotNull(oCliente);
+            oCliente.setNome(nomeAlteracao);
+            //Altera o objeto
+            DAO.alterar(oCliente);
+            lista = DAO.aplicarFiltro(cliente);
+            if (!lista.isEmpty()) {
+                Cliente aCliente = (Cliente) lista.iterator().next();
+                //Compara a alteração com o dado do objeto
+                assertTrue(nomeAlteracao.equals(aCliente.getNome()));
+            } else {
+                assertFalse(false);
+            }
         } else {
             assertFalse(false);
         }
     }
 
     @Test
-    public void testIncluir3() throws Exception {
+    public void testAlteracao3() {
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.RAF);
-        ClienteDAO DAO = factory.getClienteDAO();
-
-        // Insere os dados        
+         ClienteDAO DAO = factory.getClienteDAO();
         DAO.inserir(cliente);
-        //Consulta
         List lista = DAO.aplicarFiltro(cliente);
-        //Verifica os dados    
+        //Dado a ser alterado
+        String nomeAlteracao = "Alterado";
         if (!lista.isEmpty()) {
             Cliente oCliente = (Cliente) lista.iterator().next();
-            assertNotNull(oCliente);
+            oCliente.setNome(nomeAlteracao);
+            //Altera o objeto
+            DAO.alterar(oCliente);
+            lista = DAO.aplicarFiltro(cliente);
+            if (!lista.isEmpty()) {
+                Cliente aCliente = (Cliente) lista.iterator().next();
+                //Compara a alteração com o dado do objeto
+                assertTrue(nomeAlteracao.equals(aCliente.getNome()));
+            } else {
+                assertFalse(false);
+            }
         } else {
             assertFalse(false);
         }
@@ -89,7 +113,7 @@ public class TestDAOInclusao {
         DAO = factory.getClienteDAO();
         // Exclui os dados inseridos
         DAO.excluir(cliente);
-
+        
         cliente = null;
     }
 }

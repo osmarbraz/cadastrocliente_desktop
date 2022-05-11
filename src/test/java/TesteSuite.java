@@ -7,7 +7,7 @@ import org.junit.runners.Suite.SuiteClasses;
 import junit.framework.JUnit4TestAdapter;
 import dao.TestDAOInclusao;
 import dao.TestDAOExclusao;
-import dao.TestClienteDAOHashMap;
+import dao.TestDAOAlteracao;
 import dao.TestDAOFactory;
 import util.TestValida;
 
@@ -15,8 +15,8 @@ import util.TestValida;
 @SuiteClasses({
     TestCliente.class,
     TestDAOFactory.class,
-    TestClienteDAOHashMap.class,
     TestDAOInclusao.class,
+    TestDAOAlteracao.class,
     TestDAOExclusao.class,
     TestValida.class})
 
