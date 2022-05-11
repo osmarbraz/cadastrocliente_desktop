@@ -51,7 +51,7 @@ public class RAFRegistroCliente extends Cliente {
         return new String(name).replace('\0', ' ');
     }
 
-    public int getTamanho() {
+    public long getTamanho() {
         return 200 + 22 + 4;
     }
 }
