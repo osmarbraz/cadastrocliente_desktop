@@ -19,10 +19,9 @@ public class TestCliente {
         assertTrue("1".equals(instancia.getClienteId()) && "".equals(instancia.getNome()) && "".equals(instancia.getCpf()));
     }
 
-//    @Test
-//    public void testClienteParaString() {
-//        Cliente instancia = new Cliente();
-//        System.out.println("instancia:" + instancia.paraString());
-//        assertTrue("clienteId: - Nome : - CPF :".equals(instancia.paraString()));
-//    }
+    @Test
+    public void testClienteParaString() {
+        Cliente instancia = new Cliente();        
+        assertTrue("clienteId: - Nome : - CPF :".equals(instancia.paraString()));
+    }
 }
