@@ -1,4 +1,4 @@
-[![Github Actions Status for osmarbraz/cadastrocliente_destkop](https://github.com/osmarbraz/cadastrocliente_desktop/workflows/ntegração%20continua%20de%20Java%20com%20Maven/badge.svg)](https://github.com/osmarbraz/cadastrocliente_desktop/actions) 
+[![Github Actions Status for osmarbraz/cadastrocliente_desktop](https://github.com/osmarbraz/cadastrocliente_desktop/workflows/Integra%C3%A7%C3%A3o%20continua%20de%20Java%20com%20Maven/badge.svg)](https://github.com/osmarbraz/cadastrocliente_desktop/actions) 
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=cadastrocliente_desktop&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=cadastrocliente_destkop)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=cadastrocliente_desktop&metric=coverage)](https://sonarcloud.io/component_measures?id=cadastrocliente_destkop&metric=coverage)
 

@@ -58,7 +58,7 @@ public class TestClienteDAOHashMap {
             boolean result = clienteDAOHashMap.inserir(null);
             assertFalse(result);
         } catch (Exception e) {
-            fail("N�o tratou exce��o cliente = Null");
+            fail("N�o tratou exceção cliente = Null");
         }
 
     }

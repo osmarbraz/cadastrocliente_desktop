@@ -248,7 +248,7 @@ public class SQLiteClienteDAO extends SQLiteDAOFactory implements ClienteDAO, SQ
         try {
             con = getConnection();
             stmt = con.createStatement();
-            //Cria a tabela sen�o existir
+            //Cria a tabela senão existir
             stmt.execute("create table IF NOT EXISTS cliente (clienteId integer, nome varchar(100), cpf varchar(11), CONSTRAINT PK_Cliente PRIMARY KEY (clienteID));");
             stmt.close();
             stmt = null;
