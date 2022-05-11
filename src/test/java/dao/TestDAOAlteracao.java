@@ -9,15 +9,16 @@ import dao.cliente.*;
 import entidade.Cliente;
 import java.util.*;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
 
 public class TestDAOAlteracao {
 
     Cliente cliente;
+    Cliente clienteNaoExistente;
 
     @Before
     public void inicializa() {
-        cliente = new Cliente("131", "Teste", "11111111111");
+        cliente = new Cliente("131", "TesteAlteracao", "11111111111");
+        clienteNaoExistente = new Cliente("879", "Cliente Nao Existente", "11111111111");
     }
 
     @Test
@@ -44,6 +45,14 @@ public class TestDAOAlteracao {
         } else {
             assertFalse(false);
         }
+    }
+    
+    @Test
+    public void testAlteracao1NaoExistente() {
+        DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.SQLITE);
+        ClienteDAO DAO = factory.getClienteDAO();
+        //Altera o objeto não existente         
+        assertEquals(0, DAO.alterar(clienteNaoExistente));   
     }
 
     @Test
@@ -78,6 +87,14 @@ public class TestDAOAlteracao {
             assertFalse(false);
         }
     }
+    
+    @Test
+    public void testAlteracao2NaoExistente() {
+        DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.HASHMAP);
+        ClienteDAO DAO = factory.getClienteDAO();
+        //Altera o objeto não existente         
+        assertEquals(0, DAO.alterar(clienteNaoExistente));   
+    }
 
     @Test
     public void testAlteracao2Null() {
@@ -110,6 +127,14 @@ public class TestDAOAlteracao {
         } else {
             assertFalse(false);
         }
+    }
+    
+    @Test
+    public void testAlteracao3NaoExistente() {
+        DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.RAF);
+        ClienteDAO DAO = factory.getClienteDAO();
+        //Altera o objeto não existente         
+        assertEquals(0, DAO.alterar(clienteNaoExistente));   
     }
 
     @Test

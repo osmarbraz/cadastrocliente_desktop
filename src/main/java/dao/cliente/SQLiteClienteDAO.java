@@ -99,8 +99,7 @@ public class SQLiteClienteDAO extends SQLiteDAOFactory implements ClienteDAO, SQ
                 stmt = null;
                 con.close();
                 con = null;
-                res = true;
-
+                
             } catch (SQLException e) {
                 LOGGER.severe("Erro no inserir:" + e);
                 res = false;
@@ -146,8 +145,6 @@ public class SQLiteClienteDAO extends SQLiteDAOFactory implements ClienteDAO, SQ
                 con.close();
                 con = null;
 
-                res = 1;
-
             } catch (SQLException e) {
                 LOGGER.severe("Erro no alterar:" + e);
                 res = 0;
@@ -190,7 +187,6 @@ public class SQLiteClienteDAO extends SQLiteDAOFactory implements ClienteDAO, SQ
                 con.close();
                 con = null;
 
-                res = 1;
             } catch (Exception e) {
                 LOGGER.severe("Erro no excluir:" + e);
                 res = 0;

@@ -17,7 +17,7 @@ public class TestDAOConsultaId {
 
     @Before
     public void inicializa() {
-        cliente = new Cliente("131", "Teste", "11111111111");
+        cliente = new Cliente("131", "Teste Consulta", "11111111111");
         clienteNaoExistente = new Cliente("999", "Cliente Nao Existente", "11111111111");
     }
 

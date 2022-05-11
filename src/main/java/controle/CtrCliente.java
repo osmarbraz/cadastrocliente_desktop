@@ -97,12 +97,12 @@ public class CtrCliente {
         if (cpfValido == true) {
             boolean resultado = cliente.inserir();
             if (resultado == true) {
-                getFrmCliente().mostrarMensagem("Inclusao realizada com sucesso!");
+                getFrmCliente().mostrarMensagem("Inclusão realizada com sucesso!");
             } else {
-                getFrmCliente().mostrarMensagem("Inclusao nao realizada!");
+                getFrmCliente().mostrarMensagem("Inclusão não realizada!");
             }
         } else {
-            getFrmCliente().mostrarMensagem("CPF Invalido!");
+            getFrmCliente().mostrarMensagem("CPF Inválido!");
         }
     }
 
@@ -121,12 +121,12 @@ public class CtrCliente {
         if (cpfValido == true) {
             int resultado = cliente.alterar();
             if (resultado != 0) {
-                getFrmCliente().mostrarMensagem("Alteracao realizada com sucesso!");
+                getFrmCliente().mostrarMensagem("Alteração realizada com sucesso!");
             } else {
-                getFrmCliente().mostrarMensagem("Alteracao nao realizada!");
+                getFrmCliente().mostrarMensagem("Alteração nao realizada!");
             }
         } else {
-            getFrmCliente().mostrarMensagem("CPF Invalido!");
+            getFrmCliente().mostrarMensagem("CPF Inválido!");
         }
     }
 
