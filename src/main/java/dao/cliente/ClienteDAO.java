@@ -1,5 +1,6 @@
 package dao.cliente;
 
+import entidade.Cliente;
 import java.util.List;
 
 /**
@@ -16,8 +17,8 @@ public interface ClienteDAO {
     public int excluir(Object obj);
 
     @SuppressWarnings("rawtypes")
-    public List aplicarFiltro(Object obj);
+    public List<Cliente> aplicarFiltro(Object obj);
 
     @SuppressWarnings("rawtypes")
-    public List getLista();
+    public List<Cliente> getLista();
 }

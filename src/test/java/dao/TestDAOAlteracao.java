@@ -45,7 +45,7 @@ public class TestDAOAlteracao {
             assertFalse(false);
         }
     }
-    
+
     @Test
     public void testAlteracao1Null() {
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.SQLITE);
@@ -78,7 +78,7 @@ public class TestDAOAlteracao {
             assertFalse(false);
         }
     }
-    
+
     @Test
     public void testAlteracao2Null() {
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.HASHMAP);
@@ -111,8 +111,8 @@ public class TestDAOAlteracao {
             assertFalse(false);
         }
     }
-    
-     @Test
+
+    @Test
     public void testAlteracao3Null() {
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.RAF);
         ClienteDAO DAO = factory.getClienteDAO();

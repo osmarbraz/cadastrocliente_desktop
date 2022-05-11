@@ -19,7 +19,7 @@ import java.util.logging.Logger;
  */
 public class SQLiteDAOFactory extends DAOFactory {
 
-    private static final Logger LOGGER = Logger.getLogger(RAFClienteDAO.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(SQLiteDAOFactory.class.getName());
 
     private String driverClass;
     private String jdbcURL;
@@ -77,7 +77,7 @@ public class SQLiteDAOFactory extends DAOFactory {
      */
     protected String preparaSQL(String valor) {
         if (valor != null) {
-            return valor.replaceAll("\'", "''");
+            return valor.replace("\'", "''");
         } else {
             return "";
         }
@@ -92,17 +92,17 @@ public class SQLiteDAOFactory extends DAOFactory {
      * @param collection
      */
     public String implode(String separator, @SuppressWarnings("rawtypes") Collection collection) {
-        StringBuffer textBufferReturn = new StringBuffer();
+        StringBuilder textBuilderReturn = new StringBuilder();
         @SuppressWarnings("rawtypes")
         Iterator it = collection.iterator();
         while (it.hasNext()) {
             String text = (String) it.next();
-            textBufferReturn.append(text);
+            textBuilderReturn.append(text);
             if (it.hasNext()) {
-                textBufferReturn.append(separator);
+                textBuilderReturn.append(separator);
             }
         }
-        return textBufferReturn.toString();
+        return textBuilderReturn.toString();
     }
 
     /**

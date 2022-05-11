@@ -27,8 +27,8 @@ public class SQLiteClienteDAO extends SQLiteDAOFactory implements ClienteDAO, SQ
     }
 
     @SuppressWarnings({"rawtypes", "unchecked"})
-    private List select(String sql) {
-        List<Cliente> lista = new LinkedList();
+    private List<Cliente> select(String sql) {
+        List<Cliente> lista = new LinkedList<>();
         Connection con = null;
         Statement stmt = null;
         ResultSet rs = null;
@@ -98,7 +98,7 @@ public class SQLiteClienteDAO extends SQLiteDAOFactory implements ClienteDAO, SQ
                 stmt.close();
                 stmt = null;
                 con.close();
-                con = null;                
+                con = null;
                 res = true;
 
             } catch (SQLException e) {
@@ -145,9 +145,9 @@ public class SQLiteClienteDAO extends SQLiteDAOFactory implements ClienteDAO, SQ
                 stmt = null;
                 con.close();
                 con = null;
-                
+
                 res = 1;
-                
+
             } catch (SQLException e) {
                 LOGGER.severe("Erro no alterar:" + e);
                 res = 0;
@@ -189,7 +189,7 @@ public class SQLiteClienteDAO extends SQLiteDAOFactory implements ClienteDAO, SQ
                 stmt = null;
                 con.close();
                 con = null;
-                
+
                 res = 1;
             } catch (Exception e) {
                 LOGGER.severe("Erro no excluir:" + e);
@@ -216,12 +216,12 @@ public class SQLiteClienteDAO extends SQLiteDAOFactory implements ClienteDAO, SQ
     }
 
     @SuppressWarnings("rawtypes")
-    public List getLista() {
+    public List<Cliente> getLista() {
         return select("select " + METADADOSSELECT + " from " + TABLE + " order by " + TABLE + "." + PK[0]);
     }
 
     @SuppressWarnings({"rawtypes", "unchecked"})
-    public List aplicarFiltro(Object obj) {
+    public List<Cliente> aplicarFiltro(Object obj) {
         if (obj != null) {
             Cliente cliente = (Cliente) obj;
 

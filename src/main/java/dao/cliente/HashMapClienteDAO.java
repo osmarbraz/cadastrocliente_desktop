@@ -17,17 +17,7 @@ import java.util.Collections;
  */
 public class HashMapClienteDAO extends HashMapDAOFactory implements ClienteDAO {
 
-    private static Map<String, Cliente> mapa;
-
-    /**
-     * Construtor sem argumentos.
-     */
-    public HashMapClienteDAO() {
-        //Se o mapa estiver nulo instancia para armazenar os clientes
-        if (mapa == null) {
-            mapa = new HashMap<>();
-        }
-    }
+    private static Map<String, Cliente> mapa = new HashMap<>();
 
     public boolean inserir(Object obj) {
         if (obj != null) {
@@ -46,7 +36,7 @@ public class HashMapClienteDAO extends HashMapDAOFactory implements ClienteDAO {
             Cliente cliente = (Cliente) obj;
             boolean tem = mapa.containsKey(cliente.getClienteId());
             if (tem) {
-                Cliente c = (Cliente) mapa.get(cliente.getClienteId());
+                Cliente c = mapa.get(cliente.getClienteId());
                 c.setNome(cliente.getNome());
                 c.setCpf(cliente.getCpf());
                 return 1;
@@ -68,8 +58,8 @@ public class HashMapClienteDAO extends HashMapDAOFactory implements ClienteDAO {
     }
 
     @SuppressWarnings({"rawtypes", "unchecked"})
-    public List getLista() {
-        List<Cliente> lista = new LinkedList();
+    public List<Cliente> getLista() {
+        List<Cliente> lista = new LinkedList<>();
         Iterator it = mapa.values().iterator();
         while (it.hasNext()) { //Avança enquanto tiver objetos
             Cliente c = (Cliente) it.next();
@@ -79,47 +69,71 @@ public class HashMapClienteDAO extends HashMapDAOFactory implements ClienteDAO {
     }
 
     @SuppressWarnings({"rawtypes", "unchecked"})
-    public List aplicarFiltro(Object obj) {
+    public List<Cliente> aplicarFiltro(Object obj) {
         if (obj != null) {
             Cliente cliente = (Cliente) obj;
-            List<Cliente> lista = new LinkedList();
-            Iterator it = mapa.values().iterator();
+            List<Cliente> lista = new LinkedList<>();
 
             //Filtro para clienteId
             if (!"0".equals(cliente.getClienteId())) {
-                while (it.hasNext()) { //Avança enquanto tiver objetos
-                    Cliente c = (Cliente) it.next();
-                    if (c.getClienteId().equalsIgnoreCase(cliente.getClienteId())) {
-                        lista.add(c);
-                    }
-                }
+                lista = aplicarFiltroId(cliente);
             }
 
             //Filtro para nome
             if (!"".equals(cliente.getNome())) {
-                it = mapa.values().iterator();
-                while (it.hasNext()) { //Avança enquanto tiver objetos
-                    Cliente c = (Cliente) it.next();
-                    if (c.getNome().equalsIgnoreCase(cliente.getNome())) {
-                        lista.add(c);
-                    }
-                }
+                lista = aplicarFiltroNome(cliente);
             }
 
             //Filtro para CPF
             if (!"".equals(cliente.getCpf())) {
-                it = mapa.values().iterator();
-                while (it.hasNext()) { //Avança enquanto tiver objetos
-                    Cliente c = (Cliente) it.next();
-                    if (c.getCpf().equalsIgnoreCase(cliente.getCpf())) {
-                        lista.add(c);
-                    }
-                }
+                lista = aplicarFiltroCpf(cliente);
             }
-
             return lista;
         } else {
             return Collections.emptyList();
         }
+    }
+
+    @SuppressWarnings({"rawtypes", "unchecked"})
+    public List<Cliente> aplicarFiltroId(Cliente cliente) {
+        List<Cliente> lista = new LinkedList<>();
+        Iterator it = mapa.values().iterator();
+        //Filtro para clienteId
+
+        while (it.hasNext()) { //Avança enquanto tiver objetos
+            Cliente c = (Cliente) it.next();
+            if (c.getClienteId().equalsIgnoreCase(cliente.getClienteId())) {
+                lista.add(c);
+            }
+        }
+        return lista;
+    }
+
+    @SuppressWarnings({"rawtypes", "unchecked"})
+    public List<Cliente> aplicarFiltroNome(Cliente cliente) {
+        List<Cliente> lista = new LinkedList<>();
+        Iterator it = mapa.values().iterator();
+        //Filtro para nome
+        while (it.hasNext()) { //Avança enquanto tiver objetos
+            Cliente c = (Cliente) it.next();
+            if (c.getNome().equalsIgnoreCase(cliente.getNome())) {
+                lista.add(c);
+            }
+        }
+        return lista;
+    }
+
+    @SuppressWarnings({"rawtypes", "unchecked"})
+    public List<Cliente> aplicarFiltroCpf(Cliente cliente) {
+        List<Cliente> lista = new LinkedList<>();
+        Iterator it = mapa.values().iterator();
+        //Filtro para nome
+        while (it.hasNext()) { //Avança enquanto tiver objetos
+            Cliente c = (Cliente) it.next();
+            if (c.getCpf().equalsIgnoreCase(cliente.getCpf())) {
+                lista.add(c);
+            }
+        }
+        return lista;
     }
 }

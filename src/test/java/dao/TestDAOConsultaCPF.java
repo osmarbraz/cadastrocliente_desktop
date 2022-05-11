@@ -39,11 +39,11 @@ public class TestDAOConsultaCPF {
             assertFalse(false);
         }
     }
-    
+
     @Test
     public void testConsulta1Null() {
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.SQLITE);
-        ClienteDAO DAO = factory.getClienteDAO();        
+        ClienteDAO DAO = factory.getClienteDAO();
         //Consulta
         List lista = DAO.aplicarFiltro(null);
 
@@ -69,11 +69,11 @@ public class TestDAOConsultaCPF {
             assertFalse(false);
         }
     }
-    
+
     @Test
     public void testConsulta2Null() {
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.HASHMAP);
-        ClienteDAO DAO = factory.getClienteDAO();        
+        ClienteDAO DAO = factory.getClienteDAO();
         //Consulta
         List lista = DAO.aplicarFiltro(null);
 
@@ -99,11 +99,11 @@ public class TestDAOConsultaCPF {
             assertFalse(false);
         }
     }
-    
-      @Test
+
+    @Test
     public void testConsulta3Null() {
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.RAF);
-        ClienteDAO DAO = factory.getClienteDAO();        
+        ClienteDAO DAO = factory.getClienteDAO();
         //Consulta
         List lista = DAO.aplicarFiltro(null);
 

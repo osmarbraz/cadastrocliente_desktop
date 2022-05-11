@@ -57,13 +57,13 @@ public class RAFClienteDAO extends RAFDAOFactory implements ClienteDAO {
                 } catch (IOException e) {
                     LOGGER.severe("Problema em inserir o registro!" + e);
                 }
-            } 
+            }
         }
         return false;
     }
 
     @SuppressWarnings({"rawtypes", "unchecked"})
-    public List getLista() {
+    public List<Cliente> getLista() {
         List<Cliente> lista = new LinkedList();
         RAFRegistroCliente registro = new RAFRegistroCliente();
         try {
@@ -86,10 +86,10 @@ public class RAFClienteDAO extends RAFDAOFactory implements ClienteDAO {
     }
 
     @SuppressWarnings({"rawtypes", "unchecked"})
-    public List aplicarFiltro(Object obj) {
+    public List<Cliente> aplicarFiltro(Object obj) {
         if (obj != null) {
             Cliente cliente = (Cliente) obj;
-            List<Cliente> lista = new LinkedList();
+            List<Cliente> lista = new LinkedList<>();
             //Filtro para clienteId            
             if (!"0".equals(cliente.getClienteId())) {
                 lista = aplicarFiltroId(cliente);
@@ -108,8 +108,8 @@ public class RAFClienteDAO extends RAFDAOFactory implements ClienteDAO {
         }
     }
 
-    public List aplicarFiltroId(Cliente cliente) {
-        List<Cliente> lista = new LinkedList();
+    public List<Cliente> aplicarFiltroId(Cliente cliente) {
+        List<Cliente> lista = new LinkedList<>();
         //Filtro para clienteId
         try {
             arquivo.seek(0);
@@ -133,8 +133,8 @@ public class RAFClienteDAO extends RAFDAOFactory implements ClienteDAO {
         return lista;
     }
 
-    public List aplicarFiltroNome(Cliente cliente) {
-        List<Cliente> lista = new LinkedList();
+    public List<Cliente> aplicarFiltroNome(Cliente cliente) {
+        List<Cliente> lista = new LinkedList<>();
         //Filtro para nome
         try {
             arquivo.seek(0);
@@ -157,8 +157,8 @@ public class RAFClienteDAO extends RAFDAOFactory implements ClienteDAO {
         return lista;
     }
 
-    public List aplicarFiltroCpf(Cliente cliente) {
-        List<Cliente> lista = new LinkedList();
+    public List<Cliente> aplicarFiltroCpf(Cliente cliente) {
+        List<Cliente> lista = new LinkedList<>();
         //Filtro para Cpf
         try {
             arquivo.seek(0);
