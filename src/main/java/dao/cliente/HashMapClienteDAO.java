@@ -8,6 +8,7 @@ import java.util.Map;
 
 import dao.HashMapDAOFactory;
 import entidade.Cliente;
+import java.util.Collections;
 
 /**
  * Implementa a persitência para cliente utilizando HashMap.
@@ -24,7 +25,7 @@ public class HashMapClienteDAO extends HashMapDAOFactory implements ClienteDAO {
     public HashMapClienteDAO() {
         //Se o mapa estiver nulo instancia para armazenar os clientes
         if (mapa == null) {
-            mapa = new HashMap<String, Cliente>();
+            mapa = new HashMap<>();
         }
     }
 
@@ -32,10 +33,10 @@ public class HashMapClienteDAO extends HashMapDAOFactory implements ClienteDAO {
         if (obj != null) {
             Cliente cliente = (Cliente) obj;
             boolean tem = mapa.containsKey(cliente.getClienteId());
-            if (tem == false) {
+            if (!tem) {
                 mapa.put(cliente.getClienteId(), cliente);
                 return true;
-            } 
+            }
             return false;
         }
         return false;
@@ -45,12 +46,12 @@ public class HashMapClienteDAO extends HashMapDAOFactory implements ClienteDAO {
         if (obj != null) {
             Cliente cliente = (Cliente) obj;
             boolean tem = mapa.containsKey(cliente.getClienteId());
-            if (tem == true) {
+            if (tem) {
                 Cliente c = (Cliente) mapa.get(cliente.getClienteId());
                 c.setNome(cliente.getNome());
                 c.setCpf(cliente.getCpf());
                 return 1;
-            } 
+            }
         }
         return 0;
     }
@@ -63,7 +64,7 @@ public class HashMapClienteDAO extends HashMapDAOFactory implements ClienteDAO {
         if (obj != null) {
             Cliente cliente = (Cliente) obj;
             boolean tem = mapa.containsKey(cliente.getClienteId());
-            if (tem == true) {
+            if (tem) {
                 mapa.remove(cliente.getClienteId());
                 return 1;
             }
@@ -97,31 +98,30 @@ public class HashMapClienteDAO extends HashMapDAOFactory implements ClienteDAO {
                         lista.add(c);
                     }
                 }
-            } else {
-                //Filtro para nome
-                if (!"".equals(cliente.getNome())) {
-                    while (it.hasNext()) { //Avança enquanto tiver objetos
-                        Cliente c = (Cliente) it.next();
-                        if (c.getNome().equalsIgnoreCase(cliente.getNome())) {
-                            lista.add(c);
-                        }
+            }
+            //Filtro para nome
+            if (!"".equals(cliente.getNome())) {
+                while (it.hasNext()) { //Avança enquanto tiver objetos
+                    Cliente c = (Cliente) it.next();
+                    if (c.getNome().equalsIgnoreCase(cliente.getNome())) {
+                        lista.add(c);
                     }
-                } else {
-                    //Filtro para CPF
-                    if (!"".equals(cliente.getCpf())) {
-                        while (it.hasNext()) { //Avança enquanto tiver objetos
-                            Cliente c = (Cliente) it.next();
-                            if (c.getCpf().equalsIgnoreCase(cliente.getCpf())) {
-                                lista.add(c);
-                            }
-                        }
+                }
+            }
+
+            //Filtro para CPF
+            if (!"".equals(cliente.getCpf())) {
+                while (it.hasNext()) { //Avança enquanto tiver objetos
+                    Cliente c = (Cliente) it.next();
+                    if (c.getCpf().equalsIgnoreCase(cliente.getCpf())) {
+                        lista.add(c);
                     }
                 }
             }
 
             return lista;
         } else {
-            return null;
+            return Collections.emptyList();
         }
     }
 }

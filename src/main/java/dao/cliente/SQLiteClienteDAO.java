@@ -10,6 +10,7 @@ import java.util.List;
 
 import dao.SQLiteDAOFactory;
 import entidade.Cliente;
+import java.util.Collections;
 
 /**
  * Implementa a persistência de cliente utilizando SQLite.
@@ -242,7 +243,7 @@ public class SQLiteClienteDAO extends SQLiteDAOFactory implements ClienteDAO, SQ
 
             return select(sqlBuilder.toString());
         } else {
-            return null;
+            return Collections.emptyList();
         }
     }
 

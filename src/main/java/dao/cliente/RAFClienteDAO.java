@@ -6,6 +6,7 @@ import java.util.List;
 
 import dao.RAFDAOFactory;
 import entidade.Cliente;
+import java.util.Collections;
 import java.util.logging.Logger;
 
 /**
@@ -159,7 +160,7 @@ public class RAFClienteDAO extends RAFDAOFactory implements ClienteDAO {
             }
             return lista;
         } else {
-            return null;
+            return Collections.emptyList();
         }
     }
 
