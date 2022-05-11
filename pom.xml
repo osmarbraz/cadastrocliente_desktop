@@ -24,8 +24,8 @@
         <sonar.organization>osmarbraz</sonar.organization>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
         <sonar.coverage.exclusions>**/*Principal.*</sonar.coverage.exclusions>        
-        <sonar.coverage.exclusions>**/formulario/*</sonar.coverage.exclusions>     
-        <sonar.coverage.exclusions>**/controle/*</sonar.coverage.exclusions>     
+        <sonar.coverage.exclusions>src/main/java/formulario/FrmCliente.**</sonar.coverage.exclusions>     
+        <sonar.coverage.exclusions>src/main/java/controle/CtrCliente.**</sonar.coverage.exclusions>     
         <sonar.coverage.exclusions>**/dao/SQLiteDadosBanco.*</sonar.coverage.exclusions>     
         <sonar.coverage.exclusions>**/dao/Factory.*</sonar.coverage.exclusions>     
         <sonar.coverage.exclusions>**/dao/cliente/ClienteDAO.*</sonar.coverage.exclusions>     
@@ -67,8 +67,8 @@
                 <configuration>                    
                     <excludes>                        
                         <exclude>**/Principal.*</exclude>
-                        <exclude>**/formulario/*</exclude> 
-                        <exclude>**/controle/*</exclude>
+                        <exclude>src/main/java/formulario/FrmCliente.**</exclude> 
+                        <exclude>src/main/java/controle/CtrCliente.**</exclude>
                         <exclude>**/dao/SQLiteDadosBanco.*</exclude>
                         <exclude>**/dao/Factory.*</exclude>
                         <exclude>**/dao/cliente/ClienteDAO.*</exclude>
