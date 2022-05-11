@@ -79,24 +79,18 @@ public class HashMapClienteDAO extends HashMapDAOFactory implements ClienteDAO {
                 Cliente c = (Cliente) it.next();
 
                 //Filtro para clienteId
-                if (!"0".equals(cliente.getClienteId())) {
-                    if (c.getClienteId().equalsIgnoreCase(cliente.getClienteId())) {
-                        lista.add(c);
-                    }
+                if ((!"0".equals(cliente.getClienteId())) && (c.getClienteId().equalsIgnoreCase(cliente.getClienteId()))) {
+                        lista.add(c);                    
                 }
 
                 //Filtro para nome
-                if (!"".equals(cliente.getNome())) {
-                    if (c.getClienteId().equalsIgnoreCase(cliente.getClienteId())) {
-                        lista.add(c);
-                    }
+                if ((!"".equals(cliente.getNome())) &&(c.getClienteId().equalsIgnoreCase(cliente.getClienteId()))) {
+                     lista.add(c);                    
                 }
 
                 //Filtro para CPF
-                if (!"".equals(cliente.getCpf())) {
-                    if (c.getCpf().equalsIgnoreCase(cliente.getCpf())) {
-                        lista.add(c);
-                    }
+                if ((!"".equals(cliente.getCpf())) && (c.getCpf().equalsIgnoreCase(cliente.getCpf()))) {
+                    lista.add(c);                    
                 }
             }
             return lista;

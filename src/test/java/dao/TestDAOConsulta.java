@@ -1,24 +1,21 @@
 package dao;
 
-import org.junit.Before;
-import org.junit.After;
-import org.junit.Test;
-
 import dao.cliente.*;
 import entidade.Cliente;
 import java.util.*;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
+import org.junit.After;
 import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertNotNull;
+import org.junit.Before;
+import org.junit.Test;
 
 public class TestDAOConsulta {
 
     Cliente cliente;
-
+    
     @Before
     public void inicializa() {
-        cliente = new Cliente("131", "Teste", "11111111111");
+        cliente = new Cliente("131", "Cliente Existente", "11111111111");
+        
     }
 
     @Test

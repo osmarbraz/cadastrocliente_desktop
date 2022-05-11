@@ -13,10 +13,12 @@ import org.junit.Test;
 public class TestDAOConsultaId {
 
     Cliente cliente;
+    Cliente clienteNaoExistente;
 
     @Before
     public void inicializa() {
         cliente = new Cliente("131", "Teste", "11111111111");
+        clienteNaoExistente = new Cliente("999", "Cliente Nao Existente", "11111111111");
     }
 
     @Test
@@ -33,6 +35,25 @@ public class TestDAOConsultaId {
         if (!lista.isEmpty()) {
             Cliente oCliente = (Cliente) lista.iterator().next();
             assertNotNull(oCliente);
+        } else {
+            assertFalse(false);
+        }
+    }
+
+    @Test
+    public void testConsulta1NaoExiste() {
+        DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.SQLITE);
+        ClienteDAO DAO = factory.getClienteDAO();
+        Cliente consulta = new Cliente();
+        consulta.setClienteId(clienteNaoExistente.getClienteId());
+        // Insere os dados da consulta
+        DAO.inserir(cliente);
+        //Consulta
+        List lista = DAO.aplicarFiltro(consulta);
+        //Verifica os dados    
+        if (!lista.isEmpty()) {
+            Cliente oCliente = (Cliente) lista.iterator().next();
+            assertNull(oCliente);
         } else {
             assertFalse(false);
         }
@@ -65,6 +86,25 @@ public class TestDAOConsultaId {
             assertFalse(false);
         }
     }
+    
+    @Test
+    public void testConsulta2NaoExiste() {
+        DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.HASHMAP);
+        ClienteDAO DAO = factory.getClienteDAO();
+        Cliente consulta = new Cliente();
+        consulta.setClienteId(clienteNaoExistente.getClienteId());
+        // Insere os dados da consulta
+        DAO.inserir(cliente);
+        //Consulta
+        List lista = DAO.aplicarFiltro(consulta);
+        //Verifica os dados    
+        if (!lista.isEmpty()) {
+            Cliente oCliente = (Cliente) lista.iterator().next();
+            assertNull(oCliente);
+        } else {
+            assertFalse(false);
+        }
+    }
 
     public void testConsulta2Null() {
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.HASHMAP);
@@ -89,6 +129,25 @@ public class TestDAOConsultaId {
         if (!lista.isEmpty()) {
             Cliente oCliente = (Cliente) lista.iterator().next();
             assertNotNull(oCliente);
+        } else {
+            assertFalse(false);
+        }
+    }
+    
+     @Test
+    public void testConsulta3NaoExiste() {
+        DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.RAF);
+        ClienteDAO DAO = factory.getClienteDAO();
+        Cliente consulta = new Cliente();
+        consulta.setClienteId(clienteNaoExistente.getClienteId());
+        // Insere os dados da consulta
+        DAO.inserir(cliente);
+        //Consulta
+        List lista = DAO.aplicarFiltro(consulta);
+        //Verifica os dados    
+        if (!lista.isEmpty()) {
+            Cliente oCliente = (Cliente) lista.iterator().next();
+            assertNull(oCliente);
         } else {
             assertFalse(false);
         }
