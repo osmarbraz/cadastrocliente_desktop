@@ -22,8 +22,7 @@ public class TestDAOConsultaCPF {
     @Test
     public void testConsulta1() {
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.SQLITE);
-        ClienteDAO DAO = factory.getClienteDAO();
-        DAO.criar();
+        ClienteDAO DAO = factory.getClienteDAO();        
         Cliente consulta = new Cliente();
         consulta.setCpf(cliente.getCpf());
         // Insere os dados da consulta
@@ -43,8 +42,7 @@ public class TestDAOConsultaCPF {
     @Test
     public void testConsulta2() {
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.HASHMAP);
-        ClienteDAO DAO = factory.getClienteDAO();
-        DAO.criar();
+        ClienteDAO DAO = factory.getClienteDAO();        
         Cliente consulta = new Cliente();
         consulta.setCpf(cliente.getCpf());
         // Insere os dados da consulta
@@ -64,8 +62,7 @@ public class TestDAOConsultaCPF {
     @Test
     public void testConsulta3() {
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.RAF);
-        ClienteDAO DAO = factory.getClienteDAO();
-        DAO.criar();
+        ClienteDAO DAO = factory.getClienteDAO();        
         Cliente consulta = new Cliente();
         consulta.setCpf(cliente.getCpf());
         // Insere os dados da consulta

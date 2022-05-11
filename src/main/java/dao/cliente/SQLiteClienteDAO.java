@@ -18,6 +18,10 @@ import entidade.Cliente;
  */
 public class SQLiteClienteDAO extends SQLiteDAOFactory implements ClienteDAO, SQLiteClienteMetaDados {
 
+    public SQLiteClienteDAO() {
+        criar();
+    }
+    
     @SuppressWarnings({"rawtypes", "unchecked"})
     private List select(String sql) {
         LinkedList lista = new LinkedList();

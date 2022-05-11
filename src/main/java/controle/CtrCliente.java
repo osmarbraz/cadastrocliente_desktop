@@ -27,7 +27,6 @@ public class CtrCliente {
         //Cria a tabela
         DAOFactory factory = DAOFactory.getDAOFactory(Factory.FABRICA);
         ClienteDAO clientedao = factory.getClienteDAO();
-        clientedao.criar();
 
         // Instancia a janela
         setFrmCliente(new FrmCliente());

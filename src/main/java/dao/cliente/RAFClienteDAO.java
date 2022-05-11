@@ -237,9 +237,4 @@ public class RAFClienteDAO extends RAFDAOFactory implements ClienteDAO {
         }
         return 0;
     }
-
-    @Override
-    public void criar() {
-        System.out.println("Não suportado.");
-    }
 }

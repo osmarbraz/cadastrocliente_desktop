@@ -123,9 +123,4 @@ public class HashMapClienteDAO extends HashMapDAOFactory implements ClienteDAO {
             return null;
         }
     }
-
-    @Override
-    public void criar() {
-        System.out.println("Não suportado.");
-    }
 }

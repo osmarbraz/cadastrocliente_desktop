@@ -22,8 +22,7 @@ public class TestDAOInclusao {
     @Test
     public void testIncluir1() throws Exception {
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.SQLITE);
-        ClienteDAO DAO = factory.getClienteDAO();
-        DAO.criar();
+        ClienteDAO DAO = factory.getClienteDAO();        
         // Insere os dados        
         DAO.inserir(cliente);
         //Consulta
@@ -41,8 +40,6 @@ public class TestDAOInclusao {
     public void testIncluir2() throws Exception {
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.HASHMAP);
         ClienteDAO DAO = factory.getClienteDAO();
-        DAO.criar();
-
         // Insere os dados        
         DAO.inserir(cliente);
         //Consulta
@@ -60,8 +57,6 @@ public class TestDAOInclusao {
     public void testIncluir3() throws Exception {
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.RAF);
         ClienteDAO DAO = factory.getClienteDAO();
-        DAO.criar();
-
         // Insere os dados        
         DAO.inserir(cliente);
         //Consulta

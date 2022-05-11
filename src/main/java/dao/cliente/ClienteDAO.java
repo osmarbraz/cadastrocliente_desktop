@@ -20,6 +20,4 @@ public interface ClienteDAO {
 
     @SuppressWarnings("rawtypes")
     public List getLista();
-
-    public void criar();
 }
