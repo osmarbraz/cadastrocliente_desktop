@@ -14,10 +14,12 @@ import static org.junit.Assert.assertTrue;
 public class TestDAOConsultaCPF {
 
     Cliente cliente;
+    Cliente clienteNaoExistente;
 
     @Before
     public void inicializa() {
-        cliente = new Cliente("131", "Teste", "11111111111");
+        cliente = new Cliente("131", "Cliente Existente", "11111111111");
+        clienteNaoExistente = new Cliente("999", "Cliente Nao Existente", "");
     }
 
     @Test
@@ -38,6 +40,17 @@ public class TestDAOConsultaCPF {
         } else {
             assertFalse(false);
         }
+    }
+
+    public void testConsulta1Inexistente() {
+        DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.SQLITE);
+        ClienteDAO DAO = factory.getClienteDAO();
+        Cliente consulta = new Cliente();
+        consulta.setCpf(clienteNaoExistente.getCpf());
+        //Consulta
+        List lista = DAO.aplicarFiltro(consulta);
+        //Verifica os dados    
+        assertTrue(lista.isEmpty());
     }
 
     @Test
@@ -70,6 +83,17 @@ public class TestDAOConsultaCPF {
         }
     }
 
+    public void testConsulta2Inexistente() {
+        DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.HASHMAP);
+        ClienteDAO DAO = factory.getClienteDAO();
+        Cliente consulta = new Cliente();
+        consulta.setCpf(clienteNaoExistente.getCpf());
+        //Consulta
+        List lista = DAO.aplicarFiltro(consulta);
+        //Verifica os dados    
+        assertTrue(lista.isEmpty());
+    }
+
     @Test
     public void testConsulta2Null() {
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.HASHMAP);
@@ -98,6 +122,17 @@ public class TestDAOConsultaCPF {
         } else {
             assertFalse(false);
         }
+    }
+
+    public void testConsulta3Inexistente() {
+        DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.RAF);
+        ClienteDAO DAO = factory.getClienteDAO();
+        Cliente consulta = new Cliente();
+        consulta.setCpf(clienteNaoExistente.getCpf());
+        //Consulta
+        List lista = DAO.aplicarFiltro(consulta);
+        //Verifica os dados    
+        assertTrue(lista.isEmpty());
     }
 
     @Test
