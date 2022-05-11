@@ -229,13 +229,10 @@ public class RAFClienteDAO extends RAFDAOFactory implements ClienteDAO {
                     registro.setCpf("");
                     registro.escrita(arquivo);
                 } else {
-                    System.out.println("ClienteId não encontrado");
+                    LOGGER.severe("ClienteId não encontrado!");
                 }
-            } catch (EOFException eof) {
-                LOGGER.severe("Problema no fim do arquivo em excluir:" + eof);
-            } catch (IOException io) {
-                LOGGER.severe("Problema de io no arquivo em excluir:" + io);
-            }
+            } catch (EOFException eof) {;} 
+            catch (IOException io) {;}
             return 1;
         }
         return 0;
@@ -243,6 +240,6 @@ public class RAFClienteDAO extends RAFDAOFactory implements ClienteDAO {
 
     @Override
     public void criar() {
-        throw new UnsupportedOperationException("Não suportado.");
+        System.out.println("Não suportado.");
     }
 }

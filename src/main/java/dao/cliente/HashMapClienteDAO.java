@@ -35,9 +35,7 @@ public class HashMapClienteDAO extends HashMapDAOFactory implements ClienteDAO {
             if (tem == false) {
                 mapa.put(cliente.getClienteId(), cliente);
                 return true;
-            } else {
-                return false;
-            }
+            } 
         }
         return false;
     }
@@ -51,9 +49,7 @@ public class HashMapClienteDAO extends HashMapDAOFactory implements ClienteDAO {
                 c.setNome(cliente.getNome());
                 c.setCpf(cliente.getCpf());
                 return 1;
-            } else {
-                return 0;
-            }
+            } 
         }
         return 0;
     }
@@ -69,8 +65,6 @@ public class HashMapClienteDAO extends HashMapDAOFactory implements ClienteDAO {
             if (tem == true) {
                 mapa.remove(cliente.getClienteId());
                 return 1;
-            } else {
-                return 0;
             }
         }
         return 0;
@@ -88,14 +82,14 @@ public class HashMapClienteDAO extends HashMapDAOFactory implements ClienteDAO {
     }
 
     @SuppressWarnings({"rawtypes", "unchecked"})
-    public List aplicarFiltro(Object obj) {
+    public List aplicarFiltro(Object obj) {        
         if (obj != null) {
             Cliente cliente = (Cliente) obj;
             List lista = new LinkedList();
             Iterator it = mapa.values().iterator();
 
             //Filtro para clienteId
-            if (cliente.getClienteId() != null) {
+            if (!"0".equals(cliente.getClienteId())) {
                 while (it.hasNext()) { //Avança enquanto tiver objetos
                     Cliente c = (Cliente) it.next();
                     if (c.getClienteId().equalsIgnoreCase(cliente.getClienteId())) {
@@ -104,7 +98,7 @@ public class HashMapClienteDAO extends HashMapDAOFactory implements ClienteDAO {
                 }
             } else {
                 //Filtro para nome
-                if (cliente.getNome() != null) {
+                if (!"".equals(cliente.getNome())) {
                     while (it.hasNext()) { //Avança enquanto tiver objetos
                         Cliente c = (Cliente) it.next();
                         if (c.getNome().equalsIgnoreCase(cliente.getNome())) {
@@ -113,7 +107,7 @@ public class HashMapClienteDAO extends HashMapDAOFactory implements ClienteDAO {
                     }
                 } else {
                     //Filtro para CPF
-                    if (cliente.getCpf() != null) {
+                    if (!"".equals(cliente.getCpf())) {
                         while (it.hasNext()) { //Avança enquanto tiver objetos
                             Cliente c = (Cliente) it.next();
                             if (c.getCpf().equalsIgnoreCase(cliente.getCpf())) {
@@ -132,6 +126,6 @@ public class HashMapClienteDAO extends HashMapDAOFactory implements ClienteDAO {
 
     @Override
     public void criar() {
-        throw new UnsupportedOperationException("Não suportado.");
+        System.out.println("Não suportado.");
     }
 }

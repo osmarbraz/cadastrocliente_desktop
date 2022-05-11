@@ -1,16 +1,15 @@
 package dao;
 
-import org.junit.Before;
-import org.junit.Test;
-import static org.junit.Assert.assertNotNull;
-
 import dao.cliente.*;
 import entidade.Cliente;
 import java.util.*;
 import org.junit.After;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import org.junit.Before;
+import org.junit.Test;
 
-public class TestDAOInclusao {
+public class TestDAOConsultaId {
 
     Cliente cliente;
 
@@ -20,14 +19,17 @@ public class TestDAOInclusao {
     }
 
     @Test
-    public void testIncluir1() throws Exception {
+    public void testConsulta1() {
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.SQLITE);
         ClienteDAO DAO = factory.getClienteDAO();
         DAO.criar();
-        // Insere os dados        
+        Cliente consulta = new Cliente();
+        consulta.setClienteId(cliente.getClienteId());
+        // Insere os dados da consulta
         DAO.inserir(cliente);
         //Consulta
-        List lista = DAO.aplicarFiltro(cliente);
+        List lista = DAO.aplicarFiltro(consulta);
+
         //Verifica os dados    
         if (!lista.isEmpty()) {
             Cliente oCliente = (Cliente) lista.iterator().next();
@@ -38,15 +40,17 @@ public class TestDAOInclusao {
     }
 
     @Test
-    public void testIncluir2() throws Exception {
+    public void testConsulta2() {
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.HASHMAP);
         ClienteDAO DAO = factory.getClienteDAO();
         DAO.criar();
-
-        // Insere os dados        
+        Cliente consulta = new Cliente();
+        consulta.setClienteId(cliente.getClienteId());
+        // Insere os dados da consulta
         DAO.inserir(cliente);
         //Consulta
-        List lista = DAO.aplicarFiltro(cliente);
+        List lista = DAO.aplicarFiltro(consulta);
+
         //Verifica os dados    
         if (!lista.isEmpty()) {
             Cliente oCliente = (Cliente) lista.iterator().next();
@@ -57,15 +61,17 @@ public class TestDAOInclusao {
     }
 
     @Test
-    public void testIncluir3() throws Exception {
+    public void testConsulta3() {
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.RAF);
         ClienteDAO DAO = factory.getClienteDAO();
         DAO.criar();
-
-        // Insere os dados        
+        Cliente consulta = new Cliente();
+        consulta.setClienteId(cliente.getClienteId());
+        // Insere os dados da consulta
         DAO.inserir(cliente);
         //Consulta
-        List lista = DAO.aplicarFiltro(cliente);
+        List lista = DAO.aplicarFiltro(consulta);
+
         //Verifica os dados    
         if (!lista.isEmpty()) {
             Cliente oCliente = (Cliente) lista.iterator().next();

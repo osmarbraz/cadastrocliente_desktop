@@ -47,6 +47,7 @@ public class Cliente {
 
     /**
      * Retorna o id de um cliente.
+     * @return Uma string com o Id
      */
     public String getClienteId() {
         return clienteId;
@@ -67,6 +68,7 @@ public class Cliente {
 
     /**
      * Retorna o nome de um cliente.
+     * @return Uma string com o nome
      */
     public String getNome() {
         return nome;
@@ -83,6 +85,7 @@ public class Cliente {
 
     /**
      * Retorna o cpf de um cliente.
+     * @return Uma string com o cpf
      */
     public String getCpf() {
         return cpf;
@@ -162,7 +165,7 @@ public class Cliente {
             setNome(oCliente.getNome());
             setCpf(oCliente.getCpf());
             return true;
-        } else {
+        } else {            
             return false;
         }
     }

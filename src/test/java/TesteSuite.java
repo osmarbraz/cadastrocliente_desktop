@@ -8,17 +8,25 @@ import junit.framework.JUnit4TestAdapter;
 import dao.TestDAOInclusao;
 import dao.TestDAOExclusao;
 import dao.TestDAOAlteracao;
+import dao.TestDAOConsultaCPF;
+import dao.TestDAOConsultaId;
+import dao.TestDAOConsultaNome;
 import dao.TestDAOFactory;
+import dao.cliente.TestRAFRegistroCliente;
 import util.TestValida;
 
 @RunWith(Suite.class)
 @SuiteClasses({
     TestCliente.class,
     TestDAOFactory.class,
-    TestDAOInclusao.class,
+    TestDAOConsultaId.class,
+    TestDAOConsultaNome.class,
+    TestDAOConsultaCPF.class,
     TestDAOAlteracao.class,
+    TestDAOInclusao.class,
     TestDAOExclusao.class,
-    TestValida.class})
+    TestValida.class,
+    TestRAFRegistroCliente.class})
 
 public class TesteSuite {
 

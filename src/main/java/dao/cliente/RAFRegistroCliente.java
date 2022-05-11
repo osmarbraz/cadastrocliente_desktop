@@ -31,12 +31,10 @@ public class RAFRegistroCliente extends Cliente {
         setCpf(lerString(arquivo, 11).trim());
     }
 
-    private void escreveString(RandomAccessFile arquivo, String name, int tamanho) throws IOException {
-        StringBuffer buf = null;
-        if (name != null) {
-            buf = new StringBuffer(name);
-        } else {
-            buf = new StringBuffer(tamanho);
+    private void escreveString(RandomAccessFile arquivo, String nome, int tamanho) throws IOException {
+        StringBuffer buf = new StringBuffer(tamanho);
+        if (nome != null) {
+            buf = new StringBuffer(nome);
         }
         buf.setLength(tamanho);
         arquivo.writeChars(buf.toString());
@@ -51,6 +49,10 @@ public class RAFRegistroCliente extends Cliente {
         return new String(name).replace('\0', ' ');
     }
 
+    /**
+     * Retorna o tamanho do registro em bytes.
+     * @return Um inteiro longo com o tamanho do registro.
+     */
     public long getTamanho() {
         return 200 + 22 + 4L;
     }
