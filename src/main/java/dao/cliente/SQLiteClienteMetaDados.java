@@ -29,6 +29,4 @@ public interface SQLiteClienteMetaDados {
             = TABLE + ".CLIENTEID, "
             + TABLE + ".NOME, "
             + TABLE + ".CPF";
-
-    // "TO_CHAR (" + TABLE + ".DATA_NASCIMENTO,'dd/mm/yyyy')CLIENTE_DATA_NASCIMENTO, " + 
 }

@@ -32,16 +32,17 @@ public class RAFRegistroCliente extends Cliente {
     }
 
     private void escreveString(RandomAccessFile arquivo, String nome, int tamanho) throws IOException {
-        StringBuffer buf = new StringBuffer(tamanho);
+        StringBuilder buf = new StringBuilder(tamanho);
         if (nome != null) {
-            buf = new StringBuffer(nome);
+            buf = new StringBuilder(nome);
         }
         buf.setLength(tamanho);
         arquivo.writeChars(buf.toString());
     }
 
     private String lerString(RandomAccessFile f, int tamanho) throws IOException {
-        char name[] = new char[tamanho], temp;
+        char[] name= new char[tamanho];
+        char temp;
         for (int i = 0; i < name.length; i++) {
             temp = f.readChar();
             name[i] = temp;
