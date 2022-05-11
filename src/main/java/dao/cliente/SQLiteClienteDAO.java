@@ -251,9 +251,9 @@ public class SQLiteClienteDAO extends SQLiteDAOFactory implements ClienteDAO, SQ
     }
 
     public void criar() {
+        Connection con = null;
+        Statement stmt = null;
         try {
-            Connection con = null;
-            Statement stmt = null;
             con = getConnection();
             stmt = con.createStatement();
             //Cria a tabela senão existir
@@ -265,6 +265,20 @@ public class SQLiteClienteDAO extends SQLiteDAOFactory implements ClienteDAO, SQ
         } catch (Exception e) {
             LOGGER.severe("Erro no criar:" + e);
         } finally {
+            if (stmt != null) {
+                try {
+                    stmt.close();
+                } catch (SQLException e) {;
+                }
+                stmt = null;
+            }
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (SQLException e) {;
+                }
+                con = null;
+            }
         }
     }
 }
