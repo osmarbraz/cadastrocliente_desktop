@@ -23,13 +23,13 @@
     <properties>        
         <sonar.organization>osmarbraz</sonar.organization>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
-        <sonar.coverage.exclusions>**/*Principal.*</sonar.coverage.exclusions>        
-        <sonar.coverage.exclusions>**/formulario/*</sonar.coverage.exclusions>     
-        <sonar.coverage.exclusions>**/controle/*</sonar.coverage.exclusions>     
-        <sonar.coverage.exclusions>**/controle/CtrCliente.java</sonar.coverage.exclusions>     
-        <sonar.coverage.exclusions>**/SQLiteDadosBanco.java</sonar.coverage.exclusions>     
-        <sonar.coverage.exclusions>**/Factory.java</sonar.coverage.exclusions>     
-        <sonar.coverage.exclusions>**/ClienteDAO.java</sonar.coverage.exclusions>     
+        <sonar.coverage.exclusions>Principal.*</sonar.coverage.exclusions>        
+        <sonar.coverage.exclusions>formulario/*</sonar.coverage.exclusions>     
+        <sonar.coverage.exclusions>controle/*</sonar.coverage.exclusions>     
+        <sonar.coverage.exclusions>controle/CtrCliente.java</sonar.coverage.exclusions>     
+        <sonar.coverage.exclusions>dao/SQLiteDadosBanco.java</sonar.coverage.exclusions>     
+        <sonar.coverage.exclusions>dao/Factory.java</sonar.coverage.exclusions>     
+        <sonar.coverage.exclusions>dao/cliente/ClienteDAO.java</sonar.coverage.exclusions>     
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
@@ -67,13 +67,13 @@
                 <version>0.8.8</version>
                 <configuration>                    
                     <excludes>                        
-                        <exclude>**/*Principal.java</exclude>
-                        <exclude>**/formulario/*</exclude> 
-                        <exclude>**/controle/CtrCliente.java</exclude>
-                        <exclude>**/controle/*</exclude>   
-                        <exclude>**/SQLiteDadosBanco.java</exclude>
-                        <exclude>**/Factory.java</exclude>
-                        <exclude>**/ClienteDAO.java</exclude>
+                        <exclude>Principal.java</exclude>
+                        <exclude>formulario/*</exclude> 
+                        <exclude>controle/CtrCliente.java</exclude>
+                        <exclude>controle/*</exclude>   
+                        <exclude>dao/SQLiteDadosBanco.java</exclude>
+                        <exclude>dao/Factory.java</exclude>
+                        <exclude>dao/cliente/ClienteDAO.java</exclude>
                     </excludes>
                 </configuration>
                 <executions>
