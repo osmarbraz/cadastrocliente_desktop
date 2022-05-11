@@ -9,6 +9,7 @@ import java.util.logging.Logger;
 
 import dao.cliente.ClienteDAO;
 import dao.cliente.SQLiteClienteDAO;
+import java.util.logging.Level;
 
 /**
  * Implementa a fonte de dado para persistência em arquivo utilizando SGBD
@@ -22,15 +23,7 @@ public class SQLiteDAOFactory extends DAOFactory {
 
     private String driverClass;
     private String jdbcURL;
-
-    /**
-     * Construtor sem argumentos.
-     */
-    public SQLiteDAOFactory() {
-        setDriverClass(SQLiteDadosBanco.DRIVER);
-        setJdbcURL("jdbc:sqlite:" + SQLiteDadosBanco.DATABASE);
-    }
-
+    
     public String getDriverClass() {
         return driverClass;
     }
@@ -54,14 +47,18 @@ public class SQLiteDAOFactory extends DAOFactory {
      * @exception SQLException
      */
     protected Connection getConnection() throws SQLException {
+        //Define do driver e a url de conexão
+        setDriverClass(SQLiteDadosBanco.DRIVER);
+        setJdbcURL("jdbc:sqlite:" + SQLiteDadosBanco.DATABASE);
+        //Realiza a conexão
         Connection con = null;
         try {
             Class.forName(getDriverClass());
             con = DriverManager.getConnection(getJdbcURL());
-        } catch (ClassNotFoundException e) {
-            LOGGER.severe("Classe não encontrada!");
+        } catch (ClassNotFoundException e) {            
+            LOGGER.log(Level.SEVERE, "Classe não encontrada!{0}", e);
         } catch (SQLException e) {
-            LOGGER.severe("Problema na conexão!");
+            LOGGER.log(Level.SEVERE, "Problema na conexão!{0}", e);
             throw e;
         }
         return con;
@@ -91,8 +88,7 @@ public class SQLiteDAOFactory extends DAOFactory {
      * @param collection
      */
     public String implode(String separator, @SuppressWarnings("rawtypes") Collection collection) {
-        StringBuilder textBuilderReturn = new StringBuilder();
-        @SuppressWarnings("rawtypes")
+        StringBuilder textBuilderReturn = new StringBuilder();        
         Iterator it = collection.iterator();
         while (it.hasNext()) {
             String text = (String) it.next();

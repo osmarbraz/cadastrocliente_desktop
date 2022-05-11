@@ -9,6 +9,8 @@ import java.util.Collections;
 
 import dao.HashMapDAOFactory;
 import entidade.Cliente;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Implementa a persitência para cliente utilizando HashMap.
@@ -17,8 +19,10 @@ import entidade.Cliente;
  */
 public class HashMapClienteDAO extends HashMapDAOFactory implements ClienteDAO {
 
+    private static final Logger LOGGER = Logger.getLogger(HashMapClienteDAO.class.getName());
+    
     private static final Map<String, Cliente> mapa = new HashMap<>();
-
+    
     @Override
     public boolean inserir(Object obj) {
         if (obj != null) {
@@ -27,6 +31,8 @@ public class HashMapClienteDAO extends HashMapDAOFactory implements ClienteDAO {
             if (!tem) {
                 mapa.put(cliente.getClienteId(), cliente);
                 return true;
+            } else {
+                LOGGER.log(Level.SEVERE, "Problema em inserir o registro!");                
             }
         }
         return false;
@@ -42,6 +48,8 @@ public class HashMapClienteDAO extends HashMapDAOFactory implements ClienteDAO {
                 c.setNome(cliente.getNome());
                 c.setCpf(cliente.getCpf());
                 return 1;
+            } else {
+                LOGGER.log(Level.SEVERE, "Problema em altear o registro!");
             }
         }
         return 0;
@@ -55,6 +63,8 @@ public class HashMapClienteDAO extends HashMapDAOFactory implements ClienteDAO {
             if (tem) {
                 mapa.remove(cliente.getClienteId());
                 return 1;
+            } else {
+                LOGGER.log(Level.SEVERE, "Problema em excluir o registro!");
             }
         }
         return 0;
