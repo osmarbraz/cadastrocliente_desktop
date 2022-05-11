@@ -81,5 +81,5 @@
             </plugin>
         </plugins>        
     </build>
-    
+    <name>cadastrocliente_desktop</name>
 </project>

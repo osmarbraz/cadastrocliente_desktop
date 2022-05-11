@@ -1,5 +1,5 @@
 [![Github Actions Status for osmarbraz/cadastrocliente_destkop](https://github.com/osmarbraz/cadastrocliente_desktop/workflows/ntegração%20continua%20de%20Java%20com%20Maven/badge.svg)](https://github.com/osmarbraz/cadastrocliente_desktop/actions) 
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=cadastrocliente_destkop&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=cadastrocliente_destkop)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=cadastrocliente_desktop&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=cadastrocliente_destkop)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=cadastrocliente_desktop&metric=coverage)](https://sonarcloud.io/component_measures?id=cadastrocliente_destkop&metric=coverage)
 
 # Sistema de Cadastro de Clientes para Desktop em Banco de Dados em 3 camadas utilizando o padrão Abstract Factory.
