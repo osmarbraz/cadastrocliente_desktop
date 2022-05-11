@@ -6,6 +6,7 @@ import java.util.List;
 
 import dao.RAFDAOFactory;
 import entidade.Cliente;
+import java.util.logging.Logger;
 
 /**
  * Implementa a persitência para cliente utilizando Arquivo de Acesso
@@ -14,6 +15,8 @@ import entidade.Cliente;
  * @author osmarbraz
  */
 public class RAFClienteDAO extends RAFDAOFactory implements ClienteDAO {
+    
+    private static final Logger LOGGER = Logger.getLogger(RAFClienteDAO.class.getName() );
 
     private RandomAccessFile arquivo;
 
@@ -26,14 +29,16 @@ public class RAFClienteDAO extends RAFDAOFactory implements ClienteDAO {
         try {
             File NomeArquivo = new File("cliente.dat");
             arquivo = new RandomAccessFile(NomeArquivo, "rw");
-        } catch (IOException e) {            
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
     public void fecharArquivo() {
         try {
             arquivo.close();
-        } catch (IOException e) {            
+        } catch (IOException e) {    
+            e.printStackTrace();
         }
     }
 
@@ -50,6 +55,7 @@ public class RAFClienteDAO extends RAFDAOFactory implements ClienteDAO {
                     registro.escrita(arquivo);
                     return true;
                 } catch (IOException e) {
+                    e.printStackTrace();
                 }
             } else {
                 return false;
@@ -74,7 +80,9 @@ public class RAFClienteDAO extends RAFDAOFactory implements ClienteDAO {
                 lista.add(cli);
             }
         } catch (EOFException eof) {
+            eof.printStackTrace();
         } catch (IOException io) {
+            io.printStackTrace();
         }
         return lista;
     }
@@ -101,7 +109,9 @@ public class RAFClienteDAO extends RAFDAOFactory implements ClienteDAO {
                         }
                     }
                 } catch (EOFException eof) {
+                    eof.printStackTrace();
                 } catch (IOException io) {
+                    io.printStackTrace();
                 }
             } else {
                 //Filtro para nome
@@ -120,7 +130,9 @@ public class RAFClienteDAO extends RAFDAOFactory implements ClienteDAO {
                             }
                         }
                     } catch (EOFException eof) {
+                        eof.printStackTrace();
                     } catch (IOException io) {
+                        io.printStackTrace();
                     }
                 } else {
                     //Filtro para CPF
@@ -139,7 +151,9 @@ public class RAFClienteDAO extends RAFDAOFactory implements ClienteDAO {
                                 }
                             }
                         } catch (EOFException eof) {
+                            eof.printStackTrace();
                         } catch (IOException io) {                         
+                            io.printStackTrace();
                         }
                     }
                 }
@@ -170,7 +184,9 @@ public class RAFClienteDAO extends RAFDAOFactory implements ClienteDAO {
                     return 0;
                 }
             } catch (EOFException eof) {
+                eof.printStackTrace();
             } catch (IOException io) {
+                io.printStackTrace();
             }
             return 1;
         }
@@ -191,7 +207,9 @@ public class RAFClienteDAO extends RAFDAOFactory implements ClienteDAO {
                 cont = cont + 1;
             }
         } catch (EOFException eof) {
+            eof.printStackTrace();
         } catch (IOException io) {
+            io.printStackTrace();
         }
         return pos;
     }
@@ -215,7 +233,9 @@ public class RAFClienteDAO extends RAFDAOFactory implements ClienteDAO {
                     System.out.println("ClienteId não encontrado");
                 }
             } catch (EOFException eof) {
+                eof.printStackTrace();
             } catch (IOException io) {                
+                io.printStackTrace();
             }
             return 1;
         }
