@@ -9,6 +9,7 @@ import static org.junit.Assert.assertFalse;
 import dao.cliente.*;
 import entidade.Cliente;
 import java.util.*;
+import static org.junit.Assert.assertEquals;
 
 public class TestDAOAlteracao {
 
@@ -36,7 +37,7 @@ public class TestDAOAlteracao {
             if (!lista.isEmpty()) {
                 Cliente aCliente = (Cliente) lista.iterator().next();
                 //Compara a alteração com o dado do objeto
-                assertTrue(nomeAlteracao.equals(aCliente.getNome()));
+                assertEquals(nomeAlteracao, aCliente.getNome());
             } else {
                 assertFalse(false);
             }
@@ -62,7 +63,7 @@ public class TestDAOAlteracao {
             if (!lista.isEmpty()) {
                 Cliente aCliente = (Cliente) lista.iterator().next();
                 //Compara a alteração com o dado do objeto
-                assertTrue(nomeAlteracao.equals(aCliente.getNome()));
+                assertEquals(nomeAlteracao, aCliente.getNome());
             } else {
                 assertFalse(false);
             }
@@ -88,7 +89,7 @@ public class TestDAOAlteracao {
             if (!lista.isEmpty()) {
                 Cliente aCliente = (Cliente) lista.iterator().next();
                 //Compara a alteração com o dado do objeto
-                assertTrue(nomeAlteracao.equals(aCliente.getNome()));
+                assertEquals(nomeAlteracao, aCliente.getNome());
             } else {
                 assertFalse(false);
             }

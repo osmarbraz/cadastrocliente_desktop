@@ -31,7 +31,7 @@ public class TestDAOExclusao {
             Cliente oCliente = (Cliente) lista.iterator().next();
             DAO.excluir(oCliente);
             lista = DAO.aplicarFiltro(cliente);
-            assertEquals(lista.size(), 0);
+            assertEquals(0, lista.size());
         } else {
             assertFalse(false);
         }
@@ -48,7 +48,7 @@ public class TestDAOExclusao {
             Cliente oCliente = (Cliente) lista.iterator().next();
             DAO.excluir(oCliente);
             lista = DAO.aplicarFiltro(cliente);
-            assertEquals(lista.size(), 0);
+            assertEquals(0, lista.size());
         } else {
             assertFalse(false);
         }
@@ -65,7 +65,7 @@ public class TestDAOExclusao {
             Cliente oCliente = (Cliente) lista.iterator().next();
             DAO.excluir(oCliente);
             lista = DAO.aplicarFiltro(cliente);
-            assertEquals(lista.size(), 0);
+            assertEquals(0, lista.size());
         } else {
             assertFalse(false);
         }

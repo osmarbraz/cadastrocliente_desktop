@@ -133,7 +133,7 @@ public class Cliente {
 
     /**
      * Retorna uma lista de objetos que atende os valores passados pelo objeto.
-     * O Id realiza comparação e o nome realiza uma compara��o parcial.
+     * O Id realiza comparação e o nome realiza uma comparação parcial.
      */
     public List aplicarFiltro() {
         DAOFactory factory = DAOFactory.getDAOFactory(Factory.FABRICA);
