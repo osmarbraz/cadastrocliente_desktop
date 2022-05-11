@@ -25,6 +25,30 @@ public class SQLiteClienteDAO extends SQLiteDAOFactory implements ClienteDAO, SQ
     public SQLiteClienteDAO() {
         criar();
     }
+    
+    public void fecharAcessoBD(Connection con, Statement stmt, ResultSet rs){
+         if (rs != null) {
+                try {
+                    rs.close();
+                } catch (SQLException e) {
+                }
+                rs = null;
+            }
+            if (stmt != null) {
+                try {
+                    stmt.close();
+                } catch (SQLException e) {
+                }
+                stmt = null;
+            }
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (SQLException e) {
+                }
+                con = null;
+            }
+    }
 
     @SuppressWarnings({"rawtypes", "unchecked"})
     private List<Cliente> select(String sql) {
@@ -53,27 +77,7 @@ public class SQLiteClienteDAO extends SQLiteDAOFactory implements ClienteDAO, SQ
         } catch (SQLException e) {
             LOGGER.severe("Erro no select:" + e);
         } finally {
-            if (rs != null) {
-                try {
-                    rs.close();
-                } catch (SQLException e) {
-                }
-                rs = null;
-            }
-            if (stmt != null) {
-                try {
-                    stmt.close();
-                } catch (SQLException e) {
-                }
-                stmt = null;
-            }
-            if (con != null) {
-                try {
-                    con.close();
-                } catch (SQLException e) {
-                }
-                con = null;
-            }
+            fecharAcessoBD(con, stmt, rs);
         }
         return lista;
     }
@@ -106,20 +110,7 @@ public class SQLiteClienteDAO extends SQLiteDAOFactory implements ClienteDAO, SQ
                 LOGGER.severe("Erro no inserir:" + e);
                 res = false;
             } finally {
-                if (stmt != null) {
-                    try {
-                        stmt.close();
-                    } catch (SQLException e) {
-                    }
-                    stmt = null;
-                }
-                if (con != null) {
-                    try {
-                        con.close();
-                    } catch (SQLException e) {
-                    }
-                    con = null;
-                }
+               fecharAcessoBD(con, stmt, null);
             }
             return res;
         }
@@ -152,20 +143,7 @@ public class SQLiteClienteDAO extends SQLiteDAOFactory implements ClienteDAO, SQ
                 LOGGER.severe("Erro no alterar:" + e);
                 res = 0;
             } finally {
-                if (stmt != null) {
-                    try {
-                        stmt.close();
-                    } catch (SQLException e) {
-                    }
-                    stmt = null;
-                }
-                if (con != null) {
-                    try {
-                        con.close();
-                    } catch (SQLException e) {
-                    }
-                    con = null;
-                }
+                fecharAcessoBD(con, stmt, null);
             }
             return res;
         }
@@ -194,20 +172,7 @@ public class SQLiteClienteDAO extends SQLiteDAOFactory implements ClienteDAO, SQ
                 LOGGER.severe("Erro no excluir:" + e);
                 res = 0;
             } finally {
-                if (stmt != null) {
-                    try {
-                        stmt.close();
-                    } catch (SQLException e) {
-                    }
-                    stmt = null;
-                }
-                if (con != null) {
-                    try {
-                        con.close();
-                    } catch (SQLException e) {
-                    }
-                    con = null;
-                }
+                fecharAcessoBD(con, stmt, null);
             }
             return res;
         }
@@ -268,20 +233,7 @@ public class SQLiteClienteDAO extends SQLiteDAOFactory implements ClienteDAO, SQ
         } catch (Exception e) {
             LOGGER.severe("Erro no criar:" + e);
         } finally {
-            if (stmt != null) {
-                try {
-                    stmt.close();
-                } catch (SQLException e) {
-                }
-                stmt = null;
-            }
-            if (con != null) {
-                try {
-                    con.close();
-                } catch (SQLException e) {
-                }
-                con = null;
-            }
+            fecharAcessoBD(con, stmt, null);
         }
     }
 }
