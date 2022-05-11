@@ -56,21 +56,21 @@ public class SQLiteClienteDAO extends SQLiteDAOFactory implements ClienteDAO, SQ
             if (rs != null) {
                 try {
                     rs.close();
-                } catch (SQLException e) {;
+                } catch (SQLException e) {
                 }
                 rs = null;
             }
             if (stmt != null) {
                 try {
                     stmt.close();
-                } catch (SQLException e) {;
+                } catch (SQLException e) {
                 }
                 stmt = null;
             }
             if (con != null) {
                 try {
                     con.close();
-                } catch (SQLException e) {;
+                } catch (SQLException e) {
                 }
                 con = null;
             }
@@ -78,6 +78,7 @@ public class SQLiteClienteDAO extends SQLiteDAOFactory implements ClienteDAO, SQ
         return lista;
     }
 
+    @Override
     public boolean inserir(Object obj) {
         if (obj != null) {
             Cliente cliente = (Cliente) obj;
@@ -108,14 +109,14 @@ public class SQLiteClienteDAO extends SQLiteDAOFactory implements ClienteDAO, SQ
                 if (stmt != null) {
                     try {
                         stmt.close();
-                    } catch (SQLException e) {;
+                    } catch (SQLException e) {
                     }
                     stmt = null;
                 }
                 if (con != null) {
                     try {
                         con.close();
-                    } catch (SQLException e) {;
+                    } catch (SQLException e) {
                     }
                     con = null;
                 }
@@ -124,7 +125,8 @@ public class SQLiteClienteDAO extends SQLiteDAOFactory implements ClienteDAO, SQ
         }
         return false;
     }
-
+    
+    @Override
     public int alterar(Object obj) {
         if (obj != null) {
             Cliente cliente = (Cliente) obj;
@@ -153,14 +155,14 @@ public class SQLiteClienteDAO extends SQLiteDAOFactory implements ClienteDAO, SQ
                 if (stmt != null) {
                     try {
                         stmt.close();
-                    } catch (SQLException e) {;
+                    } catch (SQLException e) {
                     }
                     stmt = null;
                 }
                 if (con != null) {
                     try {
                         con.close();
-                    } catch (SQLException e) {;
+                    } catch (SQLException e) {
                     }
                     con = null;
                 }
@@ -170,6 +172,7 @@ public class SQLiteClienteDAO extends SQLiteDAOFactory implements ClienteDAO, SQ
         return 0;
     }
 
+    @Override
     public int excluir(Object obj) {
         if (obj != null) {
             Cliente cliente = (Cliente) obj;
@@ -194,14 +197,14 @@ public class SQLiteClienteDAO extends SQLiteDAOFactory implements ClienteDAO, SQ
                 if (stmt != null) {
                     try {
                         stmt.close();
-                    } catch (SQLException e) {;
+                    } catch (SQLException e) {
                     }
                     stmt = null;
                 }
                 if (con != null) {
                     try {
                         con.close();
-                    } catch (SQLException e) {;
+                    } catch (SQLException e) {
                     }
                     con = null;
                 }
@@ -211,12 +214,12 @@ public class SQLiteClienteDAO extends SQLiteDAOFactory implements ClienteDAO, SQ
         return 0;
     }
 
-    @SuppressWarnings("rawtypes")
+    @Override
     public List<Cliente> getLista() {
         return select("select " + METADADOSSELECT + " from " + TABLE + " order by " + TABLE + "." + PK[0]);
     }
-
-    @SuppressWarnings({"rawtypes", "unchecked"})
+    
+    @Override    
     public List<Cliente> aplicarFiltro(Object obj) {
         if (obj != null) {
             Cliente cliente = (Cliente) obj;
@@ -250,7 +253,7 @@ public class SQLiteClienteDAO extends SQLiteDAOFactory implements ClienteDAO, SQ
         }
     }
 
-    public void criar() {
+    private void criar() {
         Connection con = null;
         Statement stmt = null;
         try {
@@ -268,14 +271,14 @@ public class SQLiteClienteDAO extends SQLiteDAOFactory implements ClienteDAO, SQ
             if (stmt != null) {
                 try {
                     stmt.close();
-                } catch (SQLException e) {;
+                } catch (SQLException e) {
                 }
                 stmt = null;
             }
             if (con != null) {
                 try {
                     con.close();
-                } catch (SQLException e) {;
+                } catch (SQLException e) {
                 }
                 con = null;
             }

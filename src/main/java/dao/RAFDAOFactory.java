@@ -12,16 +12,11 @@ import dao.cliente.RAFClienteDAO;
 public class RAFDAOFactory extends DAOFactory {
 
     /**
-     * Construtor sem argumentos.
-     */
-    public RAFDAOFactory() {
-    }
-
-    /**
      * Retorna uma Cliente DAO
      *
      * @return ClienteDAO Um DAO para cliente
      */
+    @Override
     public ClienteDAO getClienteDAO() {
         return new RAFClienteDAO();
     }

@@ -109,6 +109,7 @@ public class SQLiteDAOFactory extends DAOFactory {
      *
      * @return ClienteDAO Um DAO para cliente
      */
+    @Override
     public ClienteDAO getClienteDAO() {
         return new SQLiteClienteDAO();
     }

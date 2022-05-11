@@ -10,9 +10,6 @@ import dao.cliente.HashMapClienteDAO;
  */
 public class HashMapDAOFactory extends DAOFactory {
 
-    public HashMapDAOFactory() {
-    }
-
     /**
      * Retorna uma Cliente DAO
      *
