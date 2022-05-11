@@ -7,7 +7,9 @@ import java.util.Collection;
 import java.util.Iterator;
 
 import dao.cliente.ClienteDAO;
+import dao.cliente.RAFClienteDAO;
 import dao.cliente.SQLiteClienteDAO;
+import java.util.logging.Logger;
 
 /**
  * Implementa a fonte de dado para persistência em arquivo utilizando SGBD
@@ -17,6 +19,8 @@ import dao.cliente.SQLiteClienteDAO;
  */
 public class SQLiteDAOFactory extends DAOFactory {
 
+    private static final Logger LOGGER = Logger.getLogger(RAFClienteDAO.class.getName() );
+    
     private String driverClass;
     private String jdbcURL;
 
@@ -56,8 +60,9 @@ public class SQLiteDAOFactory extends DAOFactory {
             Class.forName(getDriverClass());
             con = DriverManager.getConnection(getJdbcURL());
         } catch (ClassNotFoundException e) {
-            System.err.println(e);
+            LOGGER.severe("Classe não encontrada!");
         } catch (SQLException e) {
+            LOGGER.severe("Problema na conexão!");
             throw e;
         }
         return con;

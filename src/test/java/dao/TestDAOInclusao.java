@@ -23,7 +23,7 @@ public class TestDAOInclusao {
     public void testIncluir1() throws Exception {
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.SQLITE);
         ClienteDAO DAO = factory.getClienteDAO();
-
+        DAO.criar();
         // Insere os dados        
         DAO.inserir(cliente);
         //Consulta

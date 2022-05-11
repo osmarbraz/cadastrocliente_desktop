@@ -22,8 +22,9 @@ public class TestDAOExclusao {
 
     @Test
     public void testExclusao1() {
-        DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.SQLITE);
+        DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.SQLITE);        
         ClienteDAO DAO = factory.getClienteDAO();
+        DAO.criar();
         DAO.inserir(cliente);
         List lista = DAO.aplicarFiltro(cliente);
 

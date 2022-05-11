@@ -15,8 +15,8 @@ import java.util.logging.Logger;
  * @author osmarbraz
  */
 public class RAFClienteDAO extends RAFDAOFactory implements ClienteDAO {
-    
-    private static final Logger LOGGER = Logger.getLogger(RAFClienteDAO.class.getName() );
+
+    private static final Logger LOGGER = Logger.getLogger(RAFClienteDAO.class.getName());
 
     private RandomAccessFile arquivo;
 
@@ -24,21 +24,20 @@ public class RAFClienteDAO extends RAFDAOFactory implements ClienteDAO {
         abrirArquivo();
     }
 
-   
     private void abrirArquivo() {
         try {
             File NomeArquivo = new File("cliente.dat");
             arquivo = new RandomAccessFile(NomeArquivo, "rw");
         } catch (IOException e) {
-            e.printStackTrace();
+            LOGGER.severe("Problema em abrir o arquivo!" + e);
         }
     }
 
     public void fecharArquivo() {
         try {
             arquivo.close();
-        } catch (IOException e) {    
-            e.printStackTrace();
+        } catch (IOException e) {
+            LOGGER.severe("Problema em fecjar o arquivo!" + e);
         }
     }
 
@@ -55,7 +54,7 @@ public class RAFClienteDAO extends RAFDAOFactory implements ClienteDAO {
                     registro.escrita(arquivo);
                     return true;
                 } catch (IOException e) {
-                    e.printStackTrace();
+                    LOGGER.severe("Problema em inserir o registro!" + e);
                 }
             } else {
                 return false;
@@ -80,9 +79,9 @@ public class RAFClienteDAO extends RAFDAOFactory implements ClienteDAO {
                 lista.add(cli);
             }
         } catch (EOFException eof) {
-            eof.printStackTrace();
+            LOGGER.severe("Problema no fim do arquivo!" + eof);
         } catch (IOException io) {
-            io.printStackTrace();
+            LOGGER.severe("Problema de no arquivo!" + io);
         }
         return lista;
     }
@@ -109,9 +108,9 @@ public class RAFClienteDAO extends RAFDAOFactory implements ClienteDAO {
                         }
                     }
                 } catch (EOFException eof) {
-                    eof.printStackTrace();
+                    LOGGER.severe("Problema no fim do arquivo!" + eof);
                 } catch (IOException io) {
-                    io.printStackTrace();
+                    LOGGER.severe("Problema de no arquivo!" + io);
                 }
             } else {
                 //Filtro para nome
@@ -130,9 +129,9 @@ public class RAFClienteDAO extends RAFDAOFactory implements ClienteDAO {
                             }
                         }
                     } catch (EOFException eof) {
-                        eof.printStackTrace();
+                        LOGGER.severe("Problema no fim do arquivo!" + eof);
                     } catch (IOException io) {
-                        io.printStackTrace();
+                        LOGGER.severe("Problema de no arquivo!" + io);
                     }
                 } else {
                     //Filtro para CPF
@@ -151,9 +150,9 @@ public class RAFClienteDAO extends RAFDAOFactory implements ClienteDAO {
                                 }
                             }
                         } catch (EOFException eof) {
-                            eof.printStackTrace();
-                        } catch (IOException io) {                         
-                            io.printStackTrace();
+                            LOGGER.severe("Problema no fim do arquivo!" + eof);
+                        } catch (IOException io) {
+                            LOGGER.severe("Problema de no arquivo!" + io);
                         }
                     }
                 }
@@ -184,9 +183,9 @@ public class RAFClienteDAO extends RAFDAOFactory implements ClienteDAO {
                     return 0;
                 }
             } catch (EOFException eof) {
-                eof.printStackTrace();
+                LOGGER.severe("Problema no fim do arquivo!" + eof);
             } catch (IOException io) {
-                io.printStackTrace();
+                LOGGER.severe("Problema de no arquivo!" + io);
             }
             return 1;
         }
@@ -207,9 +206,9 @@ public class RAFClienteDAO extends RAFDAOFactory implements ClienteDAO {
                 cont = cont + 1;
             }
         } catch (EOFException eof) {
-            eof.printStackTrace();
+            LOGGER.severe("Problema no fim do arquivo!" + eof);
         } catch (IOException io) {
-            io.printStackTrace();
+            LOGGER.severe("Problema de no arquivo!" + io);
         }
         return pos;
     }
@@ -233,9 +232,9 @@ public class RAFClienteDAO extends RAFDAOFactory implements ClienteDAO {
                     System.out.println("ClienteId não encontrado");
                 }
             } catch (EOFException eof) {
-                eof.printStackTrace();
-            } catch (IOException io) {                
-                io.printStackTrace();
+                LOGGER.severe("Problema no fim do arquivo!" + eof);
+            } catch (IOException io) {
+                LOGGER.severe("Problema de no arquivo!" + io);
             }
             return 1;
         }

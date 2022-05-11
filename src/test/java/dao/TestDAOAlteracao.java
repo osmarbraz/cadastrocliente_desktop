@@ -24,6 +24,7 @@ public class TestDAOAlteracao {
     public void testAlteracao1() {
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.SQLITE);
         ClienteDAO DAO = factory.getClienteDAO();
+        DAO.criar();
         DAO.inserir(cliente);
         List lista = DAO.aplicarFiltro(cliente);
         //Dado a ser alterado
