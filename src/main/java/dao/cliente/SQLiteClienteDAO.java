@@ -28,11 +28,11 @@ public class SQLiteClienteDAO extends SQLiteDAOFactory implements ClienteDAO, SQ
 
     @SuppressWarnings({"rawtypes", "unchecked"})
     private List<Cliente> select(String sql) {
-        List<Cliente> lista = new LinkedList<>();
-        Connection con = null;
-        Statement stmt = null;
-        ResultSet rs = null;
+        List<Cliente> lista = new LinkedList<>();        
         try {
+            Connection con = null;
+            Statement stmt = null;
+            ResultSet rs = null;
             con = getConnection();
             stmt = con.createStatement();
             rs = stmt.executeQuery(sql);
@@ -57,12 +57,12 @@ public class SQLiteClienteDAO extends SQLiteDAOFactory implements ClienteDAO, SQ
 
     public boolean inserir(Object obj) {
         if (obj != null) {
-            Cliente cliente = (Cliente) obj;
-            Connection con = null;
-            Statement stmt = null;
+            Cliente cliente = (Cliente) obj;            
             boolean res = false;
             StringBuilder sql = new StringBuilder();
             try {
+                Connection con = null;
+                Statement stmt = null;
                 sql.append("insert into " + TABLE + "(");
                 sql.append(METADADOSINSERT + " ) ");
 
@@ -89,12 +89,12 @@ public class SQLiteClienteDAO extends SQLiteDAOFactory implements ClienteDAO, SQ
 
     public int alterar(Object obj) {
         if (obj != null) {
-            Cliente cliente = (Cliente) obj;
-            Connection con = null;
-            Statement stmt = null;
+            Cliente cliente = (Cliente) obj;            
             int res = 0;
             StringBuilder sql = new StringBuilder();
             try {
+                Connection con = null;
+                Statement stmt = null;
                 sql.append("update " + TABLE);
                 sql.append(" set NOME='" + cliente.getNome() + "',");
                 sql.append(" CPF='" + cliente.getCpf() + "'");
@@ -120,12 +120,11 @@ public class SQLiteClienteDAO extends SQLiteDAOFactory implements ClienteDAO, SQ
     public int excluir(Object obj) {
         if (obj != null) {
             Cliente cliente = (Cliente) obj;
-            Connection con = null;
-            Statement stmt = null;
-
             StringBuilder sql = new StringBuilder();
             int res = 0;
             try {
+                Connection con = null;
+                Statement stmt = null;
                 sql.append("delete from " + TABLE + " where " + TABLE + "." + PK[0] + " = '" + preparaSQL(cliente.getClienteId()) + "'");
                 con = getConnection();
                 stmt = con.createStatement();
@@ -183,10 +182,10 @@ public class SQLiteClienteDAO extends SQLiteDAOFactory implements ClienteDAO, SQ
         }
     }
 
-    public void criar() {
-        Connection con = null;
-        Statement stmt = null;
+    public void criar() {        
         try {
+            Connection con = null;
+            Statement stmt = null;
             con = getConnection();
             stmt = con.createStatement();
             //Cria a tabela senão existir
@@ -197,7 +196,7 @@ public class SQLiteClienteDAO extends SQLiteDAOFactory implements ClienteDAO, SQ
             con = null;
         } catch (Exception e) {
             LOGGER.severe("Erro no criar:" + e);
-        } finally {           
+        } finally {            
         }
     }
 }

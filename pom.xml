@@ -68,7 +68,7 @@
                     <excludes>                        
                         <exclude>Principal.java</exclude>
                         <exclude>**/formulario/**/*</exclude> 
-                        <exclude>**/controle//**/*</exclude>
+                        <exclude>**/controle/**/*</exclude>
                         <exclude>dao/SQLiteDadosBanco.java</exclude>
                         <exclude>dao/Factory.java</exclude>
                         <exclude>dao/cliente/ClienteDAO.java</exclude>
