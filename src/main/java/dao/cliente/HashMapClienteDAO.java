@@ -73,67 +73,35 @@ public class HashMapClienteDAO extends HashMapDAOFactory implements ClienteDAO {
         if (obj != null) {
             Cliente cliente = (Cliente) obj;
             List<Cliente> lista = new LinkedList<>();
+            Iterator it = mapa.values().iterator();
 
-            //Filtro para clienteId
-            if (!"0".equals(cliente.getClienteId())) {
-                lista = aplicarFiltroId(cliente);
-            }
+            while (it.hasNext()) { //Avança enquanto tiver objetos
+                Cliente c = (Cliente) it.next();
 
-            //Filtro para nome
-            if (!"".equals(cliente.getNome())) {
-                lista = aplicarFiltroNome(cliente);
-            }
+                //Filtro para clienteId
+                if (!"0".equals(cliente.getClienteId())) {
+                    if (c.getClienteId().equalsIgnoreCase(cliente.getClienteId())) {
+                        lista.add(c);
+                    }
+                }
 
-            //Filtro para CPF
-            if (!"".equals(cliente.getCpf())) {
-                lista = aplicarFiltroCpf(cliente);
+                //Filtro para nome
+                if (!"".equals(cliente.getNome())) {
+                    if (c.getClienteId().equalsIgnoreCase(cliente.getClienteId())) {
+                        lista.add(c);
+                    }
+                }
+
+                //Filtro para CPF
+                if (!"".equals(cliente.getCpf())) {
+                    if (c.getCpf().equalsIgnoreCase(cliente.getCpf())) {
+                        lista.add(c);
+                    }
+                }
             }
             return lista;
         } else {
             return Collections.emptyList();
         }
-    }
-
-    @SuppressWarnings({"rawtypes", "unchecked"})
-    public List<Cliente> aplicarFiltroId(Cliente cliente) {
-        List<Cliente> lista = new LinkedList<>();
-        Iterator it = mapa.values().iterator();
-        //Filtro para clienteId
-
-        while (it.hasNext()) { //Avança enquanto tiver objetos
-            Cliente c = (Cliente) it.next();
-            if (c.getClienteId().equalsIgnoreCase(cliente.getClienteId())) {
-                lista.add(c);
-            }
-        }
-        return lista;
-    }
-
-    @SuppressWarnings({"rawtypes", "unchecked"})
-    public List<Cliente> aplicarFiltroNome(Cliente cliente) {
-        List<Cliente> lista = new LinkedList<>();
-        Iterator it = mapa.values().iterator();
-        //Filtro para nome
-        while (it.hasNext()) { //Avança enquanto tiver objetos
-            Cliente c = (Cliente) it.next();
-            if (c.getNome().equalsIgnoreCase(cliente.getNome())) {
-                lista.add(c);
-            }
-        }
-        return lista;
-    }
-
-    @SuppressWarnings({"rawtypes", "unchecked"})
-    public List<Cliente> aplicarFiltroCpf(Cliente cliente) {
-        List<Cliente> lista = new LinkedList<>();
-        Iterator it = mapa.values().iterator();
-        //Filtro para nome
-        while (it.hasNext()) { //Avança enquanto tiver objetos
-            Cliente c = (Cliente) it.next();
-            if (c.getCpf().equalsIgnoreCase(cliente.getCpf())) {
-                lista.add(c);
-            }
-        }
-        return lista;
     }
 }

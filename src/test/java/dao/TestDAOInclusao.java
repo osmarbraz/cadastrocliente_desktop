@@ -6,9 +6,11 @@ import static org.junit.Assert.assertNotNull;
 
 import dao.cliente.*;
 import entidade.Cliente;
+import java.sql.SQLException;
 import java.util.*;
 import org.junit.After;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.fail;
 
 public class TestDAOInclusao {
 
@@ -43,7 +45,7 @@ public class TestDAOInclusao {
         // Insere os dados        
         assertFalse(DAO.inserir(null));
     }
-
+    
     @Test
     public void testIncluir2() throws Exception {
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.HASHMAP);
@@ -112,5 +114,9 @@ public class TestDAOInclusao {
         DAO.excluir(cliente);
 
         cliente = null;
+    }
+
+    private Object assertThat(Exception e) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

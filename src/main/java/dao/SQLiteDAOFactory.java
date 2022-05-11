@@ -7,7 +7,6 @@ import java.util.Collection;
 import java.util.Iterator;
 
 import dao.cliente.ClienteDAO;
-import dao.cliente.RAFClienteDAO;
 import dao.cliente.SQLiteClienteDAO;
 import java.util.logging.Logger;
 

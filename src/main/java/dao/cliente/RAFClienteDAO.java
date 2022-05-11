@@ -107,6 +107,14 @@ public class RAFClienteDAO extends RAFDAOFactory implements ClienteDAO {
             return Collections.emptyList();
         }
     }
+    
+    public Cliente gerarRegistro(RAFRegistroCliente registro) {
+        Cliente cliente = new Cliente();
+        cliente.setClienteId(registro.getClienteId());
+        cliente.setNome(registro.getNome());
+        cliente.setCpf(registro.getCpf());        
+        return cliente;
+    }
 
     public List<Cliente> aplicarFiltroId(Cliente cliente) {
         List<Cliente> lista = new LinkedList<>();
@@ -117,12 +125,8 @@ public class RAFClienteDAO extends RAFDAOFactory implements ClienteDAO {
 
             while (arquivo.getFilePointer() < arquivo.length()) { //Avança enquanto tiver objetos
                 registro.leitura(arquivo);
-                if (registro.getClienteId().equalsIgnoreCase(cliente.getClienteId())) {
-                    Cliente cli = new Cliente();
-                    cli.setClienteId(registro.getClienteId());
-                    cli.setNome(registro.getNome());
-                    cli.setCpf(registro.getCpf());
-                    lista.add(cli);
+                if (registro.getClienteId().equalsIgnoreCase(cliente.getClienteId())) {                    
+                    lista.add(gerarRegistro(registro));
                 }
             }
         } catch (EOFException eof) {
@@ -142,11 +146,7 @@ public class RAFClienteDAO extends RAFDAOFactory implements ClienteDAO {
             while (arquivo.getFilePointer() < arquivo.length()) { //Avança enquanto tiver objetos
                 registro.leitura(arquivo);
                 if (registro.getNome().equalsIgnoreCase(cliente.getNome())) {
-                    Cliente cli = new Cliente();
-                    cli.setClienteId(registro.getClienteId());
-                    cli.setNome(registro.getNome());
-                    cli.setCpf(registro.getCpf());
-                    lista.add(cli);
+                    lista.add(gerarRegistro(registro));
                 }
             }
         } catch (EOFException eof) {
@@ -166,11 +166,7 @@ public class RAFClienteDAO extends RAFDAOFactory implements ClienteDAO {
             while (arquivo.getFilePointer() < arquivo.length()) { //Avança enquanto tiver objetos
                 registro.leitura(arquivo);
                 if (registro.getCpf().equalsIgnoreCase(cliente.getCpf())) {
-                    Cliente cli = new Cliente();
-                    cli.setClienteId(registro.getClienteId());
-                    cli.setNome(registro.getNome());
-                    cli.setCpf(registro.getCpf());
-                    lista.add(cli);
+                    lista.add(gerarRegistro(registro));
                 }
             }
         } catch (EOFException eof) {
