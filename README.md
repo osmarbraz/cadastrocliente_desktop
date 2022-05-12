@@ -4,7 +4,7 @@
 
 # Sistema de Cadastro de Clientes para Desktop em Banco de Dados em 3 camadas utilizando o padrão Abstract Factory.
  - O projeto foi desenvolvido no NetBeans deve ser chamado cadastrocliente_desktop.<br>
- - Utiliza o Apache Mavem para a automatização da construção.
+ - Utiliza o Apache Maven para a automatização da construção.<br>
  - O projeto é um CRUD para os dados de cliente(clienteId, Nome, CPF).
  - As classes do projeto está organizado nos pacotes visão, controle, modelo, dao além de um pacote util.<br>
  - Utiliza o padrão abstract factory para abstrair 3 formas de armazenamento:
@@ -17,4 +17,5 @@
  - Toda iteração com banco de dados é tratada diretamente pelo DAO(Data Access Object).<br>
  - Os dados de configuração (Servidor, Database, Usuario, Senha) da integração do java com o banco de dados estão no arquivo src/dao/SQLiteDadosBanco.java.<br>
  - A especificação da fábrica a ser utilizada é feita na interface Factory.java.
-  - A pasta test contêm os testes unitários do projeto utilizando JUnit 4.<br>
+ - A pasta test contêm os testes unitários do projeto utilizando JUnit 4.<br>
+ - A cobertura do código é realizada através do JaCoCo.<br>
