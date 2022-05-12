@@ -1,11 +1,12 @@
 [![Github Actions Status for osmarbraz/cadastrocliente_desktop](https://github.com/osmarbraz/cadastrocliente_desktop/workflows/Integra%C3%A7%C3%A3o%20continua%20de%20Java%20com%20Maven/badge.svg)](https://github.com/osmarbraz/cadastrocliente_desktop/actions) 
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=cadastrocliente_desktop&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=cadastrocliente_destkop)
-[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=cadastrocliente_desktop&metric=coverage)](https://sonarcloud.io/component_measures?id=cadastrocliente_destkop&metric=coverage)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=cadastrocliente_desktop&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=cadastrocliente_desktop)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=cadastrocliente_desktop&metric=coverage)](https://sonarcloud.io/component_measures?id=cadastrocliente_desktop&metric=coverage)
 
 # Sistema de Cadastro de Clientes para Desktop em Banco de Dados em 3 camadas utilizando o padrão Abstract Factory.
- - O projeto é uma versão do sistema para a IDE NetBeans.<br> 
- - O projeto no NetBeans deve ser chamado cadastrocliente_desktop.<br>
- - Este programa possui diversas classes organizada nos pacotes visão, controle, modelo e dao.<br>
+ - O projeto foi desenvolvido no NetBeans deve ser chamado cadastrocliente_desktop.<br>
+ - Utiliza o Apache Mavem para a automatização da construção.
+ - O projeto é um CRUD para os dados de cliente(clienteId, Nome, CPF).
+ - As classes do projeto está organizado nos pacotes visão, controle, modelo, dao além de um pacote util.<br>
  - Utiliza o padrão abstract factory para abstrair 3 formas de armazenamento:
 	- 1 - Banco de Dados(sqllite)
 	- 2 - HashMap
@@ -14,7 +15,6 @@
  - A aplicação esta configurada para utilizar inicialmente memória principal(Hashmap) para armazenamento.
  - Se desejar utilizar outra fonte de dados, edite o arquivo src\dao\Factory.java alterando a FABRICA para outro valor.
  - Toda iteração com banco de dados é tratada diretamente pelo DAO(Data Access Object).<br>
- - Os dados de configuração (Servidor, Database, Usuario, Senha) da integração do java com o banco de dados estão no arquivo src/dao/OracleDAOFactory.java.<br>
+ - Os dados de configuração (Servidor, Database, Usuario, Senha) da integração do java com o banco de dados estão no arquivo src/dao/SQLiteDadosBanco.java.<br>
  - A especificação da fábrica a ser utilizada é feita na interface Factory.java.
- - Crie o banco de dados antes de executar o projeto, as especificações das tabelas estão no arquivo banco_oracle.sql.<br>
- - A pasta test contêm os testes unitários do projeto utilizando JUnit 4.<br>
+  - A pasta test contêm os testes unitários do projeto utilizando JUnit 4.<br>
