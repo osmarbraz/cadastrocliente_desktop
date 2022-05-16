@@ -1,7 +1,7 @@
 package util;
 
 /**
- * Classe utilitaria para conter operações de validação
+ * Classe utilitária para conter operações de validação
  *
  * @author osmarbraz
  */

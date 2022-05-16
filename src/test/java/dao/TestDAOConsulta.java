@@ -1,12 +1,14 @@
 package dao;
 
-import dao.cliente.*;
-import entidade.Cliente;
-import java.util.*;
 import org.junit.After;
-import static org.junit.Assert.assertNotEquals;
 import org.junit.Before;
+import static org.junit.Assert.assertNotEquals;
 import org.junit.Test;
+
+import java.util.List;
+
+import dao.cliente.ClienteDAO;
+import entidade.Cliente;
 
 public class TestDAOConsulta {
 

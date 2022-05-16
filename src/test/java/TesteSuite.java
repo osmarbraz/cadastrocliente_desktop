@@ -1,12 +1,12 @@
 
-import cliente.TestCliente;
-import dao.TesteSuiteDAO;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
-
 import junit.framework.JUnit4TestAdapter;
+
 import util.TestValida;
+import cliente.TestCliente;
+import dao.TesteSuiteDAO;
 
 @RunWith(Suite.class)
 @SuiteClasses({

@@ -1,11 +1,11 @@
 package dao;
 
-import cliente.TestCliente;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
-
 import junit.framework.JUnit4TestAdapter;
+
+import cliente.TestCliente;
 import dao.cliente.TestRAFRegistroCliente;
 
 @RunWith(Suite.class)

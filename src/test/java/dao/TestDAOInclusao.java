@@ -112,8 +112,4 @@ public class TestDAOInclusao {
 
         cliente = null;
     }
-
-    private Object assertThat(Exception e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 }
