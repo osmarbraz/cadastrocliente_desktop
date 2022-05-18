@@ -5,12 +5,10 @@ import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 import junit.framework.JUnit4TestAdapter;
 
-import cliente.TestCliente;
 import dao.cliente.TestRAFRegistroCliente;
 
 @RunWith(Suite.class)
-@SuiteClasses({
-    TestCliente.class,
+@SuiteClasses({        
     TestDAOFactory.class,
     TestDAOConsulta.class,
     TestDAOConsultaId.class,

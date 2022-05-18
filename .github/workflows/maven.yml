@@ -33,15 +33,20 @@ jobs:
     environment: 
       name: hmg
     needs: build-dev
+    # Compila com diversas versões do JDK
+    strategy:
+      matrix: 
+        java: [16, 17, 18]
+    name: build-hmg - JDK ${{ matrix.java }}... 
     steps:
     - name: Realiza o checkout do repositório
       uses: actions/checkout@v3 
       with:
         fetch-depth: 0 
-    - name: Configura o JDK 18
+    - name: Configura o JDK ${{ matrix.java }}
       uses: actions/setup-java@v3      
       with:
-        java-version: '18'
+        java-version: ${{ matrix.java }}
         distribution: 'temurin'
         cache: maven
     - name: Testa o projeto com Maven

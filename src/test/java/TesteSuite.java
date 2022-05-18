@@ -9,11 +9,10 @@ import cliente.TestCliente;
 import dao.TesteSuiteDAO;
 
 @RunWith(Suite.class)
-@SuiteClasses({
-    TestCliente.class,
+@SuiteClasses({    
     TesteSuiteDAO.class,
+    TestCliente.class,
     TestValida.class})
-
 public class TesteSuite {
 
     public static junit.framework.Test suite() {

@@ -5,6 +5,7 @@
     <artifactId>cadastrocliente_desktop</artifactId>
     <version>1</version>
     <packaging>jar</packaging>
+    <name>cadastrocliente_desktop</name>
     
     <dependencies>
         <dependency>
@@ -83,6 +84,5 @@
                 </executions>
             </plugin>
         </plugins>        
-    </build>
-    <name>cadastrocliente_desktop</name>
+    </build>    
 </project>
