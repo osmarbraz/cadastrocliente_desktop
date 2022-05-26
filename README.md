@@ -18,4 +18,15 @@
  - Os dados de configuração (Servidor, Database, Usuario, Senha) da integração do java com o banco de dados estão no arquivo src/dao/SQLiteDadosBanco.java.<br>
  - A especificação da fábrica a ser utilizada é feita na interface Factory.java.
  - A pasta test contêm os testes unitários do projeto utilizando JUnit 4.<br>
- - A cobertura do código é realizada através do JaCoCo.<br>
+ - Os testes são realizados no SO ubuntu-lastest e JDK 16, 17 e 18.<br>
+ - A cobertura do código é realizada através do JaCoCo e relatório enviado para o Sonarcloud.<br>
+
+Utiliza 3 ambientes:
+- dev - Desenvolvimento.
+- hmg - Homologação.
+- prd - Produção.
+
+Pipeline de CI:
+- dev - Compilação e testes do desenvolvimento nas versões JDK 16, 17 e 18. 
+- hmg - Análise e cobertura código.
+- prd - Empacotamento.
