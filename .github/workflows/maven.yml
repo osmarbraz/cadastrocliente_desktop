@@ -110,6 +110,6 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         # Nome do arquivo a ser gerado
-        name: Package-${{  matrix.os }} #.zip será adicionado automaticamente
+        name: Package-${{  runner.os }} #.zip será adicionado automaticamente
         # Caminho da pasta temporária (stating)
         path: staging     
