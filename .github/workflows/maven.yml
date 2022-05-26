@@ -18,7 +18,7 @@ jobs:
     strategy:
       matrix: 
         java: [16, 17, 18]
-    name: build-hmg - Teste com JDK ${{ matrix.java }}... 
+    name: build-dev - Teste com JDK ${{ matrix.java }}
     steps:
     # Utiliza a action checkout para fazer o git clone no runner
     - name: Realiza o checkout do repositório
