@@ -22,11 +22,11 @@ public class FrmCliente extends JFrame {
     private JPanel contentPane;
 
     private JLabel jLClienteId;
-    public JTextField jTClienteId;
+    private JTextField jTClienteId;
     private JLabel jLNome;
-    public JTextField jTNome;
+    private JTextField jTNome;
     private JLabel jLCpf;
-    public JTextField jTCpf;
+    private JTextField jTCpf;
 
     public JButton jBIncluir;
     public JButton jBAlterar;
@@ -40,6 +40,30 @@ public class FrmCliente extends JFrame {
      */
     public FrmCliente() {
         inicializar();
+    }
+    
+    public JTextField getjTClienteId() {
+        return jTClienteId;
+    }
+
+    public void setjTClienteId(JTextField jTClienteId) {
+        this.jTClienteId = jTClienteId;
+    }
+
+    public JTextField getjTNome() {
+        return jTNome;
+    }
+
+    public void setjTNome(JTextField jTNome) {
+        this.jTNome = jTNome;
+    }
+
+    public JTextField getjTCpf() {
+        return jTCpf;
+    }
+
+    public void setjTCpf(JTextField jTCpf) {
+        this.jTCpf = jTCpf;
     }
 
     /**

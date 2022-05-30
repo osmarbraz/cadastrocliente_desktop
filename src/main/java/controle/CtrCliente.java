@@ -5,7 +5,6 @@ import java.awt.event.ActionEvent;
 import formulario.FrmCliente;
 import entidade.Cliente;
 import util.Valida;
-import dao.cliente.ClienteDAO;
 import dao.DAOFactory;
 import dao.Factory;
 
@@ -31,46 +30,32 @@ public class CtrCliente {
 
         // Associa os eventos aos componentes
         getFrmCliente().jBIncluir
-                .addActionListener(new java.awt.event.ActionListener() {
-                    public void actionPerformed(ActionEvent e) {
-                        jBIncluir_actionPerformed(e);
-                    }
-                });
+                .addActionListener((ActionEvent e) -> {
+                    jBIncluir_actionPerformed(e);
+        });
 
         getFrmCliente().jBAlterar
-                .addActionListener(new java.awt.event.ActionListener() {
-                    public void actionPerformed(ActionEvent e) {
-                        jBAlterar_actionPerformed(e);
-                    }
-                });
+                .addActionListener(this::jBAlterar_actionPerformed);
 
         getFrmCliente().jBConsultar
-                .addActionListener(new java.awt.event.ActionListener() {
-                    public void actionPerformed(ActionEvent e) {
-                        jBConsultar_actionPerformed(e);
-                    }
-                });
+                .addActionListener((ActionEvent e) -> {
+                    jBConsultar_actionPerformed(e);
+        });
 
         getFrmCliente().jBExcluir
-                .addActionListener(new java.awt.event.ActionListener() {
-                    public void actionPerformed(ActionEvent e) {
-                        jBExcluir_actionPerformed(e);
-                    }
-                });
+                .addActionListener((ActionEvent e) -> {
+                    jBExcluir_actionPerformed(e);
+        });
 
         getFrmCliente().jBLimpar
-                .addActionListener(new java.awt.event.ActionListener() {
-                    public void actionPerformed(ActionEvent e) {
-                        jBLimpar_actionPerformed(e);
-                    }
-                });
+                .addActionListener((ActionEvent e) -> {
+                    jBLimpar_actionPerformed(e);
+        });
 
         getFrmCliente().jBFechar
-                .addActionListener(new java.awt.event.ActionListener() {
-                    public void actionPerformed(ActionEvent e) {
-                        jBFechar_actionPerformed(e);
-                    }
-                });
+                .addActionListener((ActionEvent e) -> {
+                    jBFechar_actionPerformed(e);
+        });
     }
 
     /**
@@ -87,9 +72,9 @@ public class CtrCliente {
      */
     public void jBIncluir_actionPerformed(ActionEvent e) {
         Cliente cliente = new Cliente();
-        cliente.setClienteId(getFrmCliente().jTClienteId.getText());
-        cliente.setNome(getFrmCliente().jTNome.getText());
-        cliente.setCpf(getFrmCliente().jTCpf.getText());
+        cliente.setClienteId(getFrmCliente().getjTClienteId().getText());
+        cliente.setNome(getFrmCliente().getjTNome().getText());
+        cliente.setCpf(getFrmCliente().getjTCpf().getText());
         Valida valida = new Valida();
         boolean cpfValido = valida.validaCPF(cliente.getCpf());
         if (cpfValido == true) {
@@ -111,9 +96,9 @@ public class CtrCliente {
      */
     public void jBAlterar_actionPerformed(ActionEvent e) {
         Cliente cliente = new Cliente();
-        cliente.setClienteId(getFrmCliente().jTClienteId.getText());
-        cliente.setNome(getFrmCliente().jTNome.getText());
-        cliente.setCpf(getFrmCliente().jTCpf.getText());
+        cliente.setClienteId(getFrmCliente().getjTClienteId().getText());
+        cliente.setNome(getFrmCliente().getjTNome().getText());
+        cliente.setCpf(getFrmCliente().getjTCpf().getText());
         Valida valida = new Valida();
         boolean cpfValido = valida.validaCPF(cliente.getCpf());
         if (cpfValido == true) {
@@ -135,11 +120,11 @@ public class CtrCliente {
      */
     public void jBConsultar_actionPerformed(ActionEvent e) {
         Cliente cliente = new Cliente();
-        cliente.setClienteId(getFrmCliente().jTClienteId.getText());
+        cliente.setClienteId(getFrmCliente().getjTClienteId().getText());
         boolean resultado = cliente.abrir();
         if (resultado == true) {
-            getFrmCliente().jTNome.setText(cliente.getNome());
-            getFrmCliente().jTCpf.setText(cliente.getCpf());
+            getFrmCliente().getjTNome().setText(cliente.getNome());
+            getFrmCliente().getjTCpf().setText(cliente.getCpf());
             getFrmCliente().mostrarMensagem("Cliente encontrado!");
         } else {
             getFrmCliente().mostrarMensagem("Cliente não encontrado!");
@@ -153,7 +138,7 @@ public class CtrCliente {
      */
     public void jBExcluir_actionPerformed(ActionEvent e) {
         Cliente cliente = new Cliente();
-        cliente.setClienteId(getFrmCliente().jTClienteId.getText());
+        cliente.setClienteId(getFrmCliente().getjTClienteId().getText());
         int resultado = cliente.excluir();
         if (resultado != 0) {
             getFrmCliente().mostrarMensagem("Exclusão realizada com sucesso!");
@@ -168,9 +153,9 @@ public class CtrCliente {
      * @param e Objeto do evento.
      */
     public void jBLimpar_actionPerformed(ActionEvent e) {
-        getFrmCliente().jTClienteId.setText("");
-        getFrmCliente().jTNome.setText("");
-        getFrmCliente().jTCpf.setText("");
+        getFrmCliente().getjTClienteId().setText("");
+        getFrmCliente().getjTNome().setText("");
+        getFrmCliente().getjTCpf().setText("");
     }
 
     /**
@@ -184,6 +169,7 @@ public class CtrCliente {
 
     /**
      * Retorna o formulário utilizado por este controle.
+     * @return Um formulário.
      */
     public FrmCliente getFrmCliente() {
         return frmCliente;
