@@ -25,29 +25,29 @@ public class SQLiteClienteDAO extends SQLiteDAOFactory implements ClienteDAO, SQ
     public SQLiteClienteDAO() {
         criar();
     }
-    
-    public void fecharAcessoBD(Connection con, Statement stmt, ResultSet rs){
-         if (rs != null) {
-                try {
-                    rs.close();
-                } catch (SQLException e) {
-                }
-                rs = null;
+
+    public void fecharAcessoBD(Connection con, Statement stmt, ResultSet rs) {
+        if (rs != null) {
+            try {
+                rs.close();
+            } catch (SQLException e) {
             }
-            if (stmt != null) {
-                try {
-                    stmt.close();
-                } catch (SQLException e) {
-                }
-                stmt = null;
+            rs = null;
+        }
+        if (stmt != null) {
+            try {
+                stmt.close();
+            } catch (SQLException e) {
             }
-            if (con != null) {
-                try {
-                    con.close();
-                } catch (SQLException e) {
-                }
-                con = null;
+            stmt = null;
+        }
+        if (con != null) {
+            try {
+                con.close();
+            } catch (SQLException e) {
             }
+            con = null;
+        }
     }
 
     @SuppressWarnings({"rawtypes", "unchecked"})
@@ -110,13 +110,13 @@ public class SQLiteClienteDAO extends SQLiteDAOFactory implements ClienteDAO, SQ
                 LOGGER.severe("Erro no inserir:" + e);
                 res = false;
             } finally {
-               fecharAcessoBD(con, stmt, null);
+                fecharAcessoBD(con, stmt, null);
             }
             return res;
         }
         return false;
     }
-    
+
     @Override
     public int alterar(Object obj) {
         if (obj != null) {
@@ -183,8 +183,8 @@ public class SQLiteClienteDAO extends SQLiteDAOFactory implements ClienteDAO, SQ
     public List<Cliente> getLista() {
         return select("select " + METADADOSSELECT + " from " + TABLE + " order by " + TABLE + "." + PK[0]);
     }
-    
-    @Override    
+
+    @Override
     public List<Cliente> aplicarFiltro(Object obj) {
         if (obj != null) {
             Cliente cliente = (Cliente) obj;

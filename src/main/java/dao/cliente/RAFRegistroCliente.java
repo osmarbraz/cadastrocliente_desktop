@@ -42,7 +42,7 @@ public class RAFRegistroCliente extends Cliente {
     }
 
     private String lerString(RandomAccessFile f, int tamanho) throws IOException {
-        char[] name= new char[tamanho];
+        char[] name = new char[tamanho];
         char temp;
         for (int i = 0; i < name.length; i++) {
             temp = f.readChar();

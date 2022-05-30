@@ -7,7 +7,7 @@ package util;
  */
 public class Valida {
 
-   /**
+    /**
      * Valida os digitos verificadores de um CPF.
      *
      * @param cpf Um literal com um cpf de cliente.
@@ -15,7 +15,7 @@ public class Valida {
      */
     public boolean validaCPF(String cpf) {
         boolean retorno = false;
-        if (cpf.length() == 11) {            
+        if (cpf.length() == 11) {
             String digitos = cpf.substring(9, 11);
             int soma = 0, multiplicacao = 11;
             int[] valores = new int[11];

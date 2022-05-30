@@ -89,7 +89,7 @@ public class RAFClienteDAO extends RAFDAOFactory implements ClienteDAO {
         }
         return lista;
     }
-    
+
     @Override
     public List<Cliente> aplicarFiltro(Object obj) {
         if (obj != null) {
@@ -112,12 +112,12 @@ public class RAFClienteDAO extends RAFDAOFactory implements ClienteDAO {
             return Collections.emptyList();
         }
     }
-    
+
     public Cliente gerarRegistro(RAFRegistroCliente registro) {
         Cliente cliente = new Cliente();
         cliente.setClienteId(registro.getClienteId());
         cliente.setNome(registro.getNome());
-        cliente.setCpf(registro.getCpf());        
+        cliente.setCpf(registro.getCpf());
         return cliente;
     }
 
@@ -129,7 +129,7 @@ public class RAFClienteDAO extends RAFDAOFactory implements ClienteDAO {
             RAFRegistroCliente registro = new RAFRegistroCliente();
             while (arquivo.getFilePointer() < arquivo.length()) { //Avança enquanto tiver objetos
                 registro.leitura(arquivo);
-                if (registro.getClienteId().equalsIgnoreCase(cliente.getClienteId())) {                    
+                if (registro.getClienteId().equalsIgnoreCase(cliente.getClienteId())) {
                     lista.add(gerarRegistro(registro));
                 }
             }

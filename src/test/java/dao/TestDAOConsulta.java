@@ -13,10 +13,10 @@ import entidade.Cliente;
 public class TestDAOConsulta {
 
     Cliente cliente;
-    
+
     @Before
     public void inicializa() {
-        cliente = new Cliente("131", "Cliente Existente", "11111111111");        
+        cliente = new Cliente("131", "Cliente Existente", "11111111111");
     }
 
     @Test

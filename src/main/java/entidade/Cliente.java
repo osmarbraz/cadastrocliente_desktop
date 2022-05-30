@@ -114,6 +114,7 @@ public class Cliente {
 
     /**
      * Persiste um objeto.
+     *
      * @return Se conseguiu inserir o objeto.
      */
     public boolean inserir() {
@@ -124,6 +125,7 @@ public class Cliente {
 
     /**
      * Altera o estado de um objeto persistente.
+     *
      * @return A quantidade de objetos atualizados.
      */
     public int alterar() {
@@ -134,7 +136,8 @@ public class Cliente {
 
     /**
      * Exclui um objeto da persistência através do identificado.
-     * @return 
+     *
+     * @return
      */
     public int excluir() {
         DAOFactory factory = DAOFactory.getDAOFactory(Factory.FABRICA);
@@ -143,7 +146,9 @@ public class Cliente {
     }
 
     /**
-     * Retorna uma lista de objetos que atende os valores passados pelo objeto.O Id realiza comparação e o nome realiza uma comparação parcial.
+     * Retorna uma lista de objetos que atende os valores passados pelo objeto.O
+     * Id realiza comparação e o nome realiza uma comparação parcial.
+     *
      * @return Uma lista com os objetos selecionados.
      */
     public List aplicarFiltro() {
@@ -154,6 +159,7 @@ public class Cliente {
 
     /**
      * Retorna uma lista com todos os objetos.
+     *
      * @return Uma lista com todos os objetos.
      */
     public List getLista() {
@@ -164,6 +170,7 @@ public class Cliente {
 
     /**
      * Restaura o estado do objeto apartir do id.
+     *
      * @return Se conseguiu abrir o objeto.
      */
     public boolean abrir() {

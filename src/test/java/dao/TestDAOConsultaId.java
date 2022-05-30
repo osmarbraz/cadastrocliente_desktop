@@ -88,7 +88,7 @@ public class TestDAOConsultaId {
             assertFalse(false);
         }
     }
-    
+
     @Test
     public void testConsulta2NaoExisteId() {
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.HASHMAP);
@@ -135,8 +135,8 @@ public class TestDAOConsultaId {
             assertFalse(false);
         }
     }
-    
-     @Test
+
+    @Test
     public void testConsulta3NaoExisteId() {
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.RAF);
         ClienteDAO DAO = factory.getClienteDAO();

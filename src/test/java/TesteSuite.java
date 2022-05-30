@@ -9,7 +9,7 @@ import cliente.TestCliente;
 import dao.TesteSuiteDAO;
 
 @RunWith(Suite.class)
-@SuiteClasses({    
+@SuiteClasses({
     TesteSuiteDAO.class,
     TestCliente.class,
     TestValida.class})

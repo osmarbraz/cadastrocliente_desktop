@@ -8,7 +8,7 @@ import junit.framework.JUnit4TestAdapter;
 import dao.cliente.TestRAFRegistroCliente;
 
 @RunWith(Suite.class)
-@SuiteClasses({        
+@SuiteClasses({
     TestDAOFactory.class,
     TestDAOConsulta.class,
     TestDAOConsultaId.class,

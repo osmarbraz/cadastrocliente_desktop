@@ -23,7 +23,7 @@ public class SQLiteDAOFactory extends DAOFactory {
 
     private String driverClass;
     private String jdbcURL;
-    
+
     public String getDriverClass() {
         return driverClass;
     }
@@ -55,7 +55,7 @@ public class SQLiteDAOFactory extends DAOFactory {
         try {
             Class.forName(getDriverClass());
             con = DriverManager.getConnection(getJdbcURL());
-        } catch (ClassNotFoundException e) {            
+        } catch (ClassNotFoundException e) {
             LOGGER.log(Level.SEVERE, "Classe não encontrada!{0}", e);
         } catch (SQLException e) {
             LOGGER.log(Level.SEVERE, "Problema na conexão!{0}", e);
@@ -88,7 +88,7 @@ public class SQLiteDAOFactory extends DAOFactory {
      * @param collection
      */
     public String implode(String separator, @SuppressWarnings("rawtypes") Collection collection) {
-        StringBuilder textBuilderReturn = new StringBuilder();        
+        StringBuilder textBuilderReturn = new StringBuilder();
         Iterator it = collection.iterator();
         while (it.hasNext()) {
             String text = (String) it.next();

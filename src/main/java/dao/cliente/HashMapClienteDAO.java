@@ -20,9 +20,9 @@ import java.util.logging.Logger;
 public class HashMapClienteDAO extends HashMapDAOFactory implements ClienteDAO {
 
     private static final Logger LOGGER = Logger.getLogger(HashMapClienteDAO.class.getName());
-    
+
     private static final Map<String, Cliente> mapa = new HashMap<>();
-    
+
     @Override
     public boolean inserir(Object obj) {
         if (obj != null) {
@@ -32,7 +32,7 @@ public class HashMapClienteDAO extends HashMapDAOFactory implements ClienteDAO {
                 mapa.put(cliente.getClienteId(), cliente);
                 return true;
             } else {
-                LOGGER.log(Level.SEVERE, "Problema em inserir o registro!");                
+                LOGGER.log(Level.SEVERE, "Problema em inserir o registro!");
             }
         }
         return false;
@@ -80,7 +80,7 @@ public class HashMapClienteDAO extends HashMapDAOFactory implements ClienteDAO {
         }
         return lista;
     }
-    
+
     @Override
     public List<Cliente> aplicarFiltro(Object obj) {
         if (obj != null) {
@@ -92,18 +92,18 @@ public class HashMapClienteDAO extends HashMapDAOFactory implements ClienteDAO {
                 Cliente c = it.next();
 
                 //Filtro para clienteId
-                if (c.getClienteId().equalsIgnoreCase(cliente.getClienteId()))  {
-                        lista.add(c);                    
+                if (c.getClienteId().equalsIgnoreCase(cliente.getClienteId())) {
+                    lista.add(c);
                 }
 
                 //Filtro para nome
                 if (c.getClienteId().equalsIgnoreCase(cliente.getClienteId())) {
-                     lista.add(c);                    
+                    lista.add(c);
                 }
 
                 //Filtro para CPF
                 if (c.getCpf().equalsIgnoreCase(cliente.getCpf())) {
-                    lista.add(c);                    
+                    lista.add(c);
                 }
             }
             return lista;
