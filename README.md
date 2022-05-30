@@ -8,7 +8,7 @@
  - O projeto é um CRUD para os dados de cliente(clienteId, Nome, CPF).
  - As classes do projeto está organizado nos pacotes visão, controle, modelo, dao além de um pacote util.<br>
  - Utiliza o padrão abstract factory para abstrair 3 formas de armazenamento:
-	- 1 - Banco de Dados(sqllite)
+	- 1 - Banco de Dados(SQLLite)
 	- 2 - HashMap
 	- 3 - Arquivo Binário
  - Toda iteração com banco de dados é tratada diretamente pelo DAO(Data Access Object).<br>
@@ -17,6 +17,7 @@
  - Toda iteração com banco de dados é tratada diretamente pelo DAO(Data Access Object).<br>
  - Os dados de configuração (Servidor, Database, Usuario, Senha) da integração do java com o banco de dados estão no arquivo src/dao/SQLiteDadosBanco.java.<br>
  - A especificação da fábrica a ser utilizada é feita na interface Factory.java.
+ - Utiliza o Apache Maven para a automatização da construção.<br>
  - A pasta test contêm os testes unitários do projeto utilizando JUnit 4.<br>
  - Os testes são realizados no SO ubuntu-lastest e JDK 16, 17 e 18.<br>
  - A cobertura do código é realizada através do JaCoCo e relatório enviado para o Sonarcloud.<br>
