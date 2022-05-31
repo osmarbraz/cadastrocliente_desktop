@@ -5,8 +5,6 @@ import java.awt.event.ActionEvent;
 import formulario.FrmCliente;
 import entidade.Cliente;
 import util.Valida;
-import dao.DAOFactory;
-import dao.Factory;
 
 /**
  * Classe que realiza a interação entre a interface e a entidade do sistema.

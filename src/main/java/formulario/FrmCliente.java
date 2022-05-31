@@ -19,7 +19,7 @@ import javax.swing.JOptionPane;
 @SuppressWarnings("serial")
 public class FrmCliente extends JFrame {
 
-    private JPanel contentPane;
+    private JPanel contentPaneFrmCliente;
 
     private JLabel jLClienteId;
     private JTextField jTClienteId;
@@ -66,20 +66,19 @@ public class FrmCliente extends JFrame {
         this.jTCpf = jTCpf;
     }
 
-    @Override
-    public JPanel getContentPane() {
-        return contentPane;
+    public JPanel getContentPaneFrmCliente() {
+        return contentPaneFrmCliente;
     }
 
-    public void setContentPane(JPanel contentPane) {
-        this.contentPane = contentPane;
-    }     
+    public void setContentPaneFrmCliente(JPanel contentPane) {
+        this.contentPaneFrmCliente = contentPane;
+    }
 
     /**
      * Inicializa os componentes da janela.
      */
     private void inicializar() {
-        setContentPane((JPanel) this.getContentPane());
+        setContentPaneFrmCliente((JPanel) this.getContentPane());
 
         jLClienteId = new JLabel();
         jTClienteId = new JTextField();
@@ -95,10 +94,12 @@ public class FrmCliente extends JFrame {
         jBLimpar = new JButton();
         jBFechar = new JButton();
 
-        getContentPane().setLayout(null);
+        getContentPaneFrmCliente().setLayout(null);
+
         this.setSize(new Dimension(310, 230));
         this.setTitle("Cadastro de Cliente");
         this.addWindowListener(new WindowAdapter() {
+            @Override
             public void windowClosing(WindowEvent e) {
                 System.exit(0);
             }
@@ -134,19 +135,19 @@ public class FrmCliente extends JFrame {
         jBFechar.setBounds(new Rectangle(200, 159, 90, 27));
         jBFechar.setText("Fechar");
 
-        getContentPane().add(jLClienteId, null);
-        getContentPane().add(jTClienteId, null);
-        getContentPane().add(jLNome, null);
-        getContentPane().add(jTNome, null);
-        getContentPane().add(jLCpf, null);
-        getContentPane().add(jTCpf, null);
+        getContentPaneFrmCliente().add(jLClienteId, null);
+        getContentPaneFrmCliente().add(jTClienteId, null);
+        getContentPaneFrmCliente().add(jLNome, null);
+        getContentPaneFrmCliente().add(jTNome, null);
+        getContentPaneFrmCliente().add(jLCpf, null);
+        getContentPaneFrmCliente().add(jTCpf, null);
 
-        getContentPane().add(jBIncluir, null);
-        getContentPane().add(jBAlterar, null);
-        getContentPane().add(jBExcluir, null);
-        getContentPane().add(jBConsultar, null);
-        getContentPane().add(jBLimpar, null);
-        getContentPane().add(jBFechar, null);
+        getContentPaneFrmCliente().add(jBIncluir, null);
+        getContentPaneFrmCliente().add(jBAlterar, null);
+        getContentPaneFrmCliente().add(jBExcluir, null);
+        getContentPaneFrmCliente().add(jBConsultar, null);
+        getContentPaneFrmCliente().add(jBLimpar, null);
+        getContentPaneFrmCliente().add(jBFechar, null);
     }
 
     public void mostrarMensagem(String mensagem) {
@@ -158,6 +159,7 @@ public class FrmCliente extends JFrame {
      *
      * @param e Eventos da janela.
      */
+    @Override
     protected void processWindowEvent(WindowEvent e) {
         super.processWindowEvent(e);
         if (e.getID() == WindowEvent.WINDOW_CLOSING) {
