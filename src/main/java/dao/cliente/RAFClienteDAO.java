@@ -23,6 +23,8 @@ public class RAFClienteDAO extends RAFDAOFactory implements ClienteDAO {
 
     private static final Logger LOGGER = Logger.getLogger(RAFClienteDAO.class.getName());
 
+    private static final String NOMEARQUIVO = "cliente.dat";
+    
     private RandomAccessFile arquivo;
 
     public RAFClienteDAO() {
@@ -31,7 +33,7 @@ public class RAFClienteDAO extends RAFDAOFactory implements ClienteDAO {
 
     private void abrirArquivo() {
         try {
-            File nomeArquivo = new File("cliente.dat");
+            File nomeArquivo = new File(NOMEARQUIVO);
             arquivo = new RandomAccessFile(nomeArquivo, "rw");
         } catch (IOException e) {
             LOGGER.log(Level.SEVERE, "Problema em abrir o arquivo!{0}", e.toString());

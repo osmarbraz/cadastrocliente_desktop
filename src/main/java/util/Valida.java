@@ -23,9 +23,7 @@ public class Valida {
             // Recebe os números e realiza a multiplicação e soma.   
             for (int i = 0; i < 9; i++) {
                 valores[i] = Integer.parseInt("" + cpf.charAt(i));
-                if (i < 9) {                    
-                    soma += (valores[i] * --multiplicacao);
-                }
+                soma += (valores[i] * --multiplicacao);                
             }
             // Cria o primeiro dígito verificador.   
             int resto = soma % 11;
@@ -43,11 +41,8 @@ public class Valida {
             }
             // Cria o segundo dígito verificador.   
             resto = soma % 11;
-            if (resto < 2) {
-                valores[10] = 0;
-            } else {
-                valores[10] = 11 - resto;
-            }
+            valores[10] = 11 - resto;
+            
             if ((digitos.substring(0, 1).equalsIgnoreCase(Integer.toString(valores[9])))
                     && (digitos.substring(1, 2).equalsIgnoreCase(Integer.toString(valores[10])))) {
                 retorno = true;

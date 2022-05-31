@@ -64,8 +64,8 @@ public class FrmCliente extends JFrame {
 
     public void setjTCpf(JTextField jTCpf) {
         this.jTCpf = jTCpf;
-    }
-
+    }     
+    
     public JPanel getContentPaneFrmCliente() {
         return contentPaneFrmCliente;
     }
