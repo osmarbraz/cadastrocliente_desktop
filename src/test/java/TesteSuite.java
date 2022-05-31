@@ -8,6 +8,11 @@ import util.TestValida;
 import cliente.TestCliente;
 import dao.TesteSuiteDAO;
 
+/**
+ * Agrupa Testes unitários e testes suites.
+ * 
+ * @author osmar
+ */
 @RunWith(Suite.class)
 @SuiteClasses({
     TesteSuiteDAO.class,
