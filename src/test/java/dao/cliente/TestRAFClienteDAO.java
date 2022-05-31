@@ -8,7 +8,8 @@ public class TestRAFClienteDAO {
 
     /**
      * Testa se o arquivo não existe.
-     * @throws IOException 
+     *
+     * @throws IOException
      */
     @Test(expected = IOException.class)
     public void testeAbrirArquivo() throws IOException {

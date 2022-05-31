@@ -24,27 +24,24 @@ public class RAFClienteDAO extends RAFDAOFactory implements ClienteDAO {
     private static final Logger LOGGER = Logger.getLogger(RAFClienteDAO.class.getName());
 
     private static final String NOMEARQUIVO = "cliente.dat";
-    
+
     private RandomAccessFile arquivo;
 
     public RAFClienteDAO() {
-        abrirArquivo();
+        try {
+            abrirArquivo(NOMEARQUIVO);
+        } catch (IOException e) {
+            LOGGER.log(Level.SEVERE, "Problema em abrir o arquivo!{0}", e.toString());
+        }
     }
 
     public void abrirArquivo(String nome) throws IOException {
-         try {
+        try {
             File nomeArquivo = new File(nome);
             arquivo = new RandomAccessFile(nomeArquivo, "rw");
-        } catch (IOException e) {             
-            throw  e;
-        }
-    }
-    
-    private void abrirArquivo() {       
-        try {
-            abrirArquivo(NOMEARQUIVO);
-        } catch (IOException e) {             
+        } catch (IOException e) {
             LOGGER.log(Level.SEVERE, "Problema em abrir o arquivo!{0}", e.toString());
+            throw e;
         }
     }
 
