@@ -35,6 +35,6 @@ public class TestSQLiteDAOFactory {
     public void testPrepareSQL() {
         SQLiteDAOFactory sqlitedaofactory = new SQLiteDAOFactory();
         String prepara = sqlitedaofactory.preparaSQL(null);
-        assertEquals(prepara, "");
+        assertEquals("",prepara);
     }
 }
