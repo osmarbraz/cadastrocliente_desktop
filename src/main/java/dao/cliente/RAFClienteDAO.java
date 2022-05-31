@@ -25,7 +25,7 @@ public class RAFClienteDAO extends RAFDAOFactory implements ClienteDAO {
 
     private RandomAccessFile arquivo;
     
-     private static final String NOMEARQUIVO = "cliente.dat";
+    private static final String NOMEARQUIVO = "cliente.dat";
 
     public RAFClienteDAO() {
         abrirArquivo(NOMEARQUIVO);

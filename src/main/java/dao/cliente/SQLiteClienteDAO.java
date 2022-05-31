@@ -32,19 +32,22 @@ public class SQLiteClienteDAO extends SQLiteDAOFactory implements ClienteDAO, SQ
         if (rs != null) {
             try {
                 rs.close();
-            } catch (SQLException e) {               
+            } catch (SQLException e) { 
+                LOGGER.log(Level.SEVERE, "Erro no fechamento do rs:{0}", e.toString());
             }
         }
         if (stmt != null) {
             try {
                 stmt.close();
-            } catch (SQLException e) {                
+            } catch (SQLException e) {
+                LOGGER.log(Level.SEVERE, "Erro no fechamento do stmt:{0}", e.toString());
             }
         }
         if (con != null) {
             try {
                 con.close();
-            } catch (SQLException e) {                
+            } catch (SQLException e) {
+                LOGGER.log(Level.SEVERE, "Erro no fechamento do con:{0}", e.toString());
             }
         }
     }
@@ -100,7 +103,6 @@ public class SQLiteClienteDAO extends SQLiteDAOFactory implements ClienteDAO, SQ
 
             } catch (SQLException e) {
                 LOGGER.log(Level.SEVERE, "Erro no inserir:{0}", e.toString());
-                res = false;
             } finally {
                 fecharAcessoBD(con, stmt, null);
             }
