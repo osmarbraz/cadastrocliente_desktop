@@ -14,6 +14,6 @@ public class TestRAFClienteDAO {
     public void testeAbrirArquivo() throws IOException {
 
         RAFClienteDAO instancia = new RAFClienteDAO();
-        instancia.abrirArquivo("tes\\te.txt");
+        instancia.abrirArquivo("tes\\te//.txt");
     }
 }
