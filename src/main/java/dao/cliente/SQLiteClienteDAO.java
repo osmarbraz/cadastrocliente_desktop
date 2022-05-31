@@ -91,12 +91,14 @@ public class SQLiteClienteDAO extends SQLiteDAOFactory implements ClienteDAO, SQ
                 sql.append("insert into " + TABLE + "(");
                 sql.append(METADADOSINSERT + " ) ");
 
+                con = getConnection();
+                
+                stmt = con.createStatement();
+                
                 sql.append("values ('").append(preparaSQL(cliente.getClienteId()));
                 sql.append("','").append(preparaSQL(cliente.getNome()));
                 sql.append("','").append(preparaSQL(cliente.getCpf())).append("')");
-
-                con = getConnection();
-                stmt = con.createStatement();
+                                
                 res = stmt.executeUpdate(sql.toString()) > 0;
                                 
                 fecharAcessoBD(con, stmt, null);
@@ -151,8 +153,10 @@ public class SQLiteClienteDAO extends SQLiteDAOFactory implements ClienteDAO, SQ
             StringBuilder sql = new StringBuilder();
             int res = 0;
             try {
-                sql.append("delete from " + TABLE + WHERE + TABLE + ".").append(PK[0]).append(" = '").append(preparaSQL(cliente.getClienteId())).append("'");
                 con = getConnection();
+                
+                sql.append("delete from " + TABLE + WHERE + TABLE + ".").append(PK[0]).append(" = '").append(preparaSQL(cliente.getClienteId())).append("'");
+                
                 stmt = con.createStatement();
                 res = stmt.executeUpdate(sql.toString());
                 
