@@ -33,10 +33,7 @@ public class RAFRegistroCliente extends Cliente {
     }
 
     private void escreveString(RandomAccessFile arquivo, String nome, int tamanho) throws IOException {
-        StringBuilder buf = new StringBuilder(tamanho);
-        if (nome != null) {
-            buf = new StringBuilder(nome);
-        }
+        StringBuilder buf = new StringBuilder(nome);
         buf.setLength(tamanho);
         arquivo.writeChars(buf.toString());
     }
