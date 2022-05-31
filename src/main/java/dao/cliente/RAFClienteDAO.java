@@ -31,11 +31,19 @@ public class RAFClienteDAO extends RAFDAOFactory implements ClienteDAO {
         abrirArquivo();
     }
 
-    private void abrirArquivo() {
-        try {
-            File nomeArquivo = new File(NOMEARQUIVO);
+    public void abrirArquivo(String nome) throws IOException {
+         try {
+            File nomeArquivo = new File(nome);
             arquivo = new RandomAccessFile(nomeArquivo, "rw");
-        } catch (IOException e) {
+        } catch (IOException e) {             
+            throw  e;
+        }
+    }
+    
+    private void abrirArquivo() {       
+        try {
+            abrirArquivo(NOMEARQUIVO);
+        } catch (IOException e) {             
             LOGGER.log(Level.SEVERE, "Problema em abrir o arquivo!{0}", e.toString());
         }
     }

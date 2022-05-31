@@ -1,5 +1,6 @@
 package dao;
 
+import dao.cliente.TestRAFClienteDAO;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
@@ -18,7 +19,8 @@ import dao.cliente.TestRAFRegistroCliente;
     TestDAOInclusao.class,
     TestDAOInclusaoChavePrimaria.class,
     TestDAOExclusao.class,
-    TestRAFRegistroCliente.class})
+    TestRAFRegistroCliente.class,
+    TestRAFClienteDAO.class})
 
 public class TesteSuiteDAO {
 
