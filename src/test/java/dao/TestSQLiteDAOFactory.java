@@ -1,7 +1,7 @@
 package dao;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
 public class TestSQLiteDAOFactory {
@@ -35,6 +35,6 @@ public class TestSQLiteDAOFactory {
     public void testPrepareSQL() {
         SQLiteDAOFactory sqlitedaofactory = new SQLiteDAOFactory();
         String prepara = sqlitedaofactory.preparaSQL(null);
-        assertTrue(prepara.equals(""));
+        assertEquals(prepara, "");
     }
 }
