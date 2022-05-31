@@ -22,40 +22,27 @@ public class CtrCliente {
      */
     public CtrCliente() {
 
-        //Cria a tabela
-        DAOFactory factory = DAOFactory.getDAOFactory(Factory.FABRICA);
-
         // Instancia a janela
         setFrmCliente(new FrmCliente());
 
         // Associa os eventos aos componentes
         getFrmCliente().jBIncluir
-                .addActionListener((ActionEvent e) -> {
-                    jBIncluir_actionPerformed(e);
-        });
+                .addActionListener((ActionEvent e) -> jBIncluir_actionPerformed(e));
 
         getFrmCliente().jBAlterar
                 .addActionListener(this::jBAlterar_actionPerformed);
 
         getFrmCliente().jBConsultar
-                .addActionListener((ActionEvent e) -> {
-                    jBConsultar_actionPerformed(e);
-        });
+                .addActionListener((ActionEvent e) -> jBConsultar_actionPerformed(e));
 
         getFrmCliente().jBExcluir
-                .addActionListener((ActionEvent e) -> {
-                    jBExcluir_actionPerformed(e);
-        });
+                .addActionListener((ActionEvent e) -> jBExcluir_actionPerformed(e));
 
         getFrmCliente().jBLimpar
-                .addActionListener((ActionEvent e) -> {
-                    jBLimpar_actionPerformed(e);
-        });
+                .addActionListener((ActionEvent e) -> jBLimpar_actionPerformed(e));
 
         getFrmCliente().jBFechar
-                .addActionListener((ActionEvent e) -> {
-                    jBFechar_actionPerformed(e);
-        });
+                .addActionListener((ActionEvent e) -> jBFechar_actionPerformed(e));
     }
 
     /**
@@ -169,6 +156,7 @@ public class CtrCliente {
 
     /**
      * Retorna o formulário utilizado por este controle.
+     *
      * @return Um formulário.
      */
     public FrmCliente getFrmCliente() {

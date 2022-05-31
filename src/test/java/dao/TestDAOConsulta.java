@@ -68,7 +68,7 @@ public class TestDAOConsulta {
 
     /**
      * Exclui os clientes usados nos testes.
-     * 
+     *
      * @throws java.lang.Exception
      */
     @After

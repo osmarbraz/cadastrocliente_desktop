@@ -12,6 +12,9 @@ import entidade.Cliente;
 
 public class TestCliente {
 
+    /**
+     * Testa o construtor sem argumentos do cliente.
+     */
     @Test
     public void testCliente() {
         Cliente instancia = new Cliente();
@@ -29,7 +32,7 @@ public class TestCliente {
     public void testParaString() {
         Cliente instancia = new Cliente();
         String esperado = "clienteId: - Nome : - CPF :";
-        assertTrue(esperado.equals(instancia.toString()));
+        assertEquals(esperado, instancia.toString());
     }
 
     @Test

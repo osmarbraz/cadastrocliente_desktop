@@ -16,7 +16,7 @@ public class Valida {
     public boolean validaCPF(String cpf) {
         boolean retorno = false;
         if (cpf.length() == 11) {
-            String digitos = cpf.substring(9, 11);           
+            String digitos = cpf.substring(9, 11);
             int soma = 0;
             int multiplicacao = 11;
             int[] valores = new int[11];
