@@ -7,20 +7,29 @@ import org.junit.Test;
 public class TestSQLiteDAOFactory {
 
     /**
-     * Testa se o preparaSQL não existe.
-     *
+     * Testa se o driver não existe.
      */
     @Test
-    public void testGetConnection() {
+    public void testGetConnectionDriver() {
         SQLiteDAOFactory sqlitedaofactory = new SQLiteDAOFactory();
         sqlitedaofactory.setDriverClass("X");
+        sqlitedaofactory.setJdbcURL("jdbc:sqlite:cliente.db");
+        assertNull(sqlitedaofactory.getConnection());
+    }
+    
+    /**
+     * Testa se a url não existe.
+     */
+    @Test
+    public void testGetConnectionURL() {
+        SQLiteDAOFactory sqlitedaofactory = new SQLiteDAOFactory();
+        sqlitedaofactory.setDriverClass("org.sqlite.JDBC");
         sqlitedaofactory.setJdbcURL("Y");
         assertNull(sqlitedaofactory.getConnection());
     }
 
     /**
      * Testa se o preparaSQL não existe.
-     *
      */
     @Test
     public void testPrepareSQL() {
