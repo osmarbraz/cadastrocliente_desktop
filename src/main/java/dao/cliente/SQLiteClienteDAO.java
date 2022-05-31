@@ -32,21 +32,21 @@ public class SQLiteClienteDAO extends SQLiteDAOFactory implements ClienteDAO, SQ
             try {
                 rs.close();
             } catch (SQLException e) {
-                LOGGER.log(Level.SEVERE, "Erro no fechamento do rs:{0}", e);
+                LOGGER.log(Level.SEVERE, "Erro no fechamento do rs:{0}", e.toString());
             }
         }
         if (stmt != null) {
             try {
                 stmt.close();
             } catch (SQLException e) {
-                LOGGER.log(Level.SEVERE, "Erro no fechamento do stmt:{0}", e);
+                LOGGER.log(Level.SEVERE, "Erro no fechamento do stmt:{0}", e.toString());
             }
         }
         if (con != null) {
             try {
                 con.close();
             } catch (SQLException e) {
-                LOGGER.log(Level.SEVERE, "Erro no fechamento do con:{0}", e);
+                LOGGER.log(Level.SEVERE, "Erro no fechamento do con:{0}", e.toString());
             }
         }
     }
@@ -76,7 +76,7 @@ public class SQLiteClienteDAO extends SQLiteDAOFactory implements ClienteDAO, SQ
             con.close();
             con = null;
         } catch (SQLException e) {
-            LOGGER.log(Level.SEVERE, "Erro no select:{0}", e);
+            LOGGER.log(Level.SEVERE, "Erro no select:{0}", e.toString());
         } finally {
             fecharAcessoBD(con, stmt, rs);
         }
@@ -108,7 +108,7 @@ public class SQLiteClienteDAO extends SQLiteDAOFactory implements ClienteDAO, SQ
                 con = null;
 
             } catch (SQLException e) {
-                LOGGER.log(Level.SEVERE, "Erro no inserir:{0}", e);
+                LOGGER.log(Level.SEVERE, "Erro no inserir:{0}", e.toString());
                 res = false;
             } finally {
                 fecharAcessoBD(con, stmt, null);
@@ -141,7 +141,7 @@ public class SQLiteClienteDAO extends SQLiteDAOFactory implements ClienteDAO, SQ
                 con = null;
 
             } catch (SQLException e) {
-                LOGGER.log(Level.SEVERE, "Erro no alterar:{0}", e);
+                LOGGER.log(Level.SEVERE, "Erro no alterar:{0}", e.toString());
                 res = 0;
             } finally {
                 fecharAcessoBD(con, stmt, null);
@@ -170,7 +170,7 @@ public class SQLiteClienteDAO extends SQLiteDAOFactory implements ClienteDAO, SQ
                 con = null;
 
             } catch (SQLException e) {
-                LOGGER.log(Level.SEVERE, "Erro no excluir:{0}", e);
+                LOGGER.log(Level.SEVERE, "Erro no excluir:{0}", e.toString());
                 res = 0;
             } finally {
                 fecharAcessoBD(con, stmt, null);
@@ -232,7 +232,7 @@ public class SQLiteClienteDAO extends SQLiteDAOFactory implements ClienteDAO, SQ
             con.close();
             con = null;
         } catch (SQLException e) {
-            LOGGER.log(Level.SEVERE, "Erro no criar:{0}", e);
+            LOGGER.log(Level.SEVERE, "Erro no criar:{0}", e.toString());
         } finally {
             fecharAcessoBD(con, stmt, null);
         }
