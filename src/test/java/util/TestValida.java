@@ -58,6 +58,15 @@ public class TestValida {
         //CPF com problema na conversão
         assertFalse(valida.validaCPF("0065XAB22050"));
     }
+    
+    /**
+     * Testa CPF com problema na quantidade de caracteres.
+     */
+    @Test
+    public void testValidaCPFInvalidoCurto() {
+        //CPF com problema na conversão
+        assertFalse(valida.validaCPF("111111"));
+    }
 
     /**
      * Finaliza a classe de validação.

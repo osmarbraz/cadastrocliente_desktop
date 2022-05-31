@@ -23,7 +23,7 @@ public class Valida {
             // Recebe os números e realiza a multiplicação e soma.   
             for (int i = 0; i < 9; i++) {
                 valores[i] = Integer.parseInt("" + cpf.charAt(i));
-                if (i < 9) {
+                if (i < 9) {                    
                     soma += (valores[i] * --multiplicacao);
                 }
             }
