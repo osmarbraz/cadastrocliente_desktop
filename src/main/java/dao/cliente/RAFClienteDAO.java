@@ -23,36 +23,25 @@ public class RAFClienteDAO extends RAFDAOFactory implements ClienteDAO {
 
     private static final Logger LOGGER = Logger.getLogger(RAFClienteDAO.class.getName());
 
-    private static final String NOMEARQUIVO = "cliente.dat";
-
     private RandomAccessFile arquivo;
+    
+     private static final String NOMEARQUIVO = "cliente.dat";
 
     public RAFClienteDAO() {
-        try {
-            abrirArquivo(NOMEARQUIVO);
-        } catch (IOException e) {
-            LOGGER.log(Level.SEVERE, "Problema em abrir o arquivo!{0}", e.toString());
-        }
+        abrirArquivo(NOMEARQUIVO);
     }
-
-    public void abrirArquivo(String nome) throws IOException {
+    
+    public boolean abrirArquivo(String nome) {
         try {
             File nomeArquivo = new File(nome);
             arquivo = new RandomAccessFile(nomeArquivo, "rw");
+            return true;
         } catch (IOException e) {
-            LOGGER.log(Level.SEVERE, "Problema em abrir o arquivo!{0}", e.toString());
-            throw e;
+            LOGGER.log(Level.SEVERE, "Problema em abrir o arquivo!{0}", e.toString());            
         }
+        return false;
     }
-
-    public void fecharArquivo() {
-        try {
-            arquivo.close();
-        } catch (IOException e) {
-            LOGGER.log(Level.SEVERE, "Problema em fechar o arquivo!{0}", e.toString());
-        }
-    }
-
+   
     @Override
     public boolean inserir(Object obj) {
         if (obj != null) {
