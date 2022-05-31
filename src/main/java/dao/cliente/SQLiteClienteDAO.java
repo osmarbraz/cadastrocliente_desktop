@@ -12,10 +12,6 @@ import java.util.logging.Logger;
 import java.util.logging.Level;
 
 import dao.SQLiteDAOFactory;
-import static dao.cliente.SQLiteClienteMetaDados.METADADOSINSERT;
-import static dao.cliente.SQLiteClienteMetaDados.METADADOSSELECT;
-import static dao.cliente.SQLiteClienteMetaDados.PK;
-import static dao.cliente.SQLiteClienteMetaDados.TABLE;
 import entidade.Cliente;
 
 /**
