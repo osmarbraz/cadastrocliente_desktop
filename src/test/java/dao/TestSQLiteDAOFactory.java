@@ -16,7 +16,7 @@ public class TestSQLiteDAOFactory {
         sqlitedaofactory.setJdbcURL("jdbc:sqlite:cliente.db");
         assertNull(sqlitedaofactory.getConnection());
     }
-    
+
     /**
      * Testa se a url não existe.
      */

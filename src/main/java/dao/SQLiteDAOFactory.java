@@ -23,8 +23,8 @@ public class SQLiteDAOFactory extends DAOFactory {
 
     private String driverClass;
     private String jdbcURL;
-    
-    public SQLiteDAOFactory(){
+
+    public SQLiteDAOFactory() {
         //Define do driver e a url de conexão
         setDriverClass(SQLiteDadosBanco.DRIVER);
         setJdbcURL("jdbc:sqlite:" + SQLiteDadosBanco.DATABASE);
@@ -51,7 +51,7 @@ public class SQLiteDAOFactory extends DAOFactory {
      *
      * @return Connection Um objeto com a conexão aberta
      */
-    protected Connection getConnection() {        
+    protected Connection getConnection() {
         //Realiza a conexão
         Connection con = null;
         try {

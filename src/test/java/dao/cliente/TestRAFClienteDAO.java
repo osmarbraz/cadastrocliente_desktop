@@ -4,7 +4,7 @@ import static org.junit.Assert.assertFalse;
 import org.junit.Test;
 
 public class TestRAFClienteDAO {
-   
+
     /**
      * Testa se o arquivo não existe.
      *
