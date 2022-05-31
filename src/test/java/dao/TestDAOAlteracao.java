@@ -22,6 +22,9 @@ public class TestDAOAlteracao {
         clienteNaoExistente = new Cliente("879", "Cliente Nao Existente", "11111111111");
     }
 
+    /**
+     * Testa a alteração de um cliente existente no SQLite.
+     */
     @Test
     public void testAlteracao1() {
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.SQLITE);
@@ -48,6 +51,9 @@ public class TestDAOAlteracao {
         }
     }
 
+    /**
+     * Testa a alteração de um cliente não existente no SQLite.
+     */
     @Test
     public void testAlteracao1NaoExistente() {
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.SQLITE);
@@ -56,6 +62,9 @@ public class TestDAOAlteracao {
         assertEquals(0, DAO.alterar(clienteNaoExistente));
     }
 
+    /**
+     * Testa a alteração de um cliente nullo no SQLite.
+     */
     @Test
     public void testAlteracao1Null() {
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.SQLITE);
@@ -63,6 +72,9 @@ public class TestDAOAlteracao {
         assertEquals(0, DAO.alterar(null));
     }
 
+    /**
+     * Testa a alteração do campo nome de um cliente no Hashmap.
+     */
     @Test
     public void testAlteracao2() {
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.HASHMAP);
@@ -89,6 +101,9 @@ public class TestDAOAlteracao {
         }
     }
 
+    /**
+     * Testa a alteração de um cliente não existente no Hashmap.
+     */
     @Test
     public void testAlteracao2NaoExistente() {
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.HASHMAP);
@@ -97,6 +112,9 @@ public class TestDAOAlteracao {
         assertEquals(0, DAO.alterar(clienteNaoExistente));
     }
 
+    /**
+     * Testa a alteração de um cliente nulo no Hashmap.
+     */
     @Test
     public void testAlteracao2Null() {
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.HASHMAP);
@@ -104,6 +122,9 @@ public class TestDAOAlteracao {
         assertEquals(0, DAO.alterar(null));
     }
 
+    /**
+     * Testa a alteração do campo nome de um cliente não existente no RAF.
+     */
     @Test
     public void testAlteracao3() {
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.RAF);
@@ -130,6 +151,9 @@ public class TestDAOAlteracao {
         }
     }
 
+    /**
+     * Testa a alteração de um cliente não existente no RAF.
+     */
     @Test
     public void testAlteracao3NaoExistente() {
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.RAF);
@@ -138,6 +162,9 @@ public class TestDAOAlteracao {
         assertEquals(0, DAO.alterar(clienteNaoExistente));
     }
 
+    /**
+     * Testa a alteração de um cliente nulo no RAF.
+     */
     @Test
     public void testAlteracao3Null() {
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.RAF);

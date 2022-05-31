@@ -17,7 +17,10 @@ public class Valida {
         boolean retorno = false;
         if (cpf.length() == 11) {
             String digitos = cpf.substring(9, 11);
-            int soma = 0, multiplicacao = 11;
+            //Declarar em duas linhas
+            //int soma = 0, multiplicacao = 11;
+            int soma = 0;
+            int multiplicacao = 11;
             int[] valores = new int[11];
             // Recebe os números e realiza a multiplicação e soma.   
             for (int i = 0; i < 9; i++) {
