@@ -22,6 +22,7 @@ import entidade.Cliente;
 public class SQLiteClienteDAO extends SQLiteDAOFactory implements ClienteDAO, SQLiteClienteMetaDados {
 
     private static final Logger LOGGER = Logger.getLogger(SQLiteClienteDAO.class.getName());
+    private static final String WHERE = " where ";
 
     public SQLiteClienteDAO() {
         criar();
@@ -130,7 +131,7 @@ public class SQLiteClienteDAO extends SQLiteDAOFactory implements ClienteDAO, SQ
                 sql.append("update " + TABLE);
                 sql.append(" set NOME='").append(cliente.getNome()).append("',");
                 sql.append(" CPF='").append(cliente.getCpf()).append("'");
-                sql.append(" where " + TABLE + ".").append(PK[0]).append("='").append(preparaSQL(cliente.getClienteId())).append("'");
+                sql.append(WHERE + TABLE + ".").append(PK[0]).append("='").append(preparaSQL(cliente.getClienteId())).append("'");
 
                 con = getConnection();
                 stmt = con.createStatement();
@@ -160,7 +161,7 @@ public class SQLiteClienteDAO extends SQLiteDAOFactory implements ClienteDAO, SQ
             StringBuilder sql = new StringBuilder();
             int res = 0;
             try {
-                sql.append("delete from " + TABLE + " where " + TABLE + ".").append(PK[0]).append(" = '").append(preparaSQL(cliente.getClienteId())).append("'");
+                sql.append("delete from " + TABLE + WHERE + TABLE + ".").append(PK[0]).append(" = '").append(preparaSQL(cliente.getClienteId())).append("'");
                 con = getConnection();
                 stmt = con.createStatement();
                 res = stmt.executeUpdate(sql.toString());
@@ -208,7 +209,7 @@ public class SQLiteClienteDAO extends SQLiteDAOFactory implements ClienteDAO, SQ
             }
 
             if (!filtros.isEmpty()) {
-                sqlBuilder.append(" where ").append(implode(" and ", filtros));
+                sqlBuilder.append(WHERE).append(implode(" and ", filtros));
             }
 
             sqlBuilder.append(" order by " + TABLE + ".").append(PK[0]);

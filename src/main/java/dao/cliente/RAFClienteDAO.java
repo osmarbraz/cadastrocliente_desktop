@@ -69,7 +69,7 @@ public class RAFClienteDAO extends RAFDAOFactory implements ClienteDAO {
 
     @Override
     public List<Cliente> getLista() {
-        List<Cliente> lista = new LinkedList();
+        List<Cliente> lista = new LinkedList<>();
         RAFRegistroCliente registro = new RAFRegistroCliente();
         try {
             arquivo.seek(0);

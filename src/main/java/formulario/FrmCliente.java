@@ -115,7 +115,7 @@ public class FrmCliente extends JFrame {
 
         jLCpf.setBounds(new Rectangle(11, 109, 170, 17));
         jTCpf.setBounds(new Rectangle(11, 124, 120, 21));
-        jLCpf.setText("Cpf (Somente numeros)");
+        jLCpf.setText("CPF (Somente números)");
 
         jBIncluir.setBounds(new Rectangle(200, 9, 90, 27));
         jBIncluir.setText("Incluir");

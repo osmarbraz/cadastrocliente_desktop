@@ -44,9 +44,8 @@ public class SQLiteDAOFactory extends DAOFactory {
      * Retorna uma conexão aberta para as subclasses da fábrica para SQLite.
      *
      * @return Connection Um objeto com a conexão aberta
-     * @exception SQLException
      */
-    protected Connection getConnection() throws SQLException {
+    protected Connection getConnection() {
         //Define do driver e a url de conexão
         setDriverClass(SQLiteDadosBanco.DRIVER);
         setJdbcURL("jdbc:sqlite:" + SQLiteDadosBanco.DATABASE);
@@ -58,8 +57,7 @@ public class SQLiteDAOFactory extends DAOFactory {
         } catch (ClassNotFoundException e) {
             LOGGER.log(Level.SEVERE, "Classe não encontrada!{0}", e.toString());
         } catch (SQLException e) {
-            LOGGER.log(Level.SEVERE, "Problema na conexão!{0}", e.toString());
-            throw e;
+            LOGGER.log(Level.SEVERE, "Problema na conexão!{0}", e.toString());            
         }
         return con;
     }
