@@ -57,7 +57,7 @@ public class TestValida {
     public void testValidaCPFInvalido1() {
         assertFalse(valida.validaCPF("94622036011"));
     }
-    
+
     /**
      * Testa CPF inválido final 2.
      */
