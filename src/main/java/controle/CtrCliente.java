@@ -24,23 +24,17 @@ public class CtrCliente {
         setFrmCliente(new FrmCliente());
 
         // Associa os eventos aos componentes
-        getFrmCliente().jBIncluir
-                .addActionListener((ActionEvent e) -> jBIncluir_actionPerformed(e));
+        getFrmCliente().jBIncluir.addActionListener(this::jBIncluir_actionPerformed);
 
-        getFrmCliente().jBAlterar
-                .addActionListener(this::jBAlterar_actionPerformed);
+        getFrmCliente().jBAlterar.addActionListener(this::jBAlterar_actionPerformed);
 
-        getFrmCliente().jBConsultar
-                .addActionListener((ActionEvent e) -> jBConsultar_actionPerformed(e));
+        getFrmCliente().jBConsultar.addActionListener(this::jBConsultar_actionPerformed);
 
-        getFrmCliente().jBExcluir
-                .addActionListener((ActionEvent e) -> jBExcluir_actionPerformed(e));
+        getFrmCliente().jBExcluir.addActionListener(this::jBExcluir_actionPerformed);
 
-        getFrmCliente().jBLimpar
-                .addActionListener((ActionEvent e) -> jBLimpar_actionPerformed(e));
+        getFrmCliente().jBLimpar.addActionListener(this::jBLimpar_actionPerformed);
 
-        getFrmCliente().jBFechar
-                .addActionListener((ActionEvent e) -> jBFechar_actionPerformed(e));
+        getFrmCliente().jBFechar.addActionListener(this::jBFechar_actionPerformed);
     }
 
     /**
