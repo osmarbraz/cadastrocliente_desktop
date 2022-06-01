@@ -130,15 +130,15 @@ public class SQLiteClienteDAO extends SQLiteDAOFactory implements ClienteDAO {
 
             List<String> filtros = new ArrayList<>();
 
-            if (cliente.getClienteId() != null && !"".equals(cliente.getClienteId())) {
+            if (!"".equals(cliente.getClienteId())) {
                 filtros.add(TABLE + "." + PK[0] + "='" + preparaSQL(cliente.getClienteId()) + "'");
             }
 
-            if (cliente.getNome() != null && !"".equals(cliente.getNome())) {
+            if (!"".equals(cliente.getNome())) {
                 filtros.add(TABLE + ".NOME like upper('%" + preparaSQL(cliente.getNome()) + "%')");
             }
 
-            if (cliente.getCpf() != null && !"".equals(cliente.getCpf())) {
+            if (!"".equals(cliente.getCpf())) {
                 filtros.add(TABLE + ".CPF = '" + preparaSQL(cliente.getCpf()) + "'");
             }
 
