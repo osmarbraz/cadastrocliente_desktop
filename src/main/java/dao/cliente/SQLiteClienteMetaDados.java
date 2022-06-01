@@ -7,6 +7,13 @@ package dao.cliente;
  */
 public final class SQLiteClienteMetaDados {
 
+    /** 
+     * Evita que a classe seja instânciada.
+     */
+    private SQLiteClienteMetaDados() {
+        
+    }
+    
     /**
      * string com o nome da tabela usada no banco
      */
