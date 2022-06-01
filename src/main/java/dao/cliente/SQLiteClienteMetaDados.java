@@ -20,12 +20,12 @@ public final class SQLiteClienteMetaDados {
     /**
      * string com os campos para serem utilizados com insert
      */
-    public static String METADADOSINSERT = "CLIENTEID, NOME, CPF ";
+    public static final String METADADOSINSERT = "CLIENTEID, NOME, CPF ";
 
     /**
      * Retorna uma string com os campos para serem utilizados com select
      */
-    public static String METADADOSSELECT
+    public static final String METADADOSSELECT
             = TABLE + ".CLIENTEID, "
             + TABLE + ".NOME, "
             + TABLE + ".CPF";

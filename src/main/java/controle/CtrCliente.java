@@ -56,9 +56,9 @@ public class CtrCliente {
         cliente.setCpf(getFrmCliente().getjTCpf().getText());
         Valida valida = new Valida();
         boolean cpfValido = valida.validaCPF(cliente.getCpf());
-        if (cpfValido == true) {
+        if (cpfValido) {
             boolean resultado = cliente.inserir();
-            if (resultado == true) {
+            if (resultado) {
                 getFrmCliente().mostrarMensagem("Inclusão realizada com sucesso!");
             } else {
                 getFrmCliente().mostrarMensagem("Inclusão não realizada!");
@@ -80,7 +80,7 @@ public class CtrCliente {
         cliente.setCpf(getFrmCliente().getjTCpf().getText());
         Valida valida = new Valida();
         boolean cpfValido = valida.validaCPF(cliente.getCpf());
-        if (cpfValido == true) {
+        if (cpfValido) {
             int resultado = cliente.alterar();
             if (resultado != 0) {
                 getFrmCliente().mostrarMensagem("Alteração realizada com sucesso!");
@@ -101,7 +101,7 @@ public class CtrCliente {
         Cliente cliente = new Cliente();
         cliente.setClienteId(getFrmCliente().getjTClienteId().getText());
         boolean resultado = cliente.abrir();
-        if (resultado == true) {
+        if (resultado) {
             getFrmCliente().getjTNome().setText(cliente.getNome());
             getFrmCliente().getjTCpf().setText(cliente.getCpf());
             getFrmCliente().mostrarMensagem("Cliente encontrado!");
