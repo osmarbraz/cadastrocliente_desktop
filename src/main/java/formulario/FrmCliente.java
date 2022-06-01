@@ -28,12 +28,12 @@ public class FrmCliente extends JFrame {
     private JLabel jLCpf;
     private JTextField jTCpf;
 
-    public JButton jBIncluir;
-    public JButton jBAlterar;
-    public JButton jBExcluir;
-    public JButton jBConsultar;
-    public JButton jBLimpar;
-    public JButton jBFechar;
+    private JButton jBIncluir;
+    private JButton jBAlterar;
+    private JButton jBExcluir;
+    private JButton jBConsultar;
+    private JButton jBLimpar;
+    private JButton jBFechar;
 
     /**
      * Construtor sem argumentos.
@@ -65,6 +65,80 @@ public class FrmCliente extends JFrame {
     public void setjTCpf(JTextField jTCpf) {
         this.jTCpf = jTCpf;
     }
+
+    public JLabel getjLClienteId() {
+        return jLClienteId;
+    }
+
+    public void setjLClienteId(JLabel jLClienteId) {
+        this.jLClienteId = jLClienteId;
+    }
+
+    public JLabel getjLNome() {
+        return jLNome;
+    }
+
+    public void setjLNome(JLabel jLNome) {
+        this.jLNome = jLNome;
+    }
+
+    public JLabel getjLCpf() {
+        return jLCpf;
+    }
+
+    public void setjLCpf(JLabel jLCpf) {
+        this.jLCpf = jLCpf;
+    }
+
+    public JButton getjBIncluir() {
+        return jBIncluir;
+    }
+
+    public void setjBIncluir(JButton jBIncluir) {
+        this.jBIncluir = jBIncluir;
+    }
+
+    public JButton getjBAlterar() {
+        return jBAlterar;
+    }
+
+    public void setjBAlterar(JButton jBAlterar) {
+        this.jBAlterar = jBAlterar;
+    }
+
+    public JButton getjBExcluir() {
+        return jBExcluir;
+    }
+
+    public void setjBExcluir(JButton jBExcluir) {
+        this.jBExcluir = jBExcluir;
+    }
+
+    public JButton getjBConsultar() {
+        return jBConsultar;
+    }
+
+    public void setjBConsultar(JButton jBConsultar) {
+        this.jBConsultar = jBConsultar;
+    }
+
+    public JButton getjBLimpar() {
+        return jBLimpar;
+    }
+
+    public void setjBLimpar(JButton jBLimpar) {
+        this.jBLimpar = jBLimpar;
+    }
+
+    public JButton getjBFechar() {
+        return jBFechar;
+    }
+
+    public void setjBFechar(JButton jBFechar) {
+        this.jBFechar = jBFechar;
+    }
+    
+    
 
     public JPanel getContentPaneFrmCliente() {
         return contentPaneFrmCliente;
