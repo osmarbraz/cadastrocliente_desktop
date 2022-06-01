@@ -8,6 +8,9 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
 import entidade.Cliente;
+import java.io.IOException;
+import java.io.RandomAccessFile;
+import java.util.logging.Level;
 
 public class TestRAFClienteDAO {
 
@@ -18,24 +21,8 @@ public class TestRAFClienteDAO {
     @Test
     public void testAbrirArquivo() {
         RAFClienteDAO rafclientedao = new RAFClienteDAO();
+
         assertFalse(rafclientedao.abrirArquivo("tes\\te//.txt"));
-    }
-    
-        /**
-     * Testa se o arquivo não existe.
-     *
-     */
-    @Test
-    public void testFecharArquivo() {
-        String NOMEARQUIVO = "cliente.dat";
-        RAFClienteDAO rafclientedao = new RAFClienteDAO();
-        rafclientedao.fecharArquivo();
-                
-         //Apaga o arquivo para gerar exceção
-        File file = new File(NOMEARQUIVO);
-        file.delete();
-        
-        assertTrue(rafclientedao.fecharArquivo());
     }
 
     /**
@@ -48,7 +35,11 @@ public class TestRAFClienteDAO {
         Cliente cliente = new Cliente("-1", "Cliente Existente", "11111111111");
 
         RAFClienteDAO rafClienteDAO = new RAFClienteDAO();
-        rafClienteDAO.fecharArquivo();
+        try {
+            rafClienteDAO.fecharArquivo();
+        } catch (IOException e) {
+            System.out.println("Problema em fechar o arquivo!");
+        }
 
         //Apaga o arquivo para gerar exceção
         File file = new File(NOMEARQUIVO);
@@ -56,7 +47,7 @@ public class TestRAFClienteDAO {
 
         assertFalse(rafClienteDAO.inserir(cliente));
     }
-    
+
     /**
      * Testa uma exclusão de cliente em arquivo inexistente no RAF.
      */
@@ -67,13 +58,91 @@ public class TestRAFClienteDAO {
         Cliente cliente = new Cliente("-1", "Cliente Existente", "11111111111");
 
         RAFClienteDAO rafClienteDAO = new RAFClienteDAO();
-        rafClienteDAO.fecharArquivo();
+        try {
+            rafClienteDAO.fecharArquivo();
+        } catch (IOException e) {
+            System.out.println("Problema em fechar o arquivo!");
+        }
 
         //Apaga o arquivo para gerar exceção
         File file = new File(NOMEARQUIVO);
         file.delete();
 
         assertEquals(0, rafClienteDAO.excluir(cliente));
+    }
+
+    /**
+     * Testa uma exclusão de registro de cliente em arquivo inexistente no RAF.
+     */
+    @Test
+    public void testExclusaoRegistoRAF() {
+        String NOMEARQUIVO = "cliente.dat";
+
+        RAFRegistroCliente registro = new RAFRegistroCliente();
+
+        long pos = 1;
+
+        RAFClienteDAO rafClienteDAO = new RAFClienteDAO();
+        try {
+            rafClienteDAO.fecharArquivo();
+        } catch (IOException e) {
+            System.out.println("Problema em fechar o arquivo!");
+        }
+
+        //Apaga o arquivo para gerar exceção
+        File file = new File(NOMEARQUIVO);
+        file.delete();
+
+        assertEquals(0, rafClienteDAO.excluirRegistro(registro, pos));
+    }
+
+    /**
+     * Testa uma exclusão de cliente em arquivo inexistente no RAF.
+     */
+    @Test
+    public void testAlteracaRAF() {
+        String NOMEARQUIVO = "cliente.dat";
+
+        Cliente cliente = new Cliente("-1", "Cliente Existente", "11111111111");
+
+        RAFClienteDAO rafClienteDAO = new RAFClienteDAO();
+        try {
+            rafClienteDAO.fecharArquivo();
+        } catch (IOException e) {
+            System.out.println("Problema em fechar o arquivo!");
+        }
+
+        //Apaga o arquivo para gerar exceção
+        File file = new File(NOMEARQUIVO);
+        file.delete();
+
+        assertEquals(0, rafClienteDAO.alterar(cliente));
+    }
+
+    /**
+     * Testa uma alteração de registro de cliente em arquivo inexistente no RAF.
+     */
+    @Test
+    public void testAlteracaRegistoRAF() {
+        String NOMEARQUIVO = "cliente.dat";
+
+        Cliente cliente = new Cliente("-1", "Cliente Existente", "11111111111");
+        RAFRegistroCliente registro = new RAFRegistroCliente();
+
+        int pos = 1;
+
+        RAFClienteDAO rafClienteDAO = new RAFClienteDAO();
+        try {
+            rafClienteDAO.fecharArquivo();
+        } catch (IOException e) {
+            System.out.println("Problema em fechar o arquivo!");
+        }
+
+        //Apaga o arquivo para gerar exceção
+        File file = new File(NOMEARQUIVO);
+        file.delete();
+
+        assertEquals(0, rafClienteDAO.alterarRegistro(registro, cliente, pos));
     }
 
     /**
@@ -84,7 +153,11 @@ public class TestRAFClienteDAO {
         String NOMEARQUIVO = "cliente.dat";
 
         RAFClienteDAO rafClienteDAO = new RAFClienteDAO();
-        rafClienteDAO.fecharArquivo();
+        try {
+            rafClienteDAO.fecharArquivo();
+        } catch (IOException e) {
+            System.out.println("Problema em fechar o arquivo!");
+        }
 
         //Apaga o arquivo para gerar exceção
         File file = new File(NOMEARQUIVO);
@@ -92,7 +165,6 @@ public class TestRAFClienteDAO {
 
         //Consulta
         List lista = rafClienteDAO.getLista();
-        System.out.println("lista.size():" + lista.size());
 
         assertEquals(0, lista.size());
     }
@@ -106,7 +178,11 @@ public class TestRAFClienteDAO {
         String NOMEARQUIVO = "cliente.dat";
 
         RAFClienteDAO rafClienteDAO = new RAFClienteDAO();
-        rafClienteDAO.fecharArquivo();
+        try {
+            rafClienteDAO.fecharArquivo();
+        } catch (IOException e) {
+            System.out.println("Problema em fechar o arquivo!");
+        }
 
         //Apaga o arquivo para gerar exceção
         File file = new File(NOMEARQUIVO);
@@ -127,7 +203,11 @@ public class TestRAFClienteDAO {
         String NOMEARQUIVO = "cliente.dat";
 
         RAFClienteDAO rafClienteDAO = new RAFClienteDAO();
-        rafClienteDAO.fecharArquivo();
+        try {
+            rafClienteDAO.fecharArquivo();
+        } catch (IOException e) {
+            System.out.println("Problema em fechar o arquivo!");
+        }
 
         //Apaga o arquivo para gerar exceção
         File file = new File(NOMEARQUIVO);
@@ -148,8 +228,11 @@ public class TestRAFClienteDAO {
         String NOMEARQUIVO = "cliente.dat";
 
         RAFClienteDAO rafClienteDAO = new RAFClienteDAO();
-        rafClienteDAO.fecharArquivo();
-
+        try {
+            rafClienteDAO.fecharArquivo();
+        } catch (IOException e) {
+            System.out.println("Problema em fechar o arquivo!");
+        }
         //Apaga o arquivo para gerar exceção
         File file = new File(NOMEARQUIVO);
         file.delete();
