@@ -1,13 +1,20 @@
 package dao;
 
 /**
- * Interface que armazena os dados de configuracao do banco de dados SQLite.
+ * Classe que armazena os dados de configuração do banco de dados SQLite.
  *
  * @author osmarbraz
  */
-public interface SQLiteDadosBanco {
+public final class SQLiteDadosBanco {
+    
+    /** 
+     * Evita que a classe seja instânciada.
+     */
+    private SQLiteDadosBanco() {
+        
+    }
 
     //Altere aqui os dados do seu banco de dados	
-    public String DATABASE = "cliente.db";
-    public String DRIVER = "org.sqlite.JDBC";
+    public static final String DATABASE = "cliente.db";
+    public static final String DRIVER = "org.sqlite.JDBC";
 }
