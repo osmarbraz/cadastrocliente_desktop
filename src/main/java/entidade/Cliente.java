@@ -176,9 +176,9 @@ public class Cliente {
     public boolean abrir() {
         DAOFactory factory = DAOFactory.getDAOFactory(Factory.FABRICA);
         ClienteDAO clientedao = factory.getClienteDAO();
-        List lista = clientedao.aplicarFiltro(this);
+        List<Cliente> lista = clientedao.aplicarFiltro(this);
         if (!lista.isEmpty()) {
-            Cliente oCliente = (Cliente) lista.iterator().next();
+            Cliente oCliente = lista.iterator().next();
             setNome(oCliente.getNome());
             setCpf(oCliente.getCpf());
             return true;
