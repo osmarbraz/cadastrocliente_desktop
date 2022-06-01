@@ -1,16 +1,13 @@
 package dao.cliente;
 
+import java.io.IOException;
 import java.io.File;
 import java.util.List;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
 import entidade.Cliente;
-import java.io.IOException;
-import java.io.RandomAccessFile;
-import java.util.logging.Level;
 
 public class TestRAFClienteDAO {
 
