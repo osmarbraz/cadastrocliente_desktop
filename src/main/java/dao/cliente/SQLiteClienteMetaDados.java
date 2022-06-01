@@ -22,7 +22,7 @@ public final class SQLiteClienteMetaDados {
     /**
      * vetor de string com as chaves da tabela
      */
-    public static final String[] PK = {"CLIENTEID"};
+    protected static final String[] PK = {"CLIENTEID"};
 
     /**
      * string com os campos para serem utilizados com insert
