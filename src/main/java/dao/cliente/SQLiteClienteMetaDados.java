@@ -5,7 +5,7 @@ package dao.cliente;
  *
  * @author osmarbraz
  */
-public interface SQLiteClienteMetaDados {
+public final class SQLiteClienteMetaDados {
 
     /**
      * string com o nome da tabela usada no banco

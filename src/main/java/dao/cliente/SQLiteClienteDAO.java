@@ -11,6 +11,10 @@ import java.util.Collections;
 import java.util.logging.Logger;
 import java.util.logging.Level;
 
+import static dao.cliente.SQLiteClienteMetaDados.METADADOSINSERT;
+import static dao.cliente.SQLiteClienteMetaDados.METADADOSSELECT;
+import static dao.cliente.SQLiteClienteMetaDados.PK;
+import static dao.cliente.SQLiteClienteMetaDados.TABLE;
 import dao.SQLiteDAOFactory;
 import entidade.Cliente;
 
@@ -19,7 +23,7 @@ import entidade.Cliente;
  *
  * @author osmarbraz
  */
-public class SQLiteClienteDAO extends SQLiteDAOFactory implements ClienteDAO, SQLiteClienteMetaDados {
+public class SQLiteClienteDAO extends SQLiteDAOFactory implements ClienteDAO {
 
     private static final Logger LOGGER = Logger.getLogger(SQLiteClienteDAO.class.getName());
     private static final String WHERE = " where ";

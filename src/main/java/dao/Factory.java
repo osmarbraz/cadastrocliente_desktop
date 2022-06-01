@@ -5,7 +5,7 @@ package dao;
  *
  * @author osmarbraz
  */
-public interface Factory {
+public final class Factory {
 
     public static final int FABRICA = 1;
 

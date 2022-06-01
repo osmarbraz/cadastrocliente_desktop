@@ -151,7 +151,7 @@ public class Cliente {
      *
      * @return Uma lista com os objetos selecionados.
      */
-    public List aplicarFiltro() {
+    public List<Cliente> aplicarFiltro() {
         DAOFactory factory = DAOFactory.getDAOFactory(Factory.FABRICA);
         ClienteDAO clientedao = factory.getClienteDAO();
         return clientedao.aplicarFiltro(this);
@@ -162,7 +162,7 @@ public class Cliente {
      *
      * @return Uma lista com todos os objetos.
      */
-    public List getLista() {
+    public List<Cliente> getLista() {
         DAOFactory factory = DAOFactory.getDAOFactory(Factory.FABRICA);
         ClienteDAO clientedao = factory.getClienteDAO();
         return clientedao.getLista();

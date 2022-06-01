@@ -24,17 +24,17 @@ public class CtrCliente {
         setFrmCliente(new FrmCliente());
 
         // Associa os eventos aos componentes
-        getFrmCliente().jBIncluir.addActionListener(this::jBIncluir_actionPerformed);
+        getFrmCliente().jBIncluir.addActionListener(this::jButtonIncluirActionPerformed);
 
-        getFrmCliente().jBAlterar.addActionListener(this::jBAlterar_actionPerformed);
+        getFrmCliente().jBAlterar.addActionListener(this::jButtonAlterarActionPerformed);
 
-        getFrmCliente().jBConsultar.addActionListener(this::jBConsultar_actionPerformed);
+        getFrmCliente().jBConsultar.addActionListener(this::jButtonConsultarActionPerformed);
 
-        getFrmCliente().jBExcluir.addActionListener(this::jBExcluir_actionPerformed);
+        getFrmCliente().jBExcluir.addActionListener(this::jButtonExcluirActionPerformed);
 
-        getFrmCliente().jBLimpar.addActionListener(this::jBLimpar_actionPerformed);
+        getFrmCliente().jBLimpar.addActionListener(this::jButtonLimparActionPerformed);
 
-        getFrmCliente().jBFechar.addActionListener(this::jBFechar_actionPerformed);
+        getFrmCliente().jBFechar.addActionListener(this::jButtonFecharActionPerformed);
     }
 
     /**
@@ -49,7 +49,7 @@ public class CtrCliente {
      *
      * @param e Objeto do evento.
      */
-    public void jBIncluir_actionPerformed(ActionEvent e) {
+    public void jButtonIncluirActionPerformed(ActionEvent e) {
         Cliente cliente = new Cliente();
         cliente.setClienteId(getFrmCliente().getjTClienteId().getText());
         cliente.setNome(getFrmCliente().getjTNome().getText());
@@ -73,7 +73,7 @@ public class CtrCliente {
      *
      * @param e Objeto do evento.
      */
-    public void jBAlterar_actionPerformed(ActionEvent e) {
+    public void jButtonAlterarActionPerformed(ActionEvent e) {
         Cliente cliente = new Cliente();
         cliente.setClienteId(getFrmCliente().getjTClienteId().getText());
         cliente.setNome(getFrmCliente().getjTNome().getText());
@@ -97,7 +97,7 @@ public class CtrCliente {
      *
      * @param e Objeto do evento.
      */
-    public void jBConsultar_actionPerformed(ActionEvent e) {
+    public void jButtonConsultarActionPerformed(ActionEvent e) {
         Cliente cliente = new Cliente();
         cliente.setClienteId(getFrmCliente().getjTClienteId().getText());
         boolean resultado = cliente.abrir();
@@ -115,7 +115,7 @@ public class CtrCliente {
      *
      * @param e Objeto do evento.
      */
-    public void jBExcluir_actionPerformed(ActionEvent e) {
+    public void jButtonExcluirActionPerformed(ActionEvent e) {
         Cliente cliente = new Cliente();
         cliente.setClienteId(getFrmCliente().getjTClienteId().getText());
         int resultado = cliente.excluir();
@@ -131,7 +131,7 @@ public class CtrCliente {
      *
      * @param e Objeto do evento.
      */
-    public void jBLimpar_actionPerformed(ActionEvent e) {
+    public void jButtonLimparActionPerformed(ActionEvent e) {
         getFrmCliente().getjTClienteId().setText("");
         getFrmCliente().getjTNome().setText("");
         getFrmCliente().getjTCpf().setText("");
@@ -142,7 +142,7 @@ public class CtrCliente {
      *
      * @param e Objeto do evento.
      */
-    public void jBFechar_actionPerformed(ActionEvent e) {
+    public void jButtonFecharActionPerformed(ActionEvent e) {
         System.exit(0);
     }
 
