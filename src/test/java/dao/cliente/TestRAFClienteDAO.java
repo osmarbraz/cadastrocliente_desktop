@@ -1,12 +1,13 @@
 package dao.cliente;
 
-import entidade.Cliente;
 import java.io.File;
 import java.util.List;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertTrue;
 import org.junit.Test;
+
+import entidade.Cliente;
 
 public class TestRAFClienteDAO {
 
@@ -18,6 +19,23 @@ public class TestRAFClienteDAO {
     public void testAbrirArquivo() {
         RAFClienteDAO rafclientedao = new RAFClienteDAO();
         assertFalse(rafclientedao.abrirArquivo("tes\\te//.txt"));
+    }
+    
+        /**
+     * Testa se o arquivo não existe.
+     *
+     */
+    @Test
+    public void testFecharArquivo() {
+        String NOMEARQUIVO = "cliente.dat";
+        RAFClienteDAO rafclientedao = new RAFClienteDAO();
+        rafclientedao.fecharArquivo();
+                
+         //Apaga o arquivo para gerar exceção
+        File file = new File(NOMEARQUIVO);
+        file.delete();
+        
+        assertTrue(rafclientedao.fecharArquivo());
     }
 
     /**
@@ -37,6 +55,25 @@ public class TestRAFClienteDAO {
         file.delete();
 
         assertFalse(rafClienteDAO.inserir(cliente));
+    }
+    
+    /**
+     * Testa uma exclusão de cliente em arquivo inexistente no RAF.
+     */
+    @Test
+    public void testExclusaoRAF() {
+        String NOMEARQUIVO = "cliente.dat";
+
+        Cliente cliente = new Cliente("-1", "Cliente Existente", "11111111111");
+
+        RAFClienteDAO rafClienteDAO = new RAFClienteDAO();
+        rafClienteDAO.fecharArquivo();
+
+        //Apaga o arquivo para gerar exceção
+        File file = new File(NOMEARQUIVO);
+        file.delete();
+
+        assertEquals(0, rafClienteDAO.excluir(cliente));
     }
 
     /**
