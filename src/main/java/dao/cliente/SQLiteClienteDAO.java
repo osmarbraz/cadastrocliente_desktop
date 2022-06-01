@@ -53,9 +53,9 @@ public class SQLiteClienteDAO extends SQLiteDAOFactory implements ClienteDAO {
 
     @Override
     public boolean inserir(Object obj) {
+        boolean res = false;
         if (obj != null) {
-            Cliente cliente = (Cliente) obj;
-            boolean res = false;
+            Cliente cliente = (Cliente) obj;            
             StringBuilder sql = new StringBuilder();
             try {
                 try ( Connection con = getConnection();  Statement stmt = con.createStatement()) {
@@ -66,19 +66,19 @@ public class SQLiteClienteDAO extends SQLiteDAOFactory implements ClienteDAO {
                     sql.append("','").append(preparaSQL(cliente.getCpf())).append("')");
                     res = stmt.executeUpdate(sql.toString()) > 0;
                 }
+                return res;
             } catch (SQLException e) {
                 LOGGER.log(Level.SEVERE, "Erro no inserir:{0}", e.toString());
-            }
-            return res;
+            }            
         }
-        return false;
+        return res;
     }
 
     @Override
     public int alterar(Object obj) {
+        int res = 0;
         if (obj != null) {
-            Cliente cliente = (Cliente) obj;
-            int res = 0;
+            Cliente cliente = (Cliente) obj;            
             StringBuilder sql = new StringBuilder();
             try {
                 try ( Connection con = getConnection();  Statement stmt = con.createStatement()) {
@@ -91,18 +91,17 @@ public class SQLiteClienteDAO extends SQLiteDAOFactory implements ClienteDAO {
                 return res;
             } catch (SQLException e) {
                 LOGGER.log(Level.SEVERE, "Erro no alterar:{0}", e.toString());
-            }
-            return res;
+            }            
         }
-        return 0;
+        return res;
     }
 
     @Override
     public int excluir(Object obj) {
+        int res = 0;
         if (obj != null) {
             Cliente cliente = (Cliente) obj;
-            StringBuilder sql = new StringBuilder();
-            int res = 0;
+            StringBuilder sql = new StringBuilder();            
             try {
                 try ( Connection con = getConnection();  Statement stmt = con.createStatement()) {
                     sql.append("delete from " + TABLE + WHERE + TABLE + ".").append(PK[0]).append(" = '").append(preparaSQL(cliente.getClienteId())).append("'");
@@ -111,10 +110,9 @@ public class SQLiteClienteDAO extends SQLiteDAOFactory implements ClienteDAO {
                 return res;
             } catch (SQLException e) {
                 LOGGER.log(Level.SEVERE, "Erro no excluir:{0}", e.toString());
-            }
-            return res;
+            }       
         }
-        return 0;
+        return res;
     }
 
     @Override
