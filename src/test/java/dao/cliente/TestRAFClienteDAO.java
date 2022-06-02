@@ -5,10 +5,14 @@ import java.io.File;
 import java.util.List;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
+import junitparams.JUnitParamsRunner;
+import org.junit.runner.RunWith;
+import junitparams.Parameters;
 import org.junit.Test;
 
 import entidade.Cliente;
 
+@RunWith(JUnitParamsRunner.class)
 public class TestRAFClienteDAO {
 
     /**
@@ -165,13 +169,18 @@ public class TestRAFClienteDAO {
 
         assertEquals(0, lista.size());
     }
-
+        
     /**
-     * Testa a consulta com filtro clienteid em RAF inexistente.
+     * Testa párametrizado do filtro para clienteid, nome e cpf em RAF inexistente.
      */
     @Test
-    public void testAplicarFiltroClienteIdRAF() {
-        Cliente cliente = new Cliente("131", "", "");
+    @Parameters({
+        "'131', '', ''",
+        "'', 'Nome', ''",
+        "'', '', '111'"
+    })
+    public void testAplicarFiltrParametrizadoRAF(String clienteId, String nome, String CPF) {
+        Cliente cliente = new Cliente(clienteId, nome, CPF);
         String NOMEARQUIVO = "cliente.dat";
 
         RAFClienteDAO rafClienteDAO = new RAFClienteDAO();
@@ -189,54 +198,5 @@ public class TestRAFClienteDAO {
         List lista = rafClienteDAO.aplicarFiltro(cliente);
 
         assertEquals(0, lista.size());
-    }
-
-    /**
-     * Testa a consulta com filtro nome em RAF inexistente.
-     */
-    @Test
-    public void testAplicarFiltroNomeRAF() {
-        Cliente cliente = new Cliente("", "Nome", "");
-        String NOMEARQUIVO = "cliente.dat";
-
-        RAFClienteDAO rafClienteDAO = new RAFClienteDAO();
-        try {
-            rafClienteDAO.fecharArquivo();
-        } catch (IOException e) {
-            System.out.println("Problema em fechar o arquivo!");
-        }
-
-        //Apaga o arquivo para gerar exceção
-        File file = new File(NOMEARQUIVO);
-        file.delete();
-
-        //Consulta
-        List lista = rafClienteDAO.aplicarFiltro(cliente);
-
-        assertEquals(0, lista.size());
-    }
-
-    /**
-     * Testa a consulta com filtro CPF em RAF inexistente.
-     */
-    @Test
-    public void testAplicarFiltroCPFRAF() {
-        Cliente cliente = new Cliente("", "", "111");
-        String NOMEARQUIVO = "cliente.dat";
-
-        RAFClienteDAO rafClienteDAO = new RAFClienteDAO();
-        try {
-            rafClienteDAO.fecharArquivo();
-        } catch (IOException e) {
-            System.out.println("Problema em fechar o arquivo!");
-        }
-        //Apaga o arquivo para gerar exceção
-        File file = new File(NOMEARQUIVO);
-        file.delete();
-
-        //Consulta
-        List lista = rafClienteDAO.aplicarFiltro(cliente);
-
-        assertEquals(0, lista.size());
-    }
+    }  
 }
