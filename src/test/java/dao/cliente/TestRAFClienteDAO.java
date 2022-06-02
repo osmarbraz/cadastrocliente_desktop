@@ -175,9 +175,9 @@ public class TestRAFClienteDAO {
      */
     @Test
     @Parameters({
-        "'131', '', ''",
-        "'', 'Nome', ''",
-        "'', '', '111'"
+        "131, , ",
+        ", 'Nome, ",
+        ", , 111"
     })
     public void testAplicarFiltrParametrizadoRAF(String clienteId, String nome, String CPF) {
         Cliente cliente = new Cliente(clienteId, nome, CPF);
