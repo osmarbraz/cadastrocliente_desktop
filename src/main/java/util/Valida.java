@@ -42,7 +42,6 @@ public class Valida {
             // Cria o segundo dígito verificador.   
             resto = soma % 11;
             valores[10] = 11 - resto;
-
             if ((digitos.substring(0, 1).equalsIgnoreCase(Integer.toString(valores[9])))
                     && (digitos.substring(1, 2).equalsIgnoreCase(Integer.toString(valores[10])))) {
                 retorno = true;
