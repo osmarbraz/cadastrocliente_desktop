@@ -4,6 +4,7 @@ import org.junit.Before;
 import org.junit.After;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
 import java.util.List;
@@ -29,9 +30,14 @@ public class TestDAOExclusao {
 
         if (!lista.isEmpty()) {
             Cliente oCliente = (Cliente) lista.iterator().next();
+            //Verifica se existe o cliente antes da exclusão
+            boolean existeAntesExclusao = oCliente!= null;
             DAO.excluir(oCliente);
             lista = DAO.aplicarFiltro(cliente);
-            assertEquals(0, lista.size());
+            //Verifica se a lista está vazia depois da exclusão
+            boolean naoExisteDepoisExclusao = lista.isEmpty();
+            assertTrue(existeAntesExclusao);
+            assertTrue(naoExisteDepoisExclusao);
         } else {
             assertFalse(false);
         }
@@ -53,9 +59,14 @@ public class TestDAOExclusao {
 
         if (!lista.isEmpty()) {
             Cliente oCliente = (Cliente) lista.iterator().next();
+            //Verifica se existe o cliente antes da exclusão
+            boolean existeAntesExclusao = oCliente!= null;
             DAO.excluir(oCliente);
             lista = DAO.aplicarFiltro(cliente);
-            assertEquals(0, lista.size());
+            //Verifica se a lista está vazia depois da exclusão
+            boolean naoExisteDepoisExclusao = lista.isEmpty();
+            assertTrue(existeAntesExclusao);
+            assertTrue(naoExisteDepoisExclusao);
         } else {
             assertFalse(false);
         }
@@ -77,9 +88,14 @@ public class TestDAOExclusao {
 
         if (!lista.isEmpty()) {
             Cliente oCliente = (Cliente) lista.iterator().next();
+            //Verifica se existe o cliente antes da exclusão
+            boolean existeAntesExclusao = oCliente!= null;
             DAO.excluir(oCliente);
             lista = DAO.aplicarFiltro(cliente);
-            assertEquals(0, lista.size());
+            //Verifica se a lista está vazia depois da exclusão
+            boolean naoExisteDepoisExclusao = lista.isEmpty();
+            assertTrue(existeAntesExclusao);
+            assertTrue(naoExisteDepoisExclusao);
         } else {
             assertFalse(false);
         }

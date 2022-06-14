@@ -23,10 +23,10 @@ public class TestDAOAlteracao {
     }
 
     /**
-     * Testa a alteração de um cliente existente no SQLite.
+     * Testa a alteração do nome de um cliente existente no SQLite.
      */
     @Test
-    public void testAlteracao1() {
+    public void testAlteracaoNome1() {
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.SQLITE);
         ClienteDAO DAO = factory.getClienteDAO();
         DAO.inserir(cliente);
@@ -43,6 +43,35 @@ public class TestDAOAlteracao {
                 Cliente aCliente = (Cliente) lista.iterator().next();
                 //Compara a alteração com o dado do objeto
                 assertEquals(nomeAlteracao, aCliente.getNome());
+            } else {
+                assertFalse(false);
+            }
+        } else {
+            assertFalse(false);
+        }
+    }
+    
+    /**
+     * Testa a alteração do cpf de um cliente existente no SQLite.
+     */
+    @Test
+    public void testAlteracaoCpf1() {
+        DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.SQLITE);
+        ClienteDAO DAO = factory.getClienteDAO();
+        DAO.inserir(cliente);
+        List lista = DAO.aplicarFiltro(cliente);
+        //Dado a ser alterado
+        String cpfAlteracao = "22222222222";
+        if (!lista.isEmpty()) {
+            Cliente oCliente = (Cliente) lista.iterator().next();
+            oCliente.setCpf(cpfAlteracao);
+            //Altera o objeto
+            DAO.alterar(oCliente);
+            lista = DAO.aplicarFiltro(cliente);
+            if (!lista.isEmpty()) {
+                Cliente aCliente = (Cliente) lista.iterator().next();
+                //Compara a alteração com o dado do objeto
+                assertEquals(cpfAlteracao, aCliente.getCpf());
             } else {
                 assertFalse(false);
             }
