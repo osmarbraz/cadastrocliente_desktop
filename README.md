@@ -31,3 +31,7 @@ Pipeline de CI:
 - dev - Compilação e testes do desenvolvimento nas versões JDK 16, 17 e 18. 
 - hmg - Análise e cobertura código.
 - prd - Empacotamento.
+
+## Arquivo
+
+- pom.xml - Arquivo de configuração da ferramenta de automação Maven.
